@@ -1,0 +1,32 @@
+Ejercicio 1;Mal;Bien
+Ejercicio 2;Mal;Bien
+Ejercicio 3a;Nada;Ubicar que se conoce el valor de x+y;Sustitución del valor conocido;Desarrollo aritmético
+Ejercicio 3b;Nada;Ubicar que se conoce el valor de x+y;Sustitución del valor conocido;Identificar que z es desconocida y tratarla como variable
+Ejercicio 4a;Nada;Identificar que hay que sumar las cantidades;Ubicar que x es una variable;Manipulación algebraica
+Ejercicio 4b;Nada;Identificar que hay que sumar las cantidades;Ubicar que x es una variable;Manipulación algebraica
+Ejercicio 4c;Nada;Identificar que hay que sumar las cantidades;Ubicar que x es una variable;Manipulación algebraica
+Ejercicio 5a;Nada;Identificar fórmula de área;Reemplazar los datos del problema;Manipulación aritmética
+Ejercicio 5b;Nada;Identificar fórmula de área;Reemplazar los datos del problema por variables correspondientes;Manipulación algebraica
+Ejercicio 5c;Nada;Reemplazar por las expresiones;Manipulación algebraica
+Ejercicio 6;Nada;Identificar la fórmula del perímetro;Sustituir los datos, identificar a "u" como variable;Manipulación algebraica
+Ejercicio 7a;Nada;Interpretación de "l" y "j" como variables;Ubicar la fórmula del costo;Explicar la expresión adecuadamente
+Ejercicio 7b;Nada;Interpretación de "l" y "j" como variables;Aplicación de las variables en la fórmula de verduras totales
+Ejercicio 8;Nada;Reconocer correspondencia entre las variables;Expresar "y" en el rango especificado;Sustituir el valor de "y" por reconocer la variación conjunta;Manipulación algebraica;Despejar "x" para identificar los intervalos de variación
+Ejercicio 9a;Nada;Reconocer correspondencia entre las variables;Ubicar el intervalo de "x";Manipulación algebraica;Sustituir al entender la variación conjunta;Determinar la variación de "y";Analizar el rango para encontrar el máximo
+Ejercicio 9b;Nada;Reconocer correspondencia entre las variables;Ubicar el intervalo de "x";Manipulación algebraica;Sustituir al entender la variación conjunta;Determinar la variación de "y"
+Ejercicio 10;Nada;Reconocer las variables en la fórmula;Reconocer la diferencia entre las dos soluciones;Concluir que la raíz siempre es positiva, pero el denominador no;Manipulación algebraica;Concluir en base al valor de k
+Ejercicio 11a;Nada;Reconocer la variabilidad en el número de diagonales;Simbolizar los lados y las diagonales;Representar la ecuación que representa la cantidad de diagonales;Sustituir los valores adecuados para encontrar la cantidad de diagonales
+Ejercicio 11b;Nada;Reconocer que es la misma fórmula que el anterior;Simbolizar los lados y las diagonales;Representar la ecuación que representa la cantidad de diagonales
+Ejercicio 11c;Nada;Reconocer el patrón con el anterior;Reconocer la variabilidad en el número de diagonales;Identificar que "n" no es conocida;Sustituir los valores adecuados para encontrar la fórmula en base a "n"
+Ejercicio 12;Nada;Interpretar la variable "d" como un valor que depende de "c";Reconocer que la variación de "d" afecta a "c";Manipular la expresión para despejar "c";Determinar el intervalo de variación de "c"
+Ejercicio 13a;Nada;Identificar la fórmula del perímetro;Reconocer que "x" identifica una medida;Concluir que se puede calcular cada lado utilizando "x";Calcular cada lado utilizando "x";Manipulación algebraica para encontrar el perímetro
+Ejercicio 13b;Nada;Identificar la fórmula del perímetro;Reconocer que "x" identifica una medida;Concluir que se puede calcular cada lado utilizando "x";Calcular cada lado utilizando "x";Manipulación algebraica para encontrar el perímetro
+Ejercicio 13c;Nada;Identificar la fórmula del perímetro;Reconocer que "x" identifica una medida;Concluir que se puede calcular cada lado utilizando "x";Calcular cada lado utilizando "x";Manipulación algebraica para encontrar el perímetro
+Ejercicio 14;Nada;Reconocer la correspondencia entre "x" y "y";Expresar la variación conjunta como una incógnita que se puede calcular;Manipulación algebraica para encontrar el cambio;Determinar el cambio conjunto
+Ejercicio 15;Nada;Reconocer la correspondencia entre "x" y "y";Expresar la variación conjunta como una incógnita que se puede calcular;Manipulación algebraica para encontrar el cambio;Determinar el cambio conjunto
+Ejercicio 16;Nada;Identificar a y r como el número de lápices comprados;Reconocer la relación entre las variables y el costo total;Expresar la relación entre los costos calculados;Analizar la relación entre los costos calculados y el total
+Ejercicio 17;Nada;Nombrar la entrada de la máquina como "x";Asignar "x" al valor de entrada;Realizar las operaciones de la máquina sobre "x";Explicar el resultado de la segunda máquina como equivalente a la primera
+Ejercicio 18;Nada;Identificar la fórmula del área;Reconocer que el área ya está determinada;Reconocer que es imposible resolver la relación encontrada
+Ejercicio 19;Nada;Determinar que "a" está definido;Calcular el valor de "a";Reconocer que ni "b" ni "c" están definidos;Reconocer la relación entre ellos;Representar la variación conjunta y sacar la conclusión
+Ejercicio 20;Nada;Identificar la fórmula del volúmen;Reconocer la variación conjunta
+Ejercicio 21;Nada;Reconocer que C y F son variables;Reconocer la correspondencia;Expresar la relación como fórmula
