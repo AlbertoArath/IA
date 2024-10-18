@@ -1,0 +1,1633 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%sql\n--This calculates the number of rounds that have a change of driver in the leading position.\n--Esto calcula el número de rounds que tienen un cambio de conductor en la posición de líder.\ncreate or replace view laps_with_change_pos_1_v\nas\n    select raceid, count(*) laps\n    from\n    (\n        select raceid, lap\n        from\n        (\n            select raceid, position, lap, driverid as current_driver,\n              LAG (driverid, 1) OVER (PARTITION BY raceid, position ORDER BY lap) AS prev_driver\n            from lap_times\n        )\n        where prev_driver is not null\n        and prev_driver <> current_driver\n        and position = 1\n        group by raceid, lap\n    )\n    group by raceid;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:59+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "RACEID": "string",
+                      "YEAR": "string",
+                      "ROUND": "string",
+                      "CIRCUITID": "string",
+                      "NAME": "string",
+                      "F1DATE": "string",
+                      "TIME": "string",
+                      "URL": "string",
+                      "CHANGE_DELTA_BEFORE_AND_AFTER_RACE_P1": "string",
+                      "CHANGE_DELTA_BEFORE_AND_AFTER_RACE_P2": "string",
+                      "CHANGE_DELTA_BEFORE_AND_AFTER_RACE_P3": "string",
+                      "CHANGE_DELTA_BEFORE_AND_AFTER_RACE_P4": "string",
+                      "CHANGE_DELTA_BEFORE_AND_AFTER_RACE_P5": "string",
+                      "POSITION_CHANGES_TOTAL": "string",
+                      "OVERTAKEN_POSITIONS_REAL_TOTAL": "string",
+                      "SCORE": "string",
+                      "LAP_COUNT": "string",
+                      "PERCENTAGE_SEASON": "string",
+                      "OVERTAKEN_POSITIONS_TOTAL": "string",
+                      "OVERTAKEN_POSITIONS_DUE_TO_PITSTOP_TOTAL": "string",
+                      "OVERTAKEN_POSITIONS_1_2": "string",
+                      "OVERTAKEN_POSITIONS_DUE_TO_PITSTOP_1_2": "string",
+                      "OVERTAKEN_POSITIONS_REAL_1_2": "string",
+                      "OVERTAKEN_POSITIONS_3_5": "string",
+                      "OVERTAKEN_POSITIONS_DUE_TO_PITSTOP_3_5": "string",
+                      "OVERTAKEN_POSITIONS_REAL_3_5": "string",
+                      "OVERTAKEN_POSITIONS_6_UP": "string",
+                      "OVERTAKEN_POSITIONS_DUE_TO_PITSTOP_6_UP": "string",
+                      "OVERTAKEN_POSITIONS_REAL_6_UP": "string",
+                      "POSITION_CHANGES_6_UP": "string",
+                      "POSITION_CHANGES_3_5": "string",
+                      "POSITION_CHANGES_1_2": "string",
+                      "LAPS_WITH_CHANGE_POS_1": "string",
+                      "LAPS_WITH_CHANGE_POS_1_5": "string",
+                      "AVG_DELTA_POSITION_FIRST_LAP": "string",
+                      "VAR_DELTA_POSITION_FIRST_LAP": "string",
+                      "MAX_DELTA_POSITION_FIRST_LAP": "string",
+                      "WEATHER": "string",
+                      "WEATHER_WARM": "string",
+                      "WEATHER_COLD": "string",
+                      "WEATHER_DRY": "string",
+                      "WEATHER_WET": "string",
+                      "WEATHER_CLOUDY": "string",
+                      "AVG_POSITION_SPACE": "string",
+                      "VAR_POSITION_SPACE": "string",
+                      "MAX_POSITION_SPACE": "string",
+                      "AVG_COMEBACKSCORE": "string",
+                      "VAR_COMEBACKSCORE": "string",
+                      "MAX_COMEBACKSCORE": "string",
+                      "NATIONALITY_P1": "string",
+                      "NATIONALITY_P2": "string",
+                      "NATIONALITY_P3": "string",
+                      "DRIVER_1": "string",
+                      "DRIVER_2": "string",
+                      "DRIVER_3": "string",
+                      "DELTA_SECONDS_1_2_25PERC": "string",
+                      "DELTA_SECONDS_1_2_50PERC": "string",
+                      "DELTA_SECONDS_1_2_75PERC": "string",
+                      "DELTA_SECONDS_1_2_100PERC": "string",
+                      "DELTA_SECONDS_1_2_LAP1": "string",
+                      "VARIANCE_TOP5": "string",
+                      "RANK_VERSUS_POSITION": "string",
+                      "SAFETY_CAR": "string",
+                      "CIRCUITREF": "string",
+                      "DNF_DUE_TO_ACCIDENT_COUNT": "string",
+                      "DNF_COUNT": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "graph": {
+          "mode": "table",
+          "height": 300,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_971885752",
+      "id": "20220926-210229_1823547887",
+      "dateCreated": "2021-09-22T14:43:37+0000",
+      "dateStarted": "2022-10-04T13:34:00+0000",
+      "dateFinished": "2022-10-04T13:34:19+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:41"
+    },
+    {
+      "text": "%sql\nselect * from laps_with_change_pos_1_v",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:19+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "RACEID": "string",
+                      "LAPS": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "RACEID\tLAPS\n6\t2\n14\t2\n23\t3\n27\t8\n348\t1\n846\t3\n851\t9\n852\t9\n870\t5\n883\t4\n902\t2\n914\t3\n948\t3\n962\t4\n964\t2\n965\t2\n974\t1\n977\t2\n999\t5\n1013\t3\n1019\t1\n1039\t1\n1061\t1\n1066\t4\n7\t2\n31\t2\n338\t3\n344\t6\n350\t3\n352\t3\n353\t1\n862\t4\n864\t6\n865\t4\n872\t2\n884\t7\n888\t5\n892\t2\n910\t8\n913\t4\n927\t5\n928\t4\n931\t1\n943\t4\n945\t4\n963\t4\n981\t2\n990\t3\n992\t2\n1000\t2\n1038\t3\n1070\t2\n1071\t5\n34\t2\n343\t5\n354\t2\n844\t2\n845\t8\n860\t4\n861\t4\n882\t9\n890\t8\n911\t4\n968\t6\n987\t3\n988\t2\n998\t4\n1007\t2\n1011\t4\n1025\t1\n1029\t6\n1041\t1\n1052\t3\n2\t4\n8\t2\n11\t4\n12\t6\n17\t1\n21\t3\n30\t7\n856\t2\n873\t3\n878\t1\n895\t5\n918\t5\n932\t2\n933\t3\n941\t1\n942\t5\n971\t3\n979\t3\n980\t2\n983\t3\n989\t1\n1004\t4\n1009\t3\n1022\t3\n1024\t3\n1026\t4\n1028\t4\n1032\t2\n1055\t3\n1069\t3\n4\t7\n5\t5\n10\t3\n18\t4\n35\t5\n848\t2\n849\t1\n867\t1\n869\t2\n877\t1\n880\t10\n881\t9\n886\t2\n896\t5\n898\t2\n906\t6\n908\t3\n917\t7\n936\t2\n954\t3\n956\t6\n961\t2\n984\t3\n993\t2\n997\t1\n1008\t4\n1023\t2\n1033\t2\n1059\t4\n1067\t2\n1072\t4\n3\t5\n9\t6\n20\t3\n22\t7\n26\t3\n28\t6\n33\t10\n339\t2\n340\t2\n347\t3\n855\t10\n879\t6\n887\t2\n904\t4\n926\t2\n929\t5\n937\t2\n944\t6\n950\t1\n957\t2\n976\t2\n991\t3\n1006\t4\n1010\t2\n1018\t4\n1021\t3\n1040\t1\n1042\t5\n1044\t6\n1046\t3\n1057\t6\n1062\t5\n1065\t5\n13\t5\n19\t5\n29\t6\n847\t3\n850\t9\n866\t6\n930\t4\n949\t2\n958\t4\n966\t3\n973\t4\n985\t4\n1002\t4\n1027\t3\n1045\t2\n1054\t3\n16\t1\n24\t6\n25\t3\n32\t3\n337\t1\n355\t2\n841\t2\n842\t4\n843\t8\n853\t1\n858\t4\n859\t8\n863\t4\n868\t3\n907\t7\n912\t3\n916\t5\n934\t6\n952\t7\n953\t3\n969\t4\n972\t2\n996\t2\n1003\t4\n1016\t3\n1020\t3\n1035\t4\n1043\t1\n1053\t2\n1064\t2\n1073\t3\n"
+          }
+        ]
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_820618357",
+      "id": "20220926-210229_572462132",
+      "dateCreated": "2021-09-23T15:05:51+0000",
+      "dateStarted": "2022-10-04T13:34:20+0000",
+      "dateFinished": "2022-10-04T13:34:20+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:42"
+    },
+    {
+      "text": "%sql\n--This calculates the number of rounds that have a change of driver in the top 5 positions.\n--Esto calcula el número de rounds que tienen un cambio de piloto en las 5 primeras posiciones.\n\ncreate or replace view laps_with_change_pos_1_5_v\nas\n    select raceid, count(*) laps\n    from\n    (\n        select raceid, lap, count(*)\n        from\n        (\n            select raceid, position, lap, driverid as current_driver,\n              LAG (driverid, 1) OVER (PARTITION BY raceid, position ORDER BY lap) AS prev_driver\n            from lap_times\n        )\n        where prev_driver is not null\n        and prev_driver <> current_driver\n        and (position >= 1 and position <= 5)\n        group by raceid, lap\n        order by raceid, lap\n    )\n    group by raceid\n    order by raceid;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:20+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_-1693329789",
+      "id": "20220926-210229_798745988",
+      "dateCreated": "2021-09-23T15:06:19+0000",
+      "dateStarted": "2022-10-04T13:34:21+0000",
+      "dateFinished": "2022-10-04T13:34:21+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43"
+    },
+    {
+      "text": "%sql\nselect * from laps_with_change_pos_1_5_v;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:21+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "RACEID": "string",
+                      "LAPS": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "RACEID\tLAPS\n1\t20\n2\t16\n3\t24\n4\t17\n5\t11\n6\t17\n7\t12\n8\t14\n9\t23\n10\t18\n11\t14\n12\t18\n13\t10\n14\t12\n15\t11\n16\t18\n17\t10\n18\t15\n19\t16\n20\t14\n21\t13\n22\t15\n23\t14\n24\t13\n25\t13\n26\t26\n27\t16\n28\t19\n29\t15\n30\t15\n31\t17\n32\t14\n33\t20\n34\t14\n35\t16\n337\t9\n338\t12\n339\t7\n340\t17\n341\t4\n342\t6\n343\t6\n344\t13\n345\t4\n346\t8\n347\t6\n348\t6\n349\t7\n350\t5\n351\t8\n352\t7\n353\t7\n354\t8\n355\t12\n841\t15\n842\t23\n843\t28\n844\t21\n845\t17\n846\t15\n847\t24\n848\t13\n849\t15\n850\t20\n851\t27\n852\t23\n853\t15\n854\t16\n855\t19\n856\t10\n857\t5\n858\t12\n859\t18\n860\t16\n861\t15\n862\t28\n863\t19\n864\t22\n865\t6\n866\t21\n867\t19\n868\t17\n869\t20\n870\t16\n871\t22\n872\t17\n873\t13\n874\t11\n875\t12\n876\t9\n877\t11\n878\t15\n879\t25\n880\t24\n881\t26\n882\t30\n883\t34\n884\t24\n885\t10\n886\t7\n887\t22\n888\t23\n890\t22\n891\t16\n892\t10\n893\t16\n894\t11\n895\t19\n896\t22\n897\t15\n898\t7\n899\t17\n900\t6\n901\t16\n902\t22\n903\t13\n904\t13\n905\t4\n906\t22\n907\t16\n908\t14\n909\t19\n910\t25\n911\t23\n912\t14\n913\t14\n914\t14\n915\t8\n916\t10\n917\t28\n918\t19\n926\t7\n927\t22\n928\t9\n929\t16\n930\t14\n931\t7\n932\t8\n933\t7\n934\t12\n936\t14\n937\t18\n938\t8\n939\t4\n940\t11\n941\t16\n942\t23\n943\t11\n944\t9\n945\t18\n948\t11\n949\t24\n950\t28\n951\t10\n952\t16\n953\t11\n954\t15\n955\t14\n956\t17\n957\t10\n958\t11\n959\t17\n960\t15\n961\t16\n962\t14\n963\t10\n964\t14\n965\t12\n966\t14\n967\t16\n968\t17\n969\t6\n970\t16\n971\t17\n972\t5\n973\t11\n974\t5\n975\t13\n976\t19\n977\t7\n978\t10\n979\t8\n980\t10\n981\t13\n982\t9\n983\t9\n984\t12\n985\t13\n986\t7\n987\t10\n988\t5\n989\t7\n990\t14\n991\t15\n992\t12\n993\t9\n994\t5\n995\t5\n996\t11\n997\t8\n998\t14\n999\t12\n1000\t13\n1001\t9\n1002\t12\n1003\t9\n1004\t11\n1005\t6\n1006\t14\n1007\t13\n1008\t18\n1009\t10\n1010\t7\n1011\t20\n1012\t12\n1013\t13\n1014\t10\n1015\t7\n1016\t13\n1017\t5\n1018\t14\n1019\t11\n1020\t23\n1021\t8\n1022\t12\n1023\t12\n1024\t11\n1025\t10\n1026\t14\n1027\t11\n1028\t14\n1029\t20\n1030\t9\n1031\t13\n1032\t14\n1033\t11\n1034\t6\n1035\t11\n1036\t13\n1037\t5\n1038\t11\n1039\t17\n1040\t12\n1041\t15\n1042\t19\n1043\t15\n1044\t18\n1045\t18\n1046\t22\n1047\t3\n1051\t16\n1052\t21\n1053\t11\n1054\t11\n1055\t12\n1056\t4\n1057\t15\n1058\t8\n1059\t11\n1060\t10\n1061\t9\n1062\t15\n1064\t8\n1065\t9\n1066\t20\n1067\t9\n1069\t10\n1070\t11\n1071\t18\n1072\t9\n1073\t14\n"
+          }
+        ]
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_2110794702",
+      "id": "20220926-210229_739972028",
+      "dateCreated": "2021-09-23T15:06:25+0000",
+      "dateStarted": "2022-10-04T13:34:21+0000",
+      "dateFinished": "2022-10-04T13:34:21+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:44"
+    },
+    {
+      "text": "%sql\n--This calculates the number of positions that a driver has lost during a lap. It separates those position changes in actual take overs and take overs that were a result of pit stops.\n--Esto calcula el número de posiciones que un piloto ha perdido durante una vuelta. Separa los cambios de posición en los adelantamientos reales y los adelantamientos que fueron resultado de las paradas en boxes.\ncreate or replace view overtaken_positions_total\nas\n    select raceid, overtaken_positions_due_to_pitstop_total, (overtaken_positions_total - overtaken_positions_due_to_pitstop_total) as overtaken_positions_real_total\n    from\n    (\n        select raceid, sum(overtaken_positions_driver_lap) as overtaken_positions_total, sum(overtaken_positions_driver_lap_due_to_pitstop) as overtaken_positions_due_to_pitstop_total\n        from\n        (\n            select raceid, driverid, lap, overtaken_positions_driver_lap, nvl2(pitstop_raceid, overtaken_positions_driver_lap,0 ) overtaken_positions_driver_lap_due_to_pitstop\n            from\n            (\n                select ot.raceid, ot.driverid, ot.lap, sum(ot.overtaken_this_lap) as overtaken_positions_driver_lap, ps.raceid pitstop_raceid\n                from\n                (\n                    select ottl.raceid, ottl.driverid, ottl.lap, (ottl.current_position - ottl.prev_position) as overtaken_this_lap\n                    from\n                    (\n                        select lt.raceid, lt.driverid, lt.lap, lt.position as current_position, \n                          LAG (lt.position, 1) OVER (PARTITION BY lt.raceid, lt.driverid ORDER BY lt.lap) AS prev_position\n                        from lap_times lt\n                    ) ottl\n                    where ottl.prev_position is not null\n                    and ottl.prev_position < ottl.current_position\n                )   ot\n                ,   pit_stops ps\n                where ps.raceid (+) = ot.raceid\n                and   ps.driverid (+) = ot.driverid\n                and   ps.lap (+) = ot.lap\n                group by ot.raceid, ot.driverid, ot.lap, ps.raceid\n            )\n        )\n        group by raceid\n    );\n",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:21+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_-1627139710",
+      "id": "20220926-210229_1237381513",
+      "dateCreated": "2021-09-23T15:07:52+0000",
+      "dateStarted": "2022-10-04T13:34:22+0000",
+      "dateFinished": "2022-10-04T13:34:22+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:45"
+    },
+    {
+      "text": "%sql\nselect * from overtaken_positions_total;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:22+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "RACEID": "string",
+                      "OVERTAKEN_POSITIONS_DUE_TO_PITSTOP_TOTAL": "string",
+                      "OVERTAKEN_POSITIONS_REAL_TOTAL": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "RACEID\tOVERTAKEN_POSITIONS_DUE_TO_PITSTOP_TOTAL\tOVERTAKEN_POSITIONS_REAL_TOTAL\n6\t0\t92\n14\t0\t120\n23\t0\t147\n27\t0\t181\n348\t0\t53\n846\t131\t24\n851\t29\t199\n852\t42\t175\n870\t23\t136\n883\t72\t281\n893\t77\t152\n902\t41\t208\n914\t35\t173\n948\t108\t37\n960\t18\t129\n962\t67\t154\n964\t30\t197\n965\t14\t154\n974\t51\t5\n977\t8\t41\n999\t26\t145\n1013\t37\t115\n1019\t15\t110\n1039\t37\t37\n1061\t0\t117\n1066\t76\t167\n1\t0\t188\n7\t0\t171\n15\t0\t134\n31\t0\t215\n338\t0\t120\n344\t0\t246\n350\t0\t61\n351\t0\t104\n352\t0\t68\n353\t0\t113\n862\t64\t292\n864\t56\t262\n865\t100\t17\n872\t26\t189\n874\t16\t151\n876\t20\t87\n884\t54\t274\n885\t92\t20\n888\t38\t215\n892\t18\t127\n901\t34\t123\n903\t25\t133\n910\t39\t208\n913\t58\t143\n927\t42\t214\n928\t21\t107\n931\t26\t16\n940\t17\t122\n943\t10\t104\n945\t26\t148\n951\t26\t91\n963\t14\t123\n975\t61\t38\n981\t37\t95\n990\t33\t165\n992\t18\t74\n1000\t5\t62\n1014\t14\t92\n1017\t82\t28\n1038\t39\t114\n1070\t17\t61\n1071\t32\t139\n34\t0\t162\n342\t0\t98\n343\t0\t95\n345\t0\t123\n349\t0\t129\n354\t0\t174\n844\t28\t336\n845\t55\t220\n860\t108\t51\n861\t65\t297\n882\t77\t215\n890\t39\t158\n905\t51\t22\n911\t61\t146\n968\t22\t164\n978\t5\t111\n987\t15\t76\n988\t3\t76\n994\t74\t7\n998\t0\t124\n1007\t22\t114\n1011\t42\t148\n1025\t14\t83\n1029\t30\t175\n1031\t6\t86\n1041\t40\t125\n1052\t35\t204\n1056\t27\t2\n2\t0\t135\n8\t0\t142\n11\t0\t121\n12\t0\t125\n17\t0\t119\n21\t0\t128\n30\t0\t120\n856\t39\t155\n873\t90\t207\n875\t27\t101\n878\t7\t139\n894\t68\t189\n895\t32\t175\n909\t45\t181\n918\t13\t206\n932\t58\t43\n933\t12\t64\n941\t14\t102\n942\t18\t113\n955\t78\t166\n967\t49\t156\n971\t16\t101\n979\t8\t55\n980\t33\t100\n983\t16\t102\n989\t38\t11\n995\t59\t20\n1004\t20\t78\n1009\t7\t100\n1022\t18\t112\n1024\t64\t113\n1026\t26\t132\n1028\t12\t137\n1030\t18\t112\n1032\t17\t114\n1047\t7\t72\n1055\t31\t130\n1060\t32\t137\n1069\t4\t137\n4\t0\t177\n5\t0\t106\n10\t0\t176\n18\t0\t95\n35\t0\t183\n341\t0\t58\n848\t134\t54\n849\t1\t168\n857\t14\t87\n867\t199\t85\n869\t45\t180\n877\t14\t166\n880\t225\t64\n881\t42\t202\n886\t95\t44\n896\t37\t221\n898\t4\t96\n900\t49\t32\n906\t127\t45\n908\t10\t90\n917\t62\t306\n936\t32\t167\n954\t84\t35\n956\t75\t225\n961\t34\t141\n984\t16\t84\n993\t15\t79\n997\t9\t75\n1008\t27\t99\n1023\t40\t90\n1033\t27\t195\n1051\t147\t55\n1059\t112\t54\n1067\t14\t53\n1072\t20\t62\n3\t0\t234\n9\t0\t236\n20\t0\t148\n22\t0\t147\n26\t0\t137\n28\t0\t127\n33\t0\t146\n339\t0\t87\n340\t0\t203\n347\t0\t99\n854\t82\t143\n855\t30\t259\n879\t136\t231\n887\t40\t307\n891\t51\t141\n897\t20\t193\n904\t28\t201\n926\t33\t13\n929\t26\t141\n937\t25\t97\n938\t9\t78\n944\t42\t156\n950\t81\t341\n957\t2\t239\n959\t50\t178\n970\t22\t93\n976\t55\t81\n986\t22\t78\n991\t19\t141\n1006\t3\t88\n1010\t69\t14\n1018\t16\t109\n1021\t12\t95\n1037\t15\t52\n1040\t22\t97\n1042\t26\t158\n1044\t14\t131\n1046\t22\t149\n1057\t26\t104\n1062\t12\t85\n1065\t10\t55\n13\t0\t104\n19\t0\t137\n29\t0\t90\n847\t295\t126\n850\t33\t134\n866\t151\t48\n930\t29\t130\n939\t31\t98\n949\t61\t231\n958\t24\t142\n966\t25\t126\n973\t12\t74\n985\t1\t119\n1001\t10\t45\n1002\t21\t79\n1005\t20\t138\n1015\t70\t15\n1027\t34\t121\n1034\t6\t70\n1045\t23\t196\n1054\t12\t109\n1058\t25\t73\n16\t0\t177\n24\t0\t201\n25\t0\t169\n32\t0\t233\n337\t0\t76\n346\t0\t161\n355\t0\t133\n841\t117\t47\n842\t46\t209\n843\t65\t217\n853\t23\t79\n858\t15\t159\n859\t55\t123\n863\t41\t292\n868\t17\t201\n871\t44\t126\n899\t39\t158\n907\t33\t187\n912\t24\t117\n916\t7\t170\n934\t4\t80\n952\t39\t209\n953\t102\t42\n969\t26\t9\n972\t10\t36\n982\t16\t56\n996\t62\t48\n1003\t39\t66\n1012\t20\t94\n1016\t65\t30\n1020\t47\t213\n1035\t4\t211\n1036\t42\t133\n1043\t24\t101\n1053\t23\t86\n1064\t18\t75\n1073\t16\t113\n915\t24\t105\n"
+          }
+        ]
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_-1054089040",
+      "id": "20220926-210229_321188401",
+      "dateCreated": "2021-09-23T15:09:02+0000",
+      "dateStarted": "2022-10-04T13:34:22+0000",
+      "dateFinished": "2022-10-04T13:34:23+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46"
+    },
+    {
+      "text": "%sql\n--The following calculates the come back score for a race. This is defined that the maximum distance that one of the top finishing drivers (positions 1-8) has recovered from a position back in the field. E.g. when a driver came back from position 18 to position 1, the come back score is 17. \n--A continuación se calcula la puntuación de remontada de una carrera. Esto se define como la distancia máxima que uno de los pilotos que terminan en primer lugar (posiciones 1-8) ha recuperado desde una posición atrás en el campo. Por ejemplo, cuando un piloto ha remontado desde la posición 18 hasta la posición 1, la puntuación de remontada es 17. \ncreate or replace view comebackscores\nas\n    select ps.raceid, max(ps.driver_comebackscore) max_comebackscore\n    from (\n        select raceid, driverid, max(delta_position) as driver_comebackscore\n        from\n        (\n            select lt.raceid, lt.driverid, (ltbefore.position - lt.position) delta_position\n            from lap_times lt\n            , lap_times ltbefore\n            where ltbefore.raceid = lt.raceid\n            and ltbefore.driverid = lt.driverid\n            and ltbefore.lap < lt.lap\n        )\n        group by raceid, driverid) ps\n    ,   results r\n    where r.raceid = ps.raceid\n    and r.position in ('1', '2', '3', '4', '5', '6', '7', '8')\n    group by ps.raceid;\n",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:23+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "RACEID": "string",
+                      "MAX_COMEBACKSCORE": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_5763811",
+      "id": "20220926-210229_1667465748",
+      "dateCreated": "2021-09-22T14:43:53+0000",
+      "dateStarted": "2022-10-04T13:34:23+0000",
+      "dateFinished": "2022-10-04T13:34:23+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:47"
+    },
+    {
+      "text": "%sql\nselect * from comebackscores",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:23+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "RACEID": "string",
+                      "MAX_COMEBACKSCORE": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "RACEID\tMAX_COMEBACKSCORE\n1\t12\n2\t13\n3\t15\n4\t8\n5\t9\n6\t10\n7\t9\n8\t11\n9\t12\n10\t10\n11\t7\n12\t9\n13\t9\n14\t9\n15\t8\n16\t12\n17\t8\n18\t12\n19\t7\n20\t9\n21\t11\n22\t10\n23\t12\n24\t15\n25\t12\n26\t10\n27\t17\n28\t7\n29\t6\n30\t8\n31\t13\n32\t19\n33\t13\n34\t8\n35\t13\n337\t10\n338\t18\n339\t11\n340\t14\n341\t8\n342\t17\n343\t8\n344\t14\n345\t15\n346\t17\n347\t9\n348\t10\n349\t14\n350\t7\n351\t15\n352\t9\n353\t13\n354\t14\n355\t13\n841\t11\n842\t13\n843\t17\n844\t14\n845\t14\n846\t10\n847\t20\n848\t10\n849\t10\n850\t15\n851\t12\n852\t18\n853\t9\n854\t14\n855\t15\n856\t10\n857\t10\n858\t14\n859\t9\n860\t12\n861\t22\n862\t16\n863\t13\n864\t16\n865\t12\n866\t15\n867\t15\n868\t16\n869\t10\n870\t7\n871\t10\n872\t13\n873\t16\n874\t13\n875\t11\n876\t8\n877\t19\n878\t16\n879\t18\n880\t13\n881\t15\n882\t16\n883\t15\n884\t15\n885\t10\n886\t12\n887\t18\n888\t14\n890\t9\n891\t10\n892\t16\n893\t16\n894\t14\n895\t10\n896\t16\n897\t9\n898\t15\n899\t10\n900\t12\n901\t8\n902\t13\n903\t10\n904\t17\n905\t10\n906\t14\n907\t12\n908\t10\n909\t15\n910\t20\n911\t13\n912\t16\n913\t10\n914\t17\n915\t18\n916\t10\n917\t13\n918\t14\n926\t6\n927\t15\n928\t10\n929\t10\n930\t8\n931\t8\n932\t15\n933\t8\n934\t7\n936\t15\n937\t9\n938\t11\n939\t12\n940\t9\n941\t10\n942\t14\n943\t13\n944\t10\n945\t10\n948\t15\n949\t13\n950\t18\n951\t12\n952\t14\n953\t11\n954\t11\n955\t13\n956\t13\n957\t16\n958\t10\n959\t13\n960\t14\n961\t13\n962\t15\n963\t14\n964\t10\n965\t9\n966\t13\n967\t14\n968\t17\n969\t5\n970\t13\n971\t11\n972\t5\n973\t8\n974\t7\n975\t14\n976\t18\n977\t5\n978\t13\n979\t6\n980\t9\n981\t12\n982\t6\n983\t10\n984\t11\n985\t12\n986\t15\n987\t15\n988\t8\n989\t8\n990\t10\n991\t9\n992\t12\n993\t9\n994\t9\n995\t9\n996\t13\n997\t11\n998\t15\n999\t13\n1000\t12\n1001\t12\n1002\t14\n1003\t8\n1004\t12\n1005\t13\n1006\t13\n1007\t11\n1008\t9\n1009\t9\n1010\t11\n1011\t12\n1012\t8\n1013\t14\n1014\t10\n1015\t8\n1016\t10\n1017\t10\n1018\t11\n1019\t9\n1020\t17\n1021\t12\n1022\t10\n1023\t12\n1024\t12\n1025\t13\n1026\t14\n1027\t14\n1028\t15\n1029\t14\n1030\t11\n1031\t9\n1032\t13\n1033\t16\n1034\t11\n1035\t15\n1036\t11\n1037\t8\n1038\t14\n1039\t9\n1040\t9\n1041\t15\n1042\t15\n1043\t12\n1044\t16\n1045\t11\n1046\t17\n1047\t6\n1052\t16\n1053\t10\n1054\t10\n1055\t11\n1056\t6\n1057\t12\n1058\t11\n1059\t11\n1060\t12\n1061\t11\n1062\t12\n1064\t12\n1065\t12\n1066\t15\n1067\t9\n1069\t9\n1070\t8\n1071\t11\n1072\t9\n1073\t9\n"
+          }
+        ]
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_-1264889306",
+      "id": "20220926-210229_387050295",
+      "dateCreated": "2021-09-22T15:36:46+0000",
+      "dateStarted": "2022-10-04T13:34:24+0000",
+      "dateFinished": "2022-10-04T13:34:26+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:48"
+    },
+    {
+      "text": "%sql\n--This calculates the difference between the ranking of the driver and his finishing position. For example, if a driver is ranked 20th and finishes 1st, this adds 19 to this metric. This can be seen as a measure of \"surprise\".\n--Esto calcula la diferencia entre la clasificación del piloto y su posición final. Por ejemplo, si un piloto está clasificado en el puesto 20 y termina en el puesto 1, esto suma 19 a esta métrica. Esto puede verse como una medida de \"sorpresa\".\ncreate or replace view position_difference_top_5_v\nas\n    select result_raceid as raceid, sum(position_difference_top_5) as position_difference_top_5\n    from\n    (\n        select result_raceid, abs(position_result - position_ranking) position_difference_top_5\n        from\n        (\n            select ra.round, s.raceid ranking_raceid, r.raceid result_raceid, r.driverid, r.position position_result, nvl(s.position, 0) position_ranking\n            from   driver_standings s\n            ,      results r\n            ,      races ra\n            where  s.raceid  = (r.raceid - 1)\n            and    ra.raceid = r.raceid\n            and    s.driverid  = r.driverid\n            and    r.position in ('1', '2', '3', '4', '5')\n            order by r.raceid\n        )\n    )\n    group by result_raceid;\n",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:26+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_186467533",
+      "id": "20220926-210229_1494424805",
+      "dateCreated": "2021-09-23T15:09:56+0000",
+      "dateStarted": "2022-10-04T13:34:27+0000",
+      "dateFinished": "2022-10-04T13:34:27+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:49"
+    },
+    {
+      "text": "%sql\nselect * from position_difference_top_5_v",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:27+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "RACEID": "string",
+                      "POSITION_DIFFERENCE_TOP_5": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "RACEID\tPOSITION_DIFFERENCE_TOP_5\n27\t19\n23\t25\n6\t19\n846\t11\n852\t7\n962\t6\n1013\t4\n965\t10\n960\t13\n893\t5\n883\t13\n870\t16\n823\t5\n817\t73\n815\t8\n902\t31\n1061\t10\n1066\t12\n974\t6\n999\t8\n1039\t15\n14\t29\n348\t19\n851\t10\n964\t7\n977\t6\n659\t20\n463\t35\n781\t16\n770\t48\n734\t10\n722\t23\n690\t39\n685\t8\n648\t12\n535\t23\n521\t23\n490\t36\n411\t9\n391\t29\n232\t8\n166\t8\n135\t2\n64\t12\n813\t11\n763\t35\n706\t8\n663\t15\n534\t39\n471\t66\n457\t12\n410\t18\n418\t17\n173\t4\n113\t12\n57\t14\n50\t16\n808\t44\n792\t108\n591\t39\n512\t52\n513\t27\n210\t34\n108\t20\n291\t0\n226\t2\n125\t2\n72\t17\n52\t11\n762\t30\n753\t26\n421\t35\n403\t47\n371\t57\n290\t2\n281\t15\n277\t10\n237\t20\n161\t17\n58\t4\n554\t34\n522\t12\n510\t31\n493\t19\n465\t28\n433\t15\n667\t15\n592\t40\n578\t27\n561\t34\n511\t8\n497\t33\n837\t9\n501\t61\n313\t13\n579\t50\n405\t58\n359\t33\n328\t19\n414\t21\n158\t11\n124\t7\n107\t16\n496\t36\n459\t20\n424\t31\n400\t12\n832\t8\n774\t97\n754\t93\n318\t12\n703\t6\n51\t28\n864\t31\n1071\t3\n353\t14\n888\t10\n931\t17\n31\t19\n338\t19\n945\t9\n1000\t2\n992\t26\n876\t3\n885\t20\n903\t10\n15\t16\n874\t22\n951\t9\n963\t11\n1014\t4\n351\t9\n940\t0\n975\t9\n901\t35\n7\t9\n350\t13\n862\t17\n872\t21\n892\t15\n884\t9\n928\t4\n1070\t7\n344\t8\n352\t8\n943\t11\n981\t4\n990\t33\n1038\t28\n910\t13\n913\t10\n927\t25\n647\t19\n430\t19\n814\t20\n793\t30\n772\t26\n756\t38\n724\t40\n712\t17\n702\t13\n705\t25\n660\t21\n627\t46\n612\t19\n567\t37\n569\t21\n531\t33\n504\t13\n472\t48\n329\t14\n282\t8\n244\t8\n198\t10\n99\t6\n43\t9\n40\t6\n807\t86\n795\t56\n798\t64\n691\t28\n693\t23\n666\t19\n655\t13\n637\t34\n611\t28\n568\t24\n556\t26\n536\t29\n509\t16\n487\t50\n481\t56\n377\t22\n315\t13\n300\t9\n275\t5\n270\t23\n200\t10\n206\t8\n183\t15\n180\t23\n163\t1\n131\t12\n78\t26\n88\t16\n605\t8\n543\t16\n404\t30\n259\t58\n221\t21\n127\t3\n71\t28\n36\t23\n737\t27\n736\t16\n249\t14\n159\t5\n143\t18\n136\t6\n109\t10\n455\t17\n419\t24\n368\t41\n333\t10\n293\t5\n268\t8\n162\t8\n105\t8\n525\t16\n665\t40\n437\t30\n305\t16\n172\t14\n98\t18\n79\t56\n42\t4\n744\t41\n483\t44\n478\t47\n441\t15\n395\t26\n168\t17\n134\t8\n59\t23\n544\t45\n528\t27\n699\t27\n189\t14\n110\t9\n85\t9\n589\t14\n827\t95\n727\t15\n68\t11\n594\t16\n34\t4\n343\t18\n845\t2\n844\t10\n860\t6\n968\t6\n988\t6\n987\t8\n342\t13\n905\t6\n1056\t21\n349\t14\n994\t8\n345\t16\n978\t8\n1029\t36\n1041\t15\n1031\t15\n882\t17\n911\t14\n998\t3\n1007\t8\n1011\t6\n1025\t3\n1052\t4\n354\t6\n861\t12\n635\t19\n571\t23\n759\t21\n732\t51\n662\t8\n638\t14\n634\t34\n598\t16\n595\t44\n586\t57\n488\t30\n380\t11\n278\t26\n246\t21\n196\t25\n82\t18\n831\t6\n801\t6\n797\t48\n787\t48\n771\t34\n720\t22\n711\t25\n718\t29\n701\t17\n668\t42\n617\t12\n596\t41\n520\t35\n502\t32\n495\t23\n460\t11\n432\t19\n412\t15\n394\t30\n401\t25\n279\t16\n262\t30\n271\t50\n245\t33\n253\t10\n255\t23\n129\t21\n41\t21\n45\t26\n784\t10\n499\t60\n420\t45\n272\t34\n745\t42\n306\t32\n240\t12\n185\t10\n486\t44\n422\t33\n399\t14\n373\t7\n357\t31\n267\t38\n264\t22\n261\t39\n250\t22\n243\t19\n203\t41\n204\t19\n179\t11\n118\t12\n104\t8\n44\t9\n462\t14\n442\t24\n429\t13\n386\t10\n370\t32\n707\t12\n688\t23\n654\t25\n631\t17\n574\t17\n434\t28\n62\t20\n482\t24\n546\t15\n378\t4\n358\t42\n298\t7\n280\t4\n184\t19\n63\t12\n564\t26\n549\t49\n379\t53\n190\t8\n620\t53\n577\t27\n450\t12\n588\t13\n629\t23\n360\t42\n806\t10\n642\t28\n856\t8\n12\t40\n8\t11\n1026\t12\n979\t6\n989\t14\n942\t14\n1028\t8\n875\t13\n894\t18\n909\t7\n1060\t8\n1009\t5\n1032\t32\n918\t12\n1024\t12\n1047\t12\n955\t11\n995\t11\n967\t9\n1030\t4\n30\t20\n21\t9\n971\t3\n1022\t16\n796\t36\n749\t93\n704\t15\n1055\t3\n11\t23\n895\t12\n933\t6\n932\t4\n941\t13\n980\t6\n1004\t4\n17\t15\n2\t13\n873\t20\n614\t20\n597\t11\n480\t14\n838\t180\n779\t91\n747\t15\n714\t40\n674\t37\n650\t41\n636\t34\n600\t17\n580\t29\n565\t11\n551\t27\n477\t34\n454\t47\n260\t37\n216\t36\n76\t19\n829\t19\n811\t19\n816\t14\n740\t27\n735\t29\n713\t19\n675\t52\n678\t42\n657\t13\n646\t49\n652\t22\n613\t22\n599\t18\n602\t35\n585\t17\n552\t22\n425\t27\n375\t4\n369\t18\n316\t34\n297\t5\n303\t17\n231\t6\n188\t35\n140\t20\n269\t16\n238\t7\n194\t6\n177\t9\n141\t23\n90\t13\n56\t15\n257\t24\n266\t37\n70\t8\n54\t7\n37\t5\n470\t63\n417\t6\n387\t16\n320\t5\n302\t8\n288\t11\n292\t10\n285\t35\n219\t17\n212\t27\n195\t13\n187\t20\n155\t23\n145\t17\n121\t4\n73\t14\n75\t16\n558\t33\n559\t21\n479\t37\n607\t15\n545\t36\n557\t21\n289\t7\n362\t26\n324\t26\n408\t27\n383\t23\n366\t4\n468\t34\n191\t20\n174\t6\n86\t19\n84\t14\n77\t21\n664\t25\n608\t26\n526\t56\n466\t33\n824\t94\n769\t80\n723\t22\n115\t10\n869\t20\n896\t20\n1059\t2\n5\t7\n18\t31\n880\t8\n1033\t16\n898\t10\n1072\t12\n857\t3\n341\t20\n993\t9\n1023\t23\n954\t15\n836\t22\n900\t25\n4\t13\n849\t6\n1063\t29\n805\t47\n908\t10\n1067\t11\n867\t30\n886\t4\n906\t11\n35\t14\n10\t29\n877\t16\n917\t10\n956\t9\n984\t6\n997\t29\n671\t53\n539\t8\n475\t22\n828\t49\n802\t11\n788\t29\n790\t50\n766\t8\n761\t48\n751\t43\n743\t16\n719\t19\n700\t20\n680\t22\n625\t27\n584\t16\n446\t15\n428\t22\n393\t24\n364\t7\n178\t3\n819\t113\n783\t46\n782\t30\n673\t38\n644\t49\n622\t26\n572\t29\n550\t41\n516\t12\n464\t27\n363\t46\n331\t4\n310\t24\n309\t53\n295\t30\n287\t21\n220\t16\n222\t14\n116\t14\n606\t9\n485\t34\n381\t13\n365\t13\n256\t41\n228\t11\n209\t22\n169\t5\n120\t9\n65\t37\n773\t25\n451\t13\n389\t38\n384\t14\n317\t17\n251\t38\n215\t16\n199\t5\n186\t7\n151\t14\n137\t4\n103\t23\n81\t28\n66\t13\n49\t8\n48\t5\n715\t51\n639\t54\n587\t40\n570\t31\n573\t17\n697\t43\n677\t35\n656\t47\n604\t40\n156\t23\n456\t20\n413\t9\n101\t9\n505\t22\n489\t28\n427\t28\n197\t16\n799\t66\n498\t55\n764\t25\n225\t2\n142\t3\n507\t27\n402\t16\n603\t18\n621\t36\n791\t96\n716\t20\n708\t54\n696\t43\n157\t8\n9\t14\n347\t17\n20\t4\n26\t20\n22\t6\n1057\t23\n944\t4\n976\t24\n1006\t12\n891\t4\n938\t6\n959\t6\n1010\t16\n1042\t9\n937\t19\n1065\t12\n879\t17\n970\t18\n986\t13\n1037\t15\n854\t4\n897\t12\n3\t41\n33\t21\n340\t13\n767\t27\n739\t17\n887\t11\n904\t8\n929\t8\n1046\t27\n855\t4\n957\t9\n950\t13\n1040\t11\n1044\t19\n28\t28\n339\t26\n1062\t27\n694\t29\n681\t26\n523\t33\n448\t18\n834\t38\n820\t8\n741\t30\n709\t21\n695\t11\n683\t36\n672\t25\n658\t23\n610\t24\n553\t22\n519\t51\n444\t36\n426\t21\n327\t26\n311\t16\n263\t20\n214\t7\n130\t28\n839\t20\n789\t27\n731\t28\n725\t12\n698\t29\n661\t24\n649\t14\n640\t39\n633\t24\n540\t21\n431\t20\n382\t13\n385\t27\n319\t30\n146\t16\n149\t11\n96\t1\n452\t22\n242\t5\n93\t4\n235\t8\n126\t5\n46\t7\n439\t18\n435\t64\n336\t9\n323\t26\n301\t11\n254\t4\n236\t10\n218\t21\n170\t7\n128\t16\n112\t11\n53\t15\n630\t25\n618\t37\n601\t38\n397\t22\n325\t14\n541\t48\n321\t33\n122\t27\n689\t10\n581\t14\n530\t13\n515\t23\n518\t26\n506\t25\n440\t36\n423\t30\n152\t37\n532\t24\n491\t29\n590\t3\n74\t27\n202\t15\n87\t7\n361\t62\n619\t17\n529\t42\n312\t9\n227\t19\n213\t26\n148\t32\n850\t9\n13\t25\n1054\t8\n958\t5\n985\t6\n1058\t5\n1015\t5\n29\t8\n973\t13\n1002\t4\n1045\t13\n1001\t10\n1034\t13\n1005\t6\n939\t13\n825\t21\n758\t74\n729\t72\n721\t17\n930\t5\n847\t15\n866\t22\n949\t18\n966\t5\n1027\t8\n19\t13\n555\t33\n822\t11\n730\t32\n615\t34\n537\t28\n503\t38\n374\t18\n248\t18\n234\t5\n181\t15\n164\t25\n119\t24\n114\t11\n95\t14\n742\t21\n687\t25\n670\t81\n566\t13\n476\t47\n458\t26\n390\t40\n367\t47\n326\t16\n167\t13\n97\t17\n69\t5\n765\t15\n560\t57\n388\t29\n396\t30\n207\t21\n144\t15\n55\t27\n726\t19\n322\t54\n314\t3\n283\t27\n241\t5\n153\t4\n83\t16\n286\t18\n258\t53\n247\t22\n233\t16\n230\t20\n171\t26\n133\t29\n60\t3\n67\t25\n686\t20\n641\t16\n575\t22\n538\t25\n542\t24\n409\t8\n376\t20\n335\t51\n679\t35\n632\t47\n514\t35\n500\t43\n139\t9\n469\t42\n453\t23\n201\t20\n533\t14\n524\t24\n392\t8\n776\t53\n436\t32\n372\t24\n111\t20\n193\t14\n609\t26\n273\t75\n132\t12\n38\t11\n593\t23\n355\t12\n1064\t10\n25\t15\n843\t16\n853\t6\n1003\t6\n969\t10\n1035\t6\n916\t6\n1053\t8\n1043\t11\n346\t16\n871\t30\n953\t22\n952\t16\n859\t7\n1073\t18\n1012\t6\n1036\t6\n899\t10\n982\t9\n810\t42\n710\t31\n863\t19\n868\t16\n912\t11\n934\t2\n996\t11\n1020\t29\n24\t34\n907\t13\n972\t6\n32\t31\n16\t23\n858\t7\n842\t16\n1016\t6\n583\t15\n508\t15\n494\t21\n830\t10\n812\t56\n804\t25\n785\t23\n777\t0\n738\t9\n692\t23\n669\t5\n645\t24\n623\t29\n548\t10\n407\t10\n308\t45\n296\t23\n294\t9\n265\t82\n229\t46\n211\t17\n150\t9\n147\t22\n833\t40\n821\t7\n803\t73\n780\t79\n760\t40\n752\t81\n684\t10\n626\t12\n582\t32\n473\t27\n438\t40\n445\t20\n443\t46\n449\t71\n398\t5\n332\t7\n239\t12\n223\t16\n123\t19\n106\t14\n61\t1\n746\t29\n576\t32\n527\t49\n484\t38\n276\t18\n252\t9\n224\t18\n205\t5\n175\t24\n160\t3\n755\t27\n717\t11\n330\t20\n299\t11\n274\t3\n208\t8\n217\t35\n192\t5\n176\t12\n102\t6\n91\t10\n406\t28\n307\t46\n304\t27\n284\t12\n182\t13\n154\t14\n138\t18\n92\t9\n100\t12\n89\t18\n39\t10\n47\t10\n676\t29\n651\t54\n653\t33\n628\t16\n616\t25\n474\t47\n"
+          }
+        ]
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_1428154978",
+      "id": "20220926-210229_1838340236",
+      "dateCreated": "2021-09-22T15:39:00+0000",
+      "dateStarted": "2022-10-04T13:34:28+0000",
+      "dateFinished": "2022-10-04T13:34:29+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:50"
+    },
+    {
+      "text": "%sql\n--The safety car table is an externally aquired dataset that holds information on all races that had a safety car\n--La tabla de coches de seguridad es un conjunto de datos adquirido externamente que contiene información sobre todas las carreras en las que hubo un coche de seguridad\nselect * from safety_car;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:29+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "YEAR": "string",
+                      "RACE": "string",
+                      "COUNT": "string",
+                      "LAPS": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "YEAR\tRACE\tCOUNT\tLAPS\n2021\tBahrain Grand Prix\t1\t\n2021\tEmilia Romagna Grand Prix\t1\t\n2021\tPortuguese Grand Prix\t1\t\n2021\tSpanish Grand Prix\t1\t\n2021\tAzerbaijan Grand Prix\t2\t\n2021\tAustrian Grand Prix\t1\t\n2021\tHungarian Grand Prix\t1\t\n2021\tBelgian Grand Prix\t1\t\n2021\tItalian Grand Prix\t1\t\n2021\tMexican Grand Prix\t1\t\n2021\tBrazilian Grand Prix\t1\t\n2021\tSaudi Arabian Grand Prix\t1\t\n2021\tAbu Dhabi Grand Prix\t1\t\n2018\tFrench Grand Prix\t2\t7\n2019\tFrench Grand Prix\t1\t1\n2013\tGerman Grand Prix\t1\t6\n2014\tGerman Grand Prix\t1\t2\n2018\tGerman Grand Prix\t1\t6\n2019\tGerman Grand Prix\t6\t19\n2010\tKorean Grand Prix\t3\t24\n2011\tKorean Grand Prix\t1\t4\n2013\tKorean Grand Prix\t2\t9\n2010\tMonaco Grand Prix\t4\t14\n2011\tMonaco Grand Prix\t2\t11\n2012\tMonaco Grand Prix\t1\t2\n2013\tMonaco Grand Prix\t3\t15\n2014\tMonaco Grand Prix\t2\t8\n2015\tMonaco Grand Prix\t1\t7\n2016\tMonaco Grand Prix\t5\t15\n2017\tMonaco Grand Prix\t1\t7\n2018\tMonaco Grand Prix\t1\t3\n2019\tMonaco Grand Prix\t1\t4\n2020\tTuscan Grand Prix\t3\t12\n2014\tBahrain Grand Prix\t1\t5\n2017\tBahrain Grand Prix\t1\t4\n2018\tBahrain Grand Prix\t1\t3\n2019\tBahrain Grand Prix\t1\t3\n2010\tBelgian Grand Prix\t2\t5\n2011\tBelgian Grand Prix\t1\t4\n2012\tBelgian Grand Prix\t1\t4\n2015\tBelgian Grand Prix\t1\t2\n2016\tBelgian Grand Prix\t2\t7\n2017\tBelgian Grand Prix\t1\t4\n2018\tBelgian Grand Prix\t1\t4\n2019\tBelgian Grand Prix\t1\t4\n2020\tBelgian Grand Prix\t1\t4\n2010\tBritish Grand Prix\t1\t3\n2013\tBritish Grand Prix\t2\t10\n2014\tBritish Grand Prix\t1\t2\n2015\tBritish Grand Prix\t2\t5\n2016\tBritish Grand Prix\t2\t6\n2017\tBritish Grand Prix\t1\t3\n2018\tBritish Grand Prix\t2\t8\n2019\tBritish Grand Prix\t1\t4\n2020\tBritish Grand Prix\t2\t10\n2010\tChinese Grand Prix\t2\t7\n2015\tChinese Grand Prix\t1\t4\n2016\tChinese Grand Prix\t1\t5\n2017\tChinese Grand Prix\t2\t6\n2018\tChinese Grand Prix\t1\t5\n2019\tChinese Grand Prix\t1\t2\n2011\tItalian Grand Prix\t1\t3\n2018\tItalian Grand Prix\t1\t3\n2019\tItalian Grand Prix\t2\t2\n2020\tItalian Grand Prix\t2\t8\n2015\tMexican Grand Prix\t1\t6\n2016\tMexican Grand Prix\t1\t3\n2017\tMexican Grand Prix\t1\t2\n2018\tMexican Grand Prix\t3\t5\n2019\tMexican Grand Prix\t1\t3\n2015\tRussian Grand Prix\t2\t8\n2016\tRussian Grand Prix\t1\t3\n2017\tRussian Grand Prix\t1\t3\n2019\tRussian Grand Prix\t3\t8\n2016\tSpanish Grand Prix\t1\t3\n2017\tSpanish Grand Prix\t1\t4\n2018\tSpanish Grand Prix\t2\t9\n2019\tSpanish Grand Prix\t1\t7\n2020\tStyrian Grand Prix\t1\t3\n2015\tAustrian Grand Prix\t1\t6\n2016\tAustrian Grand Prix\t1\t5\n2018\tAustrian Grand Prix\t1\t2\n2020\tAustrian Grand Prix\t3\t15\n2011\tCanadian Grand Prix\t5\t32\n2014\tCanadian Grand Prix\t2\t8\n2016\tCanadian Grand Prix\t1\t1\n2017\tCanadian Grand Prix\t2\t7\n2018\tCanadian Grand Prix\t1\t4\n2010\tEuropean Grand Prix\t1\t5\n2010\tJapanese Grand Prix\t1\t6\n2011\tJapanese Grand Prix\t1\t4\n2012\tJapanese Grand Prix\t1\t2\n2014\tJapanese Grand Prix\t2\t10\n2017\tJapanese Grand Prix\t3\t7\n2018\tJapanese Grand Prix\t2\t5\n2010\tAbu Dhabi Grand Prix\t1\t5\n2012\tAbu Dhabi Grand Prix\t2\t10\n2018\tAbu Dhabi Grand Prix\t2\t6\n2010\tBrazilian Grand Prix\t1\t5\n2012\tBrazilian Grand Prix\t2\t9\n2016\tBrazilian Grand Prix\t4\t34\n2017\tBrazilian Grand Prix\t1\t5\n2019\tBrazilian Grand Prix\t2\t10\n2010\tHungarian Grand Prix\t1\t3\n2014\tHungarian Grand Prix\t2\t9\n2015\tHungarian Grand Prix\t1\t7\n2017\tHungarian Grand Prix\t1\t5\n2018\tHungarian Grand Prix\t2\t4\n2010\tSingapore Grand Prix\t2\t7\n2011\tSingapore Grand Prix\t1\t4\n2012\tSingapore Grand Prix\t2\t9\n2013\tSingapore Grand Prix\t1\t6\n2014\tSingapore Grand Prix\t1\t7\n2015\tSingapore Grand Prix\t2\t10\n2016\tSingapore Grand Prix\t1\t2\n2017\tSingapore Grand Prix\t3\t12\n2018\tSingapore Grand Prix\t1\t4\n2019\tSingapore Grand Prix\t3\t11\n2010\tAustralian Grand Prix\t1\t4\n2012\tAustralian Grand Prix\t1\t5\n2014\tAustralian Grand Prix\t1\t4\n2015\tAustralian Grand Prix\t1\t3\n2016\tAustralian Grand Prix\t1\t3\n2018\tAustralian Grand Prix\t2\t10\n2017\tAzerbaijan Grand Prix\t3\t12\n2018\tAzerbaijan Grand Prix\t2\t13\n2019\tAzerbaijan Grand Prix\t1\t2\n2013\tUnited States Grand Prix\t1\t4\n2014\tUnited States Grand Prix\t1\t4\n2015\tUnited States Grand Prix\t4\t16\n2016\tUnited States Grand Prix\t1\t3\n2018\tUnited States Grand Prix\t1\t2\n2012\tMalaysian Grand Prix\t1\t7\n2015\tMalaysian Grand Prix\t1\t3\n2016\tMalaysian Grand Prix\t3\t7\n2012\tEuropean Grand Prix\t1\t5\n"
+          }
+        ]
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_64395898",
+      "id": "20220926-210229_303989768",
+      "dateCreated": "2021-09-23T15:11:45+0000",
+      "dateStarted": "2022-10-04T13:34:29+0000",
+      "dateFinished": "2022-10-04T13:34:29+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51"
+    },
+    {
+      "text": "%sql\nalter table races add laps_with_change_pos_1 number;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:34:29+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "ORA-01430: column being added already exists in table\n"
+          }
+        ]
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_631297237",
+      "id": "20220926-210229_181308719",
+      "dateCreated": "2021-09-23T15:13:18+0000",
+      "dateStarted": "2022-10-04T13:34:30+0000",
+      "dateFinished": "2022-10-04T13:34:30+0000",
+      "status": "ERROR",
+      "$$hashKey": "object:52"
+    },
+    {
+      "text": "%sql\nalter table races add laps_with_change_pos_1_5 number;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_1038792880",
+      "id": "20220926-210229_1274760359",
+      "dateCreated": "2021-09-23T15:14:28+0000",
+      "dateStarted": "2022-09-26T21:28:25+0000",
+      "dateFinished": "2022-09-26T21:28:25+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:53"
+    },
+    {
+      "text": "%sql\nalter table races add overtaken_positions_due_to_pitstop_total number;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_948666018",
+      "id": "20220926-210229_810990572",
+      "dateCreated": "2021-09-23T15:14:31+0000",
+      "dateStarted": "2022-09-26T21:28:27+0000",
+      "dateFinished": "2022-09-26T21:28:27+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:54"
+    },
+    {
+      "text": "%sql\nalter table races add overtaken_positions_real_total number;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_-2096408131",
+      "id": "20220926-210229_1443776298",
+      "dateCreated": "2021-09-23T15:15:32+0000",
+      "dateStarted": "2022-09-26T21:28:28+0000",
+      "dateFinished": "2022-09-26T21:28:29+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:55"
+    },
+    {
+      "text": "%sql\nalter table races add max_comebackscore number;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_-432133608",
+      "id": "20220926-210229_685186865",
+      "dateCreated": "2021-09-23T15:15:43+0000",
+      "dateStarted": "2022-09-26T21:28:34+0000",
+      "dateFinished": "2022-09-26T21:28:34+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:56"
+    },
+    {
+      "text": "%sql\nalter table races add rank_versus_position number;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_-1303142140",
+      "id": "20220926-210229_962130168",
+      "dateCreated": "2021-09-23T15:15:56+0000",
+      "dateStarted": "2022-09-26T21:28:36+0000",
+      "dateFinished": "2022-09-26T21:28:36+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:57"
+    },
+    {
+      "text": "%sql\nalter table races add safety_car number;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_1022870488",
+      "id": "20220926-210229_1012180452",
+      "dateCreated": "2021-09-23T15:16:05+0000",
+      "dateStarted": "2022-09-26T21:28:38+0000",
+      "dateFinished": "2022-09-26T21:28:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:58"
+    },
+    {
+      "text": "%sql\nMERGE INTO races e USING (SELECT * FROM laps_with_change_pos_1_v) h\n        ON (e.raceid = h.raceid)\n      WHEN MATCHED THEN\n        UPDATE SET e.laps_with_change_pos_1 = h.laps;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_389448426",
+      "id": "20220926-210229_407343699",
+      "dateCreated": "2021-09-23T15:16:50+0000",
+      "dateStarted": "2022-09-26T21:28:39+0000",
+      "dateFinished": "2022-09-26T21:28:39+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:59"
+    },
+    {
+      "text": "%sql\nMERGE INTO races e USING (SELECT * FROM laps_with_change_pos_1_5_v) h\n        ON (e.raceid = h.raceid)\n      WHEN MATCHED THEN\n        UPDATE SET e.laps_with_change_pos_1_5 = h.laps;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_128767208",
+      "id": "20220926-210229_150550781",
+      "dateCreated": "2021-09-23T15:17:13+0000",
+      "dateStarted": "2022-09-26T21:28:42+0000",
+      "dateFinished": "2022-09-26T21:28:42+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:60"
+    },
+    {
+      "text": "%sql\nMERGE INTO races e USING (SELECT * FROM overtaken_positions_total) h\n        ON (e.raceid = h.raceid)\n      WHEN MATCHED THEN\n        UPDATE SET e.overtaken_positions_due_to_pitstop_total = h.overtaken_positions_due_to_pitstop_total\n        ,          e.overtaken_positions_real_total = h.overtaken_positions_real_total;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_328345411",
+      "id": "20220926-210229_1993922090",
+      "dateCreated": "2021-09-23T15:17:22+0000",
+      "dateStarted": "2022-09-26T21:28:43+0000",
+      "dateFinished": "2022-09-26T21:28:44+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:61"
+    },
+    {
+      "text": "%sql\nMERGE INTO races e USING (SELECT * FROM comebackscores) h\n        ON (e.raceid = h.raceid)\n      WHEN MATCHED THEN\n        UPDATE SET e.max_comebackscore = h.max_comebackscore;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_1225008320",
+      "id": "20220926-210229_1874474640",
+      "dateCreated": "2021-09-23T15:17:36+0000",
+      "dateStarted": "2022-09-26T21:28:47+0000",
+      "dateFinished": "2022-09-26T21:28:49+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:62"
+    },
+    {
+      "text": "%sql\nMERGE INTO races e USING (SELECT * FROM position_difference_top_5_v) h\n        ON (e.raceid = h.raceid)\n      WHEN MATCHED THEN\n        UPDATE SET e.rank_versus_position = h.position_difference_top_5;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_-791085829",
+      "id": "20220926-210229_1271657534",
+      "dateCreated": "2021-09-23T15:17:55+0000",
+      "dateStarted": "2021-11-11T10:32:50+0000",
+      "dateFinished": "2021-11-11T10:32:50+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:63"
+    },
+    {
+      "text": "%sql\nMERGE INTO races e USING (SELECT * FROM safety_car) h\n        ON (e.name = h.race AND e.year = h.year)\n      WHEN MATCHED THEN\n        UPDATE SET e.safety_car = 1;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_-1945018578",
+      "id": "20220926-210229_171185002",
+      "dateCreated": "2021-09-23T15:18:09+0000",
+      "dateStarted": "2022-09-26T21:28:50+0000",
+      "dateFinished": "2022-09-26T21:28:50+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:64"
+    },
+    {
+      "text": "%sql\nupdate races set laps_with_change_pos_1 = 0 where laps_with_change_pos_1 is null;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_-1348803425",
+      "id": "20220926-210229_980282752",
+      "dateCreated": "2021-09-23T16:04:56+0000",
+      "dateStarted": "2022-09-26T21:28:54+0000",
+      "dateFinished": "2022-09-26T21:28:54+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:65"
+    },
+    {
+      "text": "%sql\nupdate races set laps_with_change_pos_1_5 = 0 where laps_with_change_pos_1_5 is null;\n",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_1952737674",
+      "id": "20220926-210229_73220843",
+      "dateCreated": "2021-10-01T15:49:42+0000",
+      "dateStarted": "2022-09-26T21:28:55+0000",
+      "dateFinished": "2022-09-26T21:28:55+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:66"
+    },
+    {
+      "text": "%sql\nupdate races set max_comebackscore = 0 where max_comebackscore is null;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_1603847922",
+      "id": "20220926-210229_270744666",
+      "dateCreated": "2021-10-01T15:49:49+0000",
+      "dateStarted": "2022-09-26T21:28:58+0000",
+      "dateFinished": "2022-09-26T21:28:58+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:67"
+    },
+    {
+      "text": "%sql\nupdate races set rank_versus_position = 0 where rank_versus_position is null;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149827_343804607",
+      "id": "20220926-210229_984007287",
+      "dateCreated": "2021-10-01T15:50:20+0000",
+      "dateStarted": "2022-09-26T21:29:01+0000",
+      "dateFinished": "2022-09-26T21:29:01+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:68"
+    },
+    {
+      "text": "%sql\nupdate races set safety_car = 0 where safety_car is null;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:33:43+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149828_145431656",
+      "id": "20220926-210229_1869756750",
+      "dateCreated": "2021-10-01T15:50:31+0000",
+      "dateStarted": "2022-09-26T21:29:11+0000",
+      "dateFinished": "2022-09-26T21:29:11+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:69"
+    },
+    {
+      "text": "%sql\n--Split the dataset\n--Create a dedicated RACES_TRAIN table. We will use this later to TRAIN the model on the years until 2019.\n--We will use the year 2020 to TEST the model later.\n\n--Dividir el conjunto de datos\n--Crear una tabla RACES_TRAIN dedicada. La utilizaremos más tarde para ENTRENAR el modelo en los años hasta 2019.\n--Utilizaremos el año 2020 para PROBAR el modelo más adelante.\n\n\ncreate table races_train as select * from races where year >= 2011 and year <= 2019; --Exclude 2020",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:35:59+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149828_1179726690",
+      "id": "20220926-210229_22438993",
+      "dateCreated": "2021-09-23T15:19:23+0000",
+      "dateStarted": "2022-09-26T21:30:03+0000",
+      "dateFinished": "2022-09-26T21:30:04+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:70"
+    },
+    {
+      "text": "%sql\n--vamos a ver la tabla creada\nselect * from races_train;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:36:16+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "RACEID": "number",
+                      "YEAR": "number",
+                      "ROUND": "number",
+                      "NAME": "string",
+                      "F1DATE": "date",
+                      "TIME": "string",
+                      "URL": "string",
+                      "SCORE": "number",
+                      "DNF_COUNT": "number",
+                      "DNF_DUE_TO_ACCIDENT_COUNT": "number",
+                      "WEATHER": "string",
+                      "WEATHER_WET": "string",
+                      "CIRCUITREF": "string",
+                      "YEAR_C": "number",
+                      "RACE_COUNT": "number",
+                      "NAME_YEAR": "string",
+                      "OVERTAKEN_POSITIONS_TOTAL": "number",
+                      "LAPS_WITH_CHANGE_POS_1": "number",
+                      "LAPS_WITH_CHANGE_POS_1_5": "number",
+                      "OVERTAKEN_POSITIONS_DUE_TO_PITSTOP_TOTAL": "number",
+                      "OVERTAKEN_POSITIONS_REAL_TOTAL": "number",
+                      "MAX_COMEBACKSCORE": "number",
+                      "RANK_VERSUS_POSITION": "number",
+                      "SAFETY_CAR": "number"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/osql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664226149828_1511167655",
+      "id": "20220926-210229_136202701",
+      "dateCreated": "2021-11-11T11:36:26+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:71",
+      "dateFinished": "2022-10-04T13:36:04+0000",
+      "dateStarted": "2022-10-04T13:36:04+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "RACEID\tYEAR\tROUND\tNAME\tF1DATE\tTIME\tURL\tSCORE\tDNF_COUNT\tDNF_DUE_TO_ACCIDENT_COUNT\tWEATHER\tWEATHER_WET\tCIRCUITREF\tYEAR_C\tRACE_COUNT\tNAME_YEAR\tOVERTAKEN_POSITIONS_TOTAL\tLAPS_WITH_CHANGE_POS_1\tLAPS_WITH_CHANGE_POS_1_5\tOVERTAKEN_POSITIONS_DUE_TO_PITSTOP_TOTAL\tOVERTAKEN_POSITIONS_REAL_TOTAL\tMAX_COMEBACKSCORE\tRANK_VERSUS_POSITION\tSAFETY_CAR\n841\t2011\t1\tAustralian Grand Prix\t2011-03-27 00:00:00\t6:00:00\thttp://en.wikipedia.org/wiki/2011_Australian_Grand_Prix\t6.751\t9\t2\tSunny, 18Ѓ\tN\talbert_park\t2011\t1\t2011 Australian Grand Prix\t164\t2\t15\t117\t47\t11\t0\t0\n842\t2011\t2\tMalaysian Grand Prix\t2011-04-10 00:00:00\t8:00:00\thttp://en.wikipedia.org/wiki/2011_Malaysian_Grand_Prix\t7.775\t6\t3\tCloudy, dry\tN\tsepang\t2011\t1\t2011 Malaysian Grand Prix\t255\t4\t23\t46\t209\t13\t0\t0\n843\t2011\t3\tChinese Grand Prix\t2011-04-17 00:00:00\t7:00:00\thttp://en.wikipedia.org/wiki/2011_Chinese_Grand_Prix\t9.241\t1\t0\tFine and Dry[1] Air Temp 220C (720F)[1] Track Temp 320C (900F) dropping to 260C (790F)[1]\tN\tshanghai\t2011\t1\t2011 Chinese Grand Prix\t282\t8\t28\t65\t217\t17\t0\t0\n844\t2011\t4\tTurkish Grand Prix\t2011-05-08 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2011_Turkish_Grand_Prix\t7.306\t2\t0\tSunny, Fine and Dry[2] Air Temp 170C (630F)[2] Track Temp 350C (950F) dropping to 300C (860F)[2]\tN\tistanbul\t2011\t1\t2011 Turkish Grand Prix\t364\t2\t21\t28\t336\t14\t0\t0\n845\t2011\t5\tSpanish Grand Prix\t2011-05-22 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2011_Spanish_Grand_Prix\t7.319\t3\t1\tMainly sunny, Fine and Dry[2][3] Air Temp 270C (810F)[3] Track Temp 330C (910F) to 440C (1110F)[3]\tN\tcatalunya\t2011\t1\t2011 Spanish Grand Prix\t275\t8\t17\t55\t220\t14\t0\t0\n846\t2011\t6\tMonaco Grand Prix\t2011-05-29 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2011_Monaco_Grand_Prix\t7.684\t7\t5\tSunny, Fine and Dry[2]Air Temp 240C (750F)[2]Track Temp 440C (1110F)[2]\tN\tmonaco\t2011\t1\t2011 Monaco Grand Prix\t155\t3\t15\t131\t24\t10\t0\t1\n847\t2011\t7\tCanadian Grand Prix\t2011-06-12 00:00:00\t17:00:00\thttp://en.wikipedia.org/wiki/2011_Canadian_Grand_Prix\t9.095\t7\t5\tWet at start, very heavy rain later, after rain stops, track drying towards the end. Temperatures up to 270C (810F); wind speeds up to 12 kilometres per hour (7.5-ph)[2]\tY\tvilleneuve\t2011\t1\t2011 Canadian Grand Prix\t421\t3\t24\t295\t126\t20\t0\t1\n849\t2011\t9\tBritish Grand Prix\t2011-07-10 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2011_British_Grand_Prix\t7.96\t5\t1\tWet track at start; subsequently drying[1]Air Temp 200C (680F)[1]Track Temp 220C (720F)[1]\tY\tsilverstone\t2011\t1\t2011 British Grand Prix\t169\t1\t15\t1\t168\t10\t0\t0\n850\t2011\t10\tGerman Grand Prix\t2011-07-24 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2011_German_Grand_Prix\t8.43\t4\t1\tCloudy, (light) rain at start\tY\tnurburgring\t2011\t1\t2011 German Grand Prix\t167\t9\t20\t33\t134\t15\t0\t0\n851\t2011\t11\tHungarian Grand Prix\t2011-07-31 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2011_Hungarian_Grand_Prix\t8.344\t4\t0\tCloudy, rain showers\tY\thungaroring\t2011\t1\t2011 Hungarian Grand Prix\t228\t9\t27\t29\t199\t12\t0\t0\n852\t2011\t12\tBelgian Grand Prix\t2011-08-28 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2011_Belgian_Grand_Prix\t7.772\t5\t2\tCloudy, dry\tN\tspa\t2011\t1\t2011 Belgian Grand Prix\t217\t9\t23\t42\t175\t18\t0\t1\n853\t2011\t13\tItalian Grand Prix\t2011-09-11 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2011_Italian_Grand_Prix\t7.494\t8\t4\tMainly sunny\tN\tmonza\t2011\t1\t2011 Italian Grand Prix\t102\t1\t15\t23\t79\t9\t0\t1\n854\t2011\t14\tSingapore Grand Prix\t2011-09-25 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2011_Singapore_Grand_Prix\t6.39\t4\t3\tHot and humid Air Temp 310C (880F)[1]\tN\tmarina_bay\t2011\t1\t2011 Singapore Grand Prix\t225\t0\t16\t82\t143\t14\t0\t1\n855\t2011\t15\tJapanese Grand Prix\t2011-10-09 00:00:00\t6:00:00\thttp://en.wikipedia.org/wiki/2011_Japanese_Grand_Prix\t7.57\t1\t0\tSunny and dry Air Temp 240C (750F)[2]\tN\tsuzuka\t2011\t1\t2011 Japanese Grand Prix\t289\t10\t19\t30\t259\t15\t0\t1\n856\t2011\t16\tKorean Grand Prix\t2011-10-16 00:00:00\t6:00:00\thttp://en.wikipedia.org/wiki/2011_Korean_Grand_Prix\t6.915\t3\t2\tDry, light rain at the start Air Temp 210C (700F)[2]\tY\tyeongam\t2011\t1\t2011 Korean Grand Prix\t194\t2\t10\t39\t155\t10\t0\t1\n857\t2011\t17\tIndian Grand Prix\t2011-10-30 00:00:00\t9:30:00\thttp://en.wikipedia.org/wiki/2011_Indian_Grand_Prix\t5.555\t5\t2\tFine and Dry Air Temp 300C (860F)[1]\tN\tbuddh\t2011\t1\t2011 Indian Grand Prix\t101\t0\t5\t14\t87\t10\t0\t0\n858\t2011\t18\tAbu Dhabi Grand Prix\t2011-11-13 00:00:00\t13:00:00\thttp://en.wikipedia.org/wiki/2011_Abu_Dhabi_Grand_Prix\t6.127\t4\t0\tFine and Dry Air Temp 250C (770F)[1]\tN\tyas_marina\t2011\t1\t2011 Abu Dhabi Grand Prix\t174\t4\t12\t15\t159\t14\t0\t0\n859\t2011\t19\tBrazilian Grand Prix\t2011-11-27 00:00:00\t16:00:00\thttp://en.wikipedia.org/wiki/2011_Brazilian_Grand_Prix\t5.771\t4\t0\tFine Air Temp 240C (750F) Track Temp 430C (1090F)[1]\tN\tinterlagos\t2011\t1\t2011 Brazilian Grand Prix\t178\t8\t18\t55\t123\t9\t0\t0\n860\t2012\t1\tAustralian Grand Prix\t2012-03-18 00:00:00\t6:00:00\thttp://en.wikipedia.org/wiki/2012_Australian_Grand_Prix\t7.662\t10\t5\tFine[1] Air Temp 220C (720F)[1] Track Temp 300C (860F) dropping to 220C (720F)[1]\tN\talbert_park\t2012\t1\t2012 Australian Grand Prix\t159\t4\t16\t108\t51\t12\t0\t1\n861\t2012\t2\tMalaysian Grand Prix\t2012-03-25 00:00:00\t8:00:00\thttp://en.wikipedia.org/wiki/2012_Malaysian_Grand_Prix\t8.452\t3\t1\tHeavy rain clearing to cloudy and dry[2] Air Temp 260C (790F)[2]  Track Temp 290C (840F) dropping to 240C (750F) [2]\tY\tsepang\t2012\t1\t2012 Malaysian Grand Prix\t362\t4\t15\t65\t297\t22\t0\t1\n862\t2012\t3\tChinese Grand Prix\t2012-04-15 00:00:00\t7:00:00\thttp://en.wikipedia.org/wiki/2012_Chinese_Grand_Prix\t8.648\t1\t0\tnot found\tN\tshanghai\t2012\t1\t2012 Chinese Grand Prix\t356\t4\t28\t64\t292\t16\t0\t0\n863\t2012\t4\tBahrain Grand Prix\t2012-04-22 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2012_Bahrain_Grand_Prix\t6.904\t4\t0\tSunny and hot[1][2] Air Temp 270C (810F)[2] Track Temp 330C (910F) dropping to 290C (840F)[2]\tN\tbahrain\t2012\t1\t2012 Bahrain Grand Prix\t333\t4\t19\t41\t292\t13\t0\t0\n864\t2012\t5\tSpanish Grand Prix\t2012-05-13 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2012_Spanish_Grand_Prix\t8.274\t5\t2\tPartially cloudy, dry: Air 230C (730F), Track 360C (970F)\tN\tcatalunya\t2012\t1\t2012 Spanish Grand Prix\t318\t6\t22\t56\t262\t16\t0\t0\n866\t2012\t7\tCanadian Grand Prix\t2012-06-10 00:00:00\t18:00:00\thttp://en.wikipedia.org/wiki/2012_Canadian_Grand_Prix\t8.197\t4\t0\tnot found\tN\tvilleneuve\t2012\t1\t2012 Canadian Grand Prix\t199\t6\t21\t151\t48\t15\t0\t0\n867\t2012\t8\tEuropean Grand Prix\t2012-06-24 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2012_European_Grand_Prix\t8.784\t6\t3\tFine and Dry[2] Air Temp 270C (810F)[2] Track Temp 450C (1130F)[2]\tN\tvalencia\t2012\t1\t2012 European Grand Prix\t284\t1\t19\t199\t85\t15\t0\t1\n868\t2012\t9\tBritish Grand Prix\t2012-07-08 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2012_British_Grand_Prix\t7.048\t3\t2\tDryAir Temp 200C (680F)[2]Track Temp 310C (880F)[2]\tN\tsilverstone\t2012\t1\t2012 British Grand Prix\t218\t3\t17\t17\t201\t16\t0\t0\n869\t2012\t10\tGerman Grand Prix\t2012-07-22 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2012_German_Grand_Prix\t7.055\t0\t0\tFine and Dry[2] Air Temp 220C (720F)[2] Track Temp 300C (860F)[2]\tN\thockenheimring\t2012\t1\t2012 German Grand Prix\t225\t2\t20\t45\t180\t10\t0\t0\n870\t2012\t11\tHungarian Grand Prix\t2012-07-29 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2012_Hungarian_Grand_Prix\t5.975\t1\t0\tFine and Dry. Very Hot[2][3] Air Temp 300C (860F)[3] Track Temp 450C (1130F)[3]\tN\thungaroring\t2012\t1\t2012 Hungarian Grand Prix\t159\t5\t16\t23\t136\t7\t0\t0\n871\t2012\t12\tBelgian Grand Prix\t2012-09-02 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2012_Belgian_Grand_Prix\t7.467\t6\t6\tFine and Dry[2] Air Temp 230C (730F)[2] Track Temp 330C (910F)[2]\tN\tspa\t2012\t1\t2012 Belgian Grand Prix\t170\t0\t22\t44\t126\t10\t0\t1\n872\t2012\t13\tItalian Grand Prix\t2012-09-09 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2012_Italian_Grand_Prix\t7.64\t5\t0\tDry and sizzlingly sunny[2] Air temp 280C (820F)[2] Track temp 400C (1040F)[2]\tN\tmonza\t2012\t1\t2012 Italian Grand Prix\t215\t2\t17\t26\t189\t13\t0\t0\n873\t2012\t14\tSingapore Grand Prix\t2012-09-23 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2012_Singapore_Grand_Prix\t5.998\t6\t3\tHot and humid[2]Air Temp 290C (840F)[2]Track Temp 310C (880F)[2]\tN\tmarina_bay\t2012\t1\t2012 Singapore Grand Prix\t297\t3\t13\t90\t207\t16\t0\t1\n874\t2012\t15\tJapanese Grand Prix\t2012-10-07 00:00:00\t6:00:00\thttp://en.wikipedia.org/wiki/2012_Japanese_Grand_Prix\t6.381\t5\t3\tFine and Dry[2] Air Temp 230C (730F)[2] Track Temp 320C (900F)[2]\tN\tsuzuka\t2012\t1\t2012 Japanese Grand Prix\t167\t0\t11\t16\t151\t13\t0\t1\n875\t2012\t16\tKorean Grand Prix\t2012-10-14 00:00:00\t6:00:00\thttp://en.wikipedia.org/wiki/2012_Korean_Grand_Prix\t5.158\t4\t2\tFine and Dry[3] Air Temp 210C (700F)[3] Track Temp 270C (810F) dropping to 230C (730F)[3]\tN\tyeongam\t2012\t1\t2012 Korean Grand Prix\t128\t0\t12\t27\t101\t11\t0\t0\n876\t2012\t17\tIndian Grand Prix\t2012-10-28 00:00:00\t9:30:00\thttp://en.wikipedia.org/wiki/2012_Indian_Grand_Prix\t5.194\t3\t2\tFine, Dry, a little hazy and a little dusty[2] Air Temp 300C (860F)[2] Track Temp 360C (970F) dropping to 310C (880F)[2]\tN\tbuddh\t2012\t1\t2012 Indian Grand Prix\t107\t0\t9\t20\t87\t8\t0\t0\n877\t2012\t18\tAbu Dhabi Grand Prix\t2012-11-04 00:00:00\t13:00:00\thttp://en.wikipedia.org/wiki/2012_Abu_Dhabi_Grand_Prix\t8.854\t7\t5\tDry[2] Air Temp 290C (840F)[2] Track Temp 340C (930F) dropping to 290C (840F)[2]\tN\tyas_marina\t2012\t1\t2012 Abu Dhabi Grand Prix\t180\t1\t11\t14\t166\t19\t0\t1\n879\t2012\t20\tBrazilian Grand Prix\t2012-11-25 00:00:00\t16:00:00\thttp://en.wikipedia.org/wiki/2012_Brazilian_Grand_Prix\t9.449\t6\t6\tRace start: drops of rain, light rain shower getting heavier at the end.[2] Air Temp 190C (660F)[2] Track Temp 210C (700F)[2]\tY\tinterlagos\t2012\t1\t2012 Brazilian Grand Prix\t367\t6\t25\t136\t231\t18\t0\t1\n880\t2013\t1\tAustralian Grand Prix\t2013-03-17 00:00:00\t6:00:00\thttp://en.wikipedia.org/wiki/2013_Australian_Grand_Prix\t7.698\t4\t1\tScattered Clouds, Fine and Dry[2] Air Temp 180C (640F)[2] Track Temp 250C (770F) dropping to 190C (660F)[2]\tN\talbert_park\t2013\t1\t2013 Australian Grand Prix\t289\t10\t24\t225\t64\t13\t0\t0\n882\t2013\t3\tChinese Grand Prix\t2013-04-14 00:00:00\t7:00:00\thttp://en.wikipedia.org/wiki/2013_Chinese_Grand_Prix\t7.412\t4\t2\tnot found\tN\tshanghai\t2013\t1\t2013 Chinese Grand Prix\t292\t9\t30\t77\t215\t16\t0\t0\n883\t2013\t4\tBahrain Grand Prix\t2013-04-21 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2013_Bahrain_Grand_Prix\t7.826\t1\t0\tnot found\tN\tbahrain\t2013\t1\t2013 Bahrain Grand Prix\t353\t4\t34\t72\t281\t15\t0\t0\n884\t2013\t5\tSpanish Grand Prix\t2013-05-12 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2013_Spanish_Grand_Prix\t5.947\t3\t1\tSunny\tN\tcatalunya\t2013\t1\t2013 Spanish Grand Prix\t328\t7\t24\t54\t274\t15\t0\t0\n885\t2013\t6\tMonaco Grand Prix\t2013-05-26 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2013_Monaco_Grand_Prix\t6.132\t7\t4\tWarm and sunny\tN\tmonaco\t2013\t1\t2013 Monaco Grand Prix\t112\t0\t10\t92\t20\t10\t0\t1\n886\t2013\t7\tCanadian Grand Prix\t2013-06-09 00:00:00\t18:00:00\thttp://en.wikipedia.org/wiki/2013_Canadian_Grand_Prix\t6.329\t3\t3\tMild with temperatures approaching 230C (730F); wind speeds up to 15 kilometres per hour (9.3-ph)[2]\tN\tvilleneuve\t2013\t1\t2013 Canadian Grand Prix\t139\t2\t7\t95\t44\t12\t0\t0\n887\t2013\t8\tBritish Grand Prix\t2013-06-30 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2013_British_Grand_Prix\t7.394\t4\t0\tDry\tN\tsilverstone\t2013\t1\t2013 British Grand Prix\t347\t2\t22\t40\t307\t18\t0\t1\n888\t2013\t9\tGerman Grand Prix\t2013-07-07 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2013_German_Grand_Prix\t7.643\t3\t1\tSunny\tN\tnurburgring\t2013\t1\t2013 German Grand Prix\t253\t5\t23\t38\t215\t14\t0\t1\n890\t2013\t10\tHungarian Grand Prix\t2013-07-28 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2013_Hungarian_Grand_Prix\t7.677\t5\t0\tVery hot and sunny, 35Ѓ.\tN\thungaroring\t2013\t1\t2013 Hungarian Grand Prix\t197\t8\t22\t39\t158\t9\t0\t0\n891\t2013\t11\tBelgian Grand Prix\t2013-08-25 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2013_Belgian_Grand_Prix\t5.688\t3\t1\tnot found\tN\tspa\t2013\t1\t2013 Belgian Grand Prix\t192\t0\t16\t51\t141\t10\t0\t0\n892\t2013\t12\tItalian Grand Prix\t2013-09-08 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2013_Italian_Grand_Prix\t5.84\t2\t1\tCloudy\tN\tmonza\t2013\t1\t2013 Italian Grand Prix\t145\t2\t10\t18\t127\t16\t0\t0\n893\t2013\t13\tSingapore Grand Prix\t2013-09-22 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2013_Singapore_Grand_Prix\t5.973\t4\t2\tDry and 29 degrees\tN\tmarina_bay\t2013\t1\t2013 Singapore Grand Prix\t229\t0\t16\t77\t152\t16\t0\t1\n894\t2013\t14\tKorean Grand Prix\t2013-10-06 00:00:00\t6:00:00\thttp://en.wikipedia.org/wiki/2013_Korean_Grand_Prix\t7.351\t3\t3\tCloudy with maximum temperatures reaching 29 degrees during the day\tN\tyeongam\t2013\t1\t2013 Korean Grand Prix\t257\t0\t11\t68\t189\t14\t0\t1\n895\t2013\t15\tJapanese Grand Prix\t2013-10-13 00:00:00\t6:00:00\thttp://en.wikipedia.org/wiki/2013_Japanese_Grand_Prix\t7.338\t3\t2\tWarm and sunny\tN\tsuzuka\t2013\t1\t2013 Japanese Grand Prix\t207\t5\t19\t32\t175\t10\t0\t0\n896\t2013\t16\tIndian Grand Prix\t2013-10-27 00:00:00\t9:30:00\thttp://en.wikipedia.org/wiki/2013_Indian_Grand_Prix\t6.502\t4\t1\tSunny, haze\tN\tbuddh\t2013\t1\t2013 Indian Grand Prix\t258\t5\t22\t37\t221\t16\t0\t0\n897\t2013\t17\tAbu Dhabi Grand Prix\t2013-11-03 00:00:00\t13:00:00\thttp://en.wikipedia.org/wiki/2013_Abu_Dhabi_Grand_Prix\t5.017\t1\t1\tClear\tN\tyas_marina\t2013\t1\t2013 Abu Dhabi Grand Prix\t213\t0\t15\t20\t193\t9\t0\t0\n898\t2013\t18\tUnited States Grand Prix\t2013-11-17 00:00:00\t19:00:00\thttp://en.wikipedia.org/wiki/2013_United_States_Grand_Prix\t5.396\t1\t1\tPartly cloudy, warmTemperatures reaching up to 89.10F (31.70C); wind speeds approaching speeds of 11.1 miles per hour (17.9+m/h)[2]\tN\tamericas\t2013\t1\t2013 United States Grand Prix\t100\t2\t7\t4\t96\t15\t0\t1\n899\t2013\t19\tBrazilian Grand Prix\t2013-11-24 00:00:00\t16:00:00\thttp://en.wikipedia.org/wiki/2013_Brazilian_Grand_Prix\t7.144\t3\t1\tCloudy, Air Temp: 18Ѓ\tN\tinterlagos\t2013\t1\t2013 Brazilian Grand Prix\t197\t0\t17\t39\t158\t10\t0\t0\n900\t2014\t1\tAustralian Grand Prix\t2014-03-16 00:00:00\t6:00:00\thttps://en.wikipedia.org/wiki/2014_Australian_Grand_Prix\t6.89\t8\t2\tOvercast, 190C(660F)\tN\talbert_park\t2014\t1\t2014 Australian Grand Prix\t81\t0\t6\t49\t32\t12\t0\t1\n901\t2014\t2\tMalaysian Grand Prix\t2014-03-30 00:00:00\t8:00:00\thttps://en.wikipedia.org/wiki/2014_Malaysian_Grand_Prix\t5.9\t7\t0\tDry, 32Ѓ\tN\tsepang\t2014\t1\t2014 Malaysian Grand Prix\t157\t0\t16\t34\t123\t8\t0\t0\n902\t2014\t3\tBahrain Grand Prix\t2014-04-06 00:00:00\t15:00:00\thttp://en.wikipedia.org/wiki/2014_Bahrain_Grand_Prix\t9.1\t6\t2\tDry\tN\tbahrain\t2014\t1\t2014 Bahrain Grand Prix\t249\t2\t22\t41\t208\t13\t0\t1\n903\t2014\t4\tChinese Grand Prix\t2014-04-20 00:00:00\t7:00:00\thttp://en.wikipedia.org/wiki/2014_Chinese_Grand_Prix\t5.47\t2\t0\tMostly cloudy, dry\tN\tshanghai\t2014\t1\t2014 Chinese Grand Prix\t158\t0\t13\t25\t133\t10\t0\t0\n904\t2014\t5\tSpanish Grand Prix\t2014-05-11 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2014_Spanish_Grand_Prix\t6.45\t2\t0\tSunny\tN\tcatalunya\t2014\t1\t2014 Spanish Grand Prix\t229\t4\t13\t28\t201\t17\t0\t0\n905\t2014\t6\tMonaco Grand Prix\t2014-05-25 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2014_Monaco_Grand_Prix\t7.04\t8\t3\tOvercast, Air: 20 to 210C (68 to 700F), Track: 28 to 300C (82 to 860F).\tN\tmonaco\t2014\t1\t2014 Monaco Grand Prix\t73\t0\t4\t51\t22\t10\t0\t1\n906\t2014\t7\tCanadian Grand Prix\t2014-06-08 00:00:00\t18:00:00\thttp://en.wikipedia.org/wiki/2014_Canadian_Grand_Prix\t9.19\t11\t4\tTemperatures up to 27.60C (81.70F); wind speeds up to 16.4 kilometres per hour (10.2-ph)[5]\tN\tvilleneuve\t2014\t1\t2014 Canadian Grand Prix\t172\t6\t22\t127\t45\t14\t0\t1\n907\t2014\t8\tAustrian Grand Prix\t2014-06-22 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2014_Austrian_Grand_Prix\t6.7\t3\t0\tPartially cloudy, hot and dry\tN\tred_bull_ring\t2014\t1\t2014 Austrian Grand Prix\t220\t7\t16\t33\t187\t12\t0\t0\n908\t2014\t9\tBritish Grand Prix\t2014-07-06 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2014_British_Grand_Prix\t7.85\t5\t3\tMostly cloudy with maximum temperatures reaching 21 degrees during the day.\tN\tsilverstone\t2014\t1\t2014 British Grand Prix\t100\t3\t14\t10\t90\t10\t0\t1\n909\t2014\t10\tGerman Grand Prix\t2014-07-20 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2014_German_Grand_Prix\t7.86\t4\t1\tCloudy with maximum temperatures reaching 26 degrees during the day.\tN\thockenheimring\t2014\t1\t2014 German Grand Prix\t226\t0\t19\t45\t181\t15\t0\t1\n910\t2014\t11\tHungarian Grand Prix\t2014-07-27 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2014_Hungarian_Grand_Prix\t9.14\t6\t4\tOvercast. Wet track at start, then drying. Scattered thunderstorms during the day, temperatures reaching a maximum of 26 degrees.[1]\tY\thungaroring\t2014\t1\t2014 Hungarian Grand Prix\t247\t8\t25\t39\t208\t20\t0\t1\n911\t2014\t12\tBelgian Grand Prix\t2014-08-24 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2014_Belgian_Grand_Prix\t7.76\t5\t0\tMostly cloudy\tN\tspa\t2014\t1\t2014 Belgian Grand Prix\t207\t4\t23\t61\t146\t13\t0\t0\n912\t2014\t13\tItalian Grand Prix\t2014-09-07 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2014_Italian_Grand_Prix\t7.42\t2\t1\tSunny; Air: 250C (770F), Track: 37 to 420C (99 to 1080F)\tN\tmonza\t2014\t1\t2014 Italian Grand Prix\t141\t3\t14\t24\t117\t16\t0\t0\n913\t2014\t14\tSingapore Grand Prix\t2014-09-21 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2014_Singapore_Grand_Prix\t6.43\t5\t0\tClear. Air: 28 to 300C (82 to 860F) Track: 33 to 370C (91 to 990F).\tN\tmarina_bay\t2014\t1\t2014 Singapore Grand Prix\t201\t4\t14\t58\t143\t10\t0\t1\n916\t2014\t17\tUnited States Grand Prix\t2014-11-02 00:00:00\t20:00:00\thttp://en.wikipedia.org/wiki/2014_United_States_Grand_Prix\t7.33\t3\t1\tSunny,\tN\tamericas\t2014\t1\t2014 United States Grand Prix\t177\t5\t10\t7\t170\t10\t0\t1\n917\t2014\t18\tBrazilian Grand Prix\t2014-11-09 00:00:00\t16:00:00\thttp://en.wikipedia.org/wiki/2014_Brazilian_Grand_Prix\t7.22\t1\t0\tSunny, Air: 23 to 240C (73 to 750F), Track: 46 to 500C (115 to 1220F)\tN\tinterlagos\t2014\t1\t2014 Brazilian Grand Prix\t368\t7\t28\t62\t306\t13\t0\t0\n918\t2014\t19\tAbu Dhabi Grand Prix\t2014-11-23 00:00:00\t13:00:00\thttp://en.wikipedia.org/wiki/2014_Abu_Dhabi_Grand_Prix\t6.49\t3\t0\tClear skies; Air temp: 30 Ѓ (86 І) during the day, dropping to 24 Ѓ (75.2 І). Wind speed: 8 km/h (4.9 mph).[2] (Night race)\tN\tyas_marina\t2014\t1\t2014 Abu Dhabi Grand Prix\t219\t5\t19\t13\t206\t14\t0\t0\n926\t2015\t1\tAustralian Grand Prix\t2015-03-15 00:00:00\t5:00:00\thttp://en.wikipedia.org/wiki/2015_Australian_Grand_Prix\t4.75\t7\t1\tPartly cloudy17ֱ80C (63ֶ40F) air temperature32ֳ70C (90ֹ90F) track temperature6-/s (20&t/s) wind from the south[3]\tN\talbert_park\t2015\t1\t2015 Australian Grand Prix\t46\t2\t7\t33\t13\t6\t0\t1\n927\t2015\t2\tMalaysian Grand Prix\t2015-03-29 00:00:00\t7:00:00\thttp://en.wikipedia.org/wiki/2015_Malaysian_Grand_Prix\t8.37\t5\t1\tSunny32ֳ30C (90ֹ10F) air temperature53ֵ80C (127ֱ360F) track temperature2-/s (6.6&t/s) wind from the south[3]\tN\tsepang\t2015\t1\t2015 Malaysian Grand Prix\t256\t5\t22\t42\t214\t15\t0\t1\n928\t2015\t3\tChinese Grand Prix\t2015-04-12 00:00:00\t6:00:00\thttp://en.wikipedia.org/wiki/2015_Chinese_Grand_Prix\t5.72\t4\t0\tSunny210C (700F) air temperature460C (1150F) track temperature1.4-/s (4.6&t/s) wind from the northwest[1]\tN\tshanghai\t2015\t1\t2015 Chinese Grand Prix\t128\t4\t9\t21\t107\t10\t0\t1\n929\t2015\t4\tBahrain Grand Prix\t2015-04-19 00:00:00\t15:00:00\thttp://en.wikipedia.org/wiki/2015_Bahrain_Grand_Prix\t7.37\t3\t0\tSunny, clear24ֲ60C (75ַ90F) air temperature28ֳ10C (82ָ80F) track temperature1.5-/s (4.9&t/s) wind from the north[1]\tN\tbahrain\t2015\t1\t2015 Bahrain Grand Prix\t167\t5\t16\t26\t141\t10\t0\t0\n930\t2015\t5\tSpanish Grand Prix\t2015-05-10 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2015_Spanish_Grand_Prix\t5.15\t2\t1\tSunny250C (770F) air temperature440C (1110F) track temperature1.8-/s (5.9&t/s) wind from the northeast[3]\tN\tcatalunya\t2015\t1\t2015 Spanish Grand Prix\t159\t4\t14\t29\t130\t8\t0\t0\n931\t2015\t6\tMonaco Grand Prix\t2015-05-24 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2015_Monaco_Grand_Prix\t5.63\t3\t1\tPartly cloudy18ֱ90C (64ֶ60F) air temperature31ֳ70C (88ֹ90F) track temperature1.5-/s (4.9&t/s) wind from the west[2]\tN\tmonaco\t2015\t1\t2015 Monaco Grand Prix\t42\t1\t7\t26\t16\t8\t0\t1\n932\t2015\t7\tCanadian Grand Prix\t2015-06-07 00:00:00\t18:00:00\thttp://en.wikipedia.org/wiki/2015_Canadian_Grand_Prix\t5.54\t3\t0\tnot found\tN\tvilleneuve\t2015\t1\t2015 Canadian Grand Prix\t101\t2\t8\t58\t43\t15\t0\t0\n933\t2015\t8\tAustrian Grand Prix\t2015-06-21 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2015_Austrian_Grand_Prix\t5.6\t6\t2\tnot found\tN\tred_bull_ring\t2015\t1\t2015 Austrian Grand Prix\t76\t3\t7\t12\t64\t8\t0\t1\n934\t2015\t9\tBritish Grand Prix\t2015-07-05 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2015_British_Grand_Prix\t7.95\t7\t4\tCloudy, rain at times17ֲ00C (63ֶ80F) air temperature24ֳ20C (75ֹ00F) track temperature2.5-/s (8.2&t/s) wind from the east[2]\tY\tsilverstone\t2015\t1\t2015 British Grand Prix\t84\t6\t12\t4\t80\t7\t0\t1\n937\t2015\t11\tBelgian Grand Prix\t2015-08-23 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2015_Belgian_Grand_Prix\t6.39\t6\t0\tCloudy230C (730F) air temperature33ֳ70C (91ֹ90F) track temperature3.5-/s (11&t/s) wind from the northwest[2]\tN\tspa\t2015\t1\t2015 Belgian Grand Prix\t122\t2\t18\t25\t97\t9\t0\t1\n938\t2015\t12\tItalian Grand Prix\t2015-09-06 00:00:00\t12:00:00\thttp://en.wikipedia.org/wiki/2015_Italian_Grand_Prix\t5.64\t2\t0\tPartly cloudy22ֲ30C (72ַ30F) air temperature38ֳ90C (100ֱ020F) track temperature1.5-/s (4.9&t/s) wind from changing directions[2]\tN\tmonza\t2015\t1\t2015 Italian Grand Prix\t87\t0\t8\t9\t78\t11\t0\t0\n939\t2015\t13\tSingapore Grand Prix\t2015-09-20 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2015_Singapore_Grand_Prix\t6.55\t6\t1\tDry28ֲ90C (82ָ40F) air temperature34ֳ60C (93ֹ70F) track temperature0.5-/s (1.6&t/s) wind from the west[2]\tN\tmarina_bay\t2015\t1\t2015 Singapore Grand Prix\t129\t0\t4\t31\t98\t12\t0\t1\n940\t2015\t14\tJapanese Grand Prix\t2015-09-27 00:00:00\t5:00:00\thttps://en.wikipedia.org/wiki/2015_Japanese_Grand_Prix\t5.21\t1\t0\tPartly cloudy270C (810F) air temperature52ֵ40C (126ֱ290F) track temperature4.5-/s (15&t/s) wind from the east[2]\tN\tsuzuka\t2015\t1\t2015 Japanese Grand Prix\t139\t0\t11\t17\t122\t9\t0\t0\n941\t2015\t15\tRussian Grand Prix\t2015-10-11 00:00:00\t11:00:00\thttps://en.wikipedia.org/wiki/2015_Russian_Grand_Prix\t6.97\t7\t4\tPartly cloudy180C (640F) air temperature25ֲ70C (77ָ10F) track temperature1.5-/s (4.9&t/s) wind from the north[2]\tN\tsochi\t2015\t1\t2015 Russian Grand Prix\t116\t1\t16\t14\t102\t10\t0\t1\n942\t2015\t16\tUnited States Grand Prix\t2015-10-25 00:00:00\t19:00:00\thttps://en.wikipedia.org/wiki/2015_United_States_Grand_Prix\t9.1\t8\t2\tVery cloudy170C (630F) air temperature17ֲ00C (63ֶ80F) track temperature8-/s (26&t/s) wind from the south[2]\tN\tamericas\t2015\t1\t2015 United States Grand Prix\t131\t5\t23\t18\t113\t14\t0\t1\n943\t2015\t17\tMexican Grand Prix\t2015-11-01 00:00:00\t19:00:00\thttps://en.wikipedia.org/wiki/2015_Mexican_Grand_Prix\t5.44\t4\t2\tPartly cloudy22ֲ40C (72ַ50F) air temperature48ֵ60C (118ֱ330F) track temperature1.5-/s (4.9&t/s) wind from the northwest[2]\tN\trodriguez\t2015\t1\t2015 Mexican Grand Prix\t114\t4\t11\t10\t104\t13\t0\t1\n944\t2015\t18\tBrazilian Grand Prix\t2015-11-15 00:00:00\t16:00:00\thttps://en.wikipedia.org/wiki/2015_Brazilian_Grand_Prix\t4.57\t2\t0\tDry22ֲ80C (72ָ20F) air temperature38ִ80C (100ֱ180F) track temperature2.5-/s (8.2&t/s) wind from the north[2]\tN\tinterlagos\t2015\t1\t2015 Brazilian Grand Prix\t198\t6\t9\t42\t156\t10\t0\t0\n945\t2015\t19\tAbu Dhabi Grand Prix\t2015-11-29 00:00:00\t13:00:00\thttps://en.wikipedia.org/wiki/2015_Abu_Dhabi_Grand_Prix\t5.25\t1\t1\tClear25ֲ70C (77ָ10F) air temperature28ֲ90C (82ָ40F) track temperature1.5-/s (4.9&t/s) wind from the south[3]\tN\tyas_marina\t2015\t1\t2015 Abu Dhabi Grand Prix\t174\t4\t18\t26\t148\t10\t0\t0\n948\t2016\t1\tAustralian Grand Prix\t2016-03-20 00:00:00\t5:00:00\thttps://en.wikipedia.org/wiki/2016_Australian_Grand_Prix\t7.76\t6\t2\tPartly cloudy22ֲ30C (72ַ30F) air temperature26ֳ60C (79ֹ70F) track temperature4-/s (8.9-ph; 14+m/h) wind from the south[4]\tN\talbert_park\t2016\t1\t2016 Australian Grand Prix\t145\t3\t11\t108\t37\t15\t0\t1\n949\t2016\t2\tBahrain Grand Prix\t2016-04-03 00:00:00\t15:00:00\thttps://en.wikipedia.org/wiki/2016_Bahrain_Grand_Prix\t7.38\t5\t0\tDry21ֲ20C (70ַ20F) air temperature26ֲ90C (79ָ40F) track temperature2-/s (6.6&t/s) wind from the southwest[4]\tN\tbahrain\t2016\t1\t2016 Bahrain Grand Prix\t292\t2\t24\t61\t231\t13\t0\t0\n950\t2016\t3\tChinese Grand Prix\t2016-04-17 00:00:00\t6:00:00\thttps://en.wikipedia.org/wiki/2016_Chinese_Grand_Prix\t7.85\t0\t0\tSunny210C (700F) air temperature370C (990F) track temperature4.8-/s (16&t/s) wind from the northeast[4]\tN\tshanghai\t2016\t1\t2016 Chinese Grand Prix\t422\t1\t28\t81\t341\t18\t0\t1\n951\t2016\t4\tRussian Grand Prix\t2016-05-01 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2016_Russian_Grand_Prix\t5.4\t4\t3\tPartly cloudy160C (610F) air temperature37ִ10C (99ֱ060F) track temperature2.5-/s (8.2&t/s) wind from the southwest[4]\tN\tsochi\t2016\t1\t2016 Russian Grand Prix\t117\t0\t10\t26\t91\t12\t0\t1\n952\t2016\t5\tSpanish Grand Prix\t2016-05-15 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2016_Spanish_Grand_Prix\t8.71\t5\t2\tPartly cloudy20ֲ20C (68ַ20F) air temperature39ִ10C (102ֱ060F) track temperature2-/s (6.6&t/s) wind from the north[4]\tN\tcatalunya\t2016\t1\t2016 Spanish Grand Prix\t248\t7\t16\t39\t209\t14\t0\t1\n953\t2016\t6\tMonaco Grand Prix\t2016-05-29 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2016_Monaco_Grand_Prix\t7.75\t7\t5\tRainy at start, dry later17ֱ80C (63ֶ40F) air temperature20ֲ20C (68ַ20F) track temperature2-/s (6.6&t/s) wind from the north[4]\tY\tmonaco\t2016\t1\t2016 Monaco Grand Prix\t144\t3\t11\t102\t42\t11\t0\t1\n954\t2016\t7\tCanadian Grand Prix\t2016-06-12 00:00:00\t18:00:00\thttps://en.wikipedia.org/wiki/2016_Canadian_Grand_Prix\t6.58\t3\t0\tCloudy120C (540F) air temperature21ֲ30C (70ַ30F) track temperature2.5-/s (8.2&t/s) wind from the southeast[4]\tN\tvilleneuve\t2016\t1\t2016 Canadian Grand Prix\t119\t3\t15\t84\t35\t11\t0\t1\n955\t2016\t8\tEuropean Grand Prix\t2016-06-19 00:00:00\t13:00:00\thttps://en.wikipedia.org/wiki/2016_European_Grand_Prix\t4.73\t4\t0\tPartly cloudy30ֳ30C (86ֹ10F) air temperature39ִ50C (102ֱ130F) track temperature2.5-/s (8.2&t/s) wind from the southeast[4]\tN\tBAK\t2016\t1\t2016 European Grand Prix\t244\t0\t14\t78\t166\t13\t0\t0\n956\t2016\t9\tAustrian Grand Prix\t2016-07-03 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2016_Austrian_Grand_Prix\t8.1\t6\t0\tCloudy\tN\tred_bull_ring\t2016\t1\t2016 Austrian Grand Prix\t300\t6\t17\t75\t225\t13\t0\t1\n957\t2016\t10\tBritish Grand Prix\t2016-07-10 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2016_British_Grand_Prix\t6.48\t6\t2\tWet at start, dry later\tY\tsilverstone\t2016\t1\t2016 British Grand Prix\t241\t2\t10\t2\t239\t16\t0\t1\n958\t2016\t11\tHungarian Grand Prix\t2016-07-24 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2016_Hungarian_Grand_Prix\t5.05\t1\t0\tSunny\tN\thungaroring\t2016\t1\t2016 Hungarian Grand Prix\t166\t4\t11\t24\t142\t10\t0\t0\n959\t2016\t12\tGerman Grand Prix\t2016-07-31 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2016_German_Grand_Prix\t5.81\t2\t0\tPartially cloudy and dry\tN\thockenheimring\t2016\t1\t2016 German Grand Prix\t228\t0\t17\t50\t178\t13\t0\t0\n960\t2016\t13\tBelgian Grand Prix\t2016-08-28 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2016_Belgian_Grand_Prix\t7.25\t5\t1\tPartially cloudy and dry\tN\tspa\t2016\t1\t2016 Belgian Grand Prix\t147\t0\t15\t18\t129\t14\t0\t1\n962\t2016\t15\tSingapore Grand Prix\t2016-09-18 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2016_Singapore_Grand_Prix\t7.11\t4\t1\tClear300C (860F) air temperature34ֳ50C (93ֹ50F) track temperature1.5-/s (4.9&t/s) wind from the east[2]\tN\tmarina_bay\t2016\t1\t2016 Singapore Grand Prix\t221\t4\t14\t67\t154\t15\t0\t1\n963\t2016\t16\tMalaysian Grand Prix\t2016-10-02 00:00:00\t7:00:00\thttps://en.wikipedia.org/wiki/2016_Malaysian_Grand_Prix\t8.01\t6\t1\tSunny330C (910F) air temperature490C (1200F) track temperature2.8-/s (9.2&t/s) wind from the west[2]\tN\tsepang\t2016\t1\t2016 Malaysian Grand Prix\t137\t4\t10\t14\t123\t14\t0\t1\n964\t2016\t17\tJapanese Grand Prix\t2016-10-09 00:00:00\t5:00:00\thttps://en.wikipedia.org/wiki/2016_Japanese_Grand_Prix\t6.98\t0\t0\tCloudy\tN\tsuzuka\t2016\t1\t2016 Japanese Grand Prix\t227\t2\t14\t30\t197\t10\t0\t0\n965\t2016\t18\tUnited States Grand Prix\t2016-10-23 00:00:00\t19:00:00\thttps://en.wikipedia.org/wiki/2016_United_States_Grand_Prix\t6.04\t4\t1\tSunny and hot with temperatures reaching up to 840F (290C); wind speeds approaching speeds of 9.2 miles per hour (14.8+m/h)[2]\tN\tamericas\t2016\t1\t2016 United States Grand Prix\t168\t2\t12\t14\t154\t9\t0\t1\n966\t2016\t19\tMexican Grand Prix\t2016-10-30 00:00:00\t19:00:00\thttps://en.wikipedia.org/wiki/2016_Mexican_Grand_Prix\t5.94\t1\t1\tSunny\tN\trodriguez\t2016\t1\t2016 Mexican Grand Prix\t151\t3\t14\t25\t126\t13\t0\t1\n967\t2016\t20\tBrazilian Grand Prix\t2016-11-13 00:00:00\t16:00:00\thttps://en.wikipedia.org/wiki/2016_Brazilian_Grand_Prix\t7.94\t6\t3\tRain and 160C (60.80F)\tY\tinterlagos\t2016\t1\t2016 Brazilian Grand Prix\t205\t0\t16\t49\t156\t14\t0\t1\n968\t2016\t21\tAbu Dhabi Grand Prix\t2016-11-27 00:00:00\t13:00:00\thttps://en.wikipedia.org/wiki/2016_Abu_Dhabi_Grand_Prix\t7.59\t5\t0\tSunny\tN\tyas_marina\t2016\t1\t2016 Abu Dhabi Grand Prix\t186\t6\t17\t22\t164\t17\t0\t0\n969\t2017\t1\tAustralian Grand Prix\t2017-03-26 00:00:00\t5:00:00\thttps://en.wikipedia.org/wiki/2017_Australian_Grand_Prix\t6.41\t7\t0\tPartly cloudy240C (750F) air temperature31ֳ60C (88ֹ70F) track temperature2-/s (4.5-ph; 7.2+m/h) wind from the northwest[3]\tN\talbert_park\t2017\t1\t2017 Australian Grand Prix\t35\t4\t6\t26\t9\t5\t0\t0\n970\t2017\t2\tChinese Grand Prix\t2017-04-09 00:00:00\t6:00:00\thttps://en.wikipedia.org/wiki/2017_Chinese_Grand_Prix\t7.53\t5\t2\tLight rain at start, drying later.\tY\tshanghai\t2017\t1\t2017 Chinese Grand Prix\t115\t0\t16\t22\t93\t13\t0\t1\n971\t2017\t3\tBahrain Grand Prix\t2017-04-16 00:00:00\t15:00:00\thttps://en.wikipedia.org/wiki/2017_Bahrain_Grand_Prix\t7.96\t7\t2\tnot found\tN\tbahrain\t2017\t1\t2017 Bahrain Grand Prix\t117\t3\t17\t16\t101\t11\t0\t1\n972\t2017\t4\tRussian Grand Prix\t2017-04-30 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2017_Russian_Grand_Prix\t4.9\t4\t2\tnot found\tN\tsochi\t2017\t1\t2017 Russian Grand Prix\t46\t2\t5\t10\t36\t5\t0\t1\n973\t2017\t5\tSpanish Grand Prix\t2017-05-14 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2017_Spanish_Grand_Prix\t7.87\t4\t1\tnot found\tN\tcatalunya\t2017\t1\t2017 Spanish Grand Prix\t86\t4\t11\t12\t74\t8\t0\t1\n974\t2017\t6\tMonaco Grand Prix\t2017-05-28 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2017_Monaco_Grand_Prix\t4.94\t7\t3\tnot found\tN\tmonaco\t2017\t1\t2017 Monaco Grand Prix\t56\t1\t5\t51\t5\t7\t0\t1\n975\t2017\t7\tCanadian Grand Prix\t2017-06-11 00:00:00\t18:00:00\thttps://en.wikipedia.org/wiki/2017_Canadian_Grand_Prix\t7.55\t5\t2\tSunny and hot with temperatures reaching up to 290C (840F); wind speeds reaching 12.9 kilometres per hour (8.0-ph)[4]\tN\tvilleneuve\t2017\t1\t2017 Canadian Grand Prix\t99\t0\t13\t61\t38\t14\t0\t1\n976\t2017\t8\tAzerbaijan Grand Prix\t2017-06-25 00:00:00\t13:00:00\thttps://en.wikipedia.org/wiki/2017_Azerbaijan_Grand_Prix\t8.79\t7\t1\tSunny\tN\tBAK\t2017\t1\t2017 Azerbaijan Grand Prix\t136\t2\t19\t55\t81\t18\t0\t1\n977\t2017\t9\tAustrian Grand Prix\t2017-07-09 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2017_Austrian_Grand_Prix\t5.82\t4\t0\tPartly cloudy\tN\tred_bull_ring\t2017\t1\t2017 Austrian Grand Prix\t49\t2\t7\t8\t41\t5\t0\t0\n978\t2017\t10\tBritish Grand Prix\t2017-07-16 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2017_British_Grand_Prix\t6.63\t3\t0\tOvercast\tN\tsilverstone\t2017\t1\t2017 British Grand Prix\t116\t0\t10\t5\t111\t13\t0\t1\n979\t2017\t11\tHungarian Grand Prix\t2017-07-30 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2017_Hungarian_Grand_Prix\t5.94\t4\t1\tSunny\tN\thungaroring\t2017\t1\t2017 Hungarian Grand Prix\t63\t3\t8\t8\t55\t6\t0\t1\n980\t2017\t12\tBelgian Grand Prix\t2017-08-27 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2017_Belgian_Grand_Prix\t6.73\t4\t1\tPartially cloudy and dry\tN\tspa\t2017\t1\t2017 Belgian Grand Prix\t133\t2\t10\t33\t100\t9\t0\t1\n981\t2017\t13\tItalian Grand Prix\t2017-09-03 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2017_Italian_Grand_Prix\t5.93\t4\t0\tSunny\tN\tmonza\t2017\t1\t2017 Italian Grand Prix\t132\t2\t13\t37\t95\t12\t0\t0\n982\t2017\t14\tSingapore Grand Prix\t2017-09-17 00:00:00\t12:00:00\thttps://en.wikipedia.org/wiki/2017_Singapore_Grand_Prix\t6.41\t8\t5\tWet at start, then drying. Air temperature: 28Ѓ (82І)\tY\tmarina_bay\t2017\t1\t2017 Singapore Grand Prix\t72\t0\t9\t16\t56\t6\t0\t1\n984\t2017\t16\tJapanese Grand Prix\t2017-10-08 00:00:00\t5:00:00\thttps://en.wikipedia.org/wiki/2017_Japanese_Grand_Prix\t6.13\t5\t2\tSunny\tN\tsuzuka\t2017\t1\t2017 Japanese Grand Prix\t100\t3\t12\t16\t84\t11\t0\t1\n985\t2017\t17\tUnited States Grand Prix\t2017-10-22 00:00:00\t19:00:00\thttps://en.wikipedia.org/wiki/2017_United_States_Grand_Prix\t7.78\t4\t1\tSunny with temperatures reaching up to 82.90F (28.30C); wind speeds approaching speeds of 13.8 miles per hour (22.2+m/h)[4]\tN\tamericas\t2017\t1\t2017 United States Grand Prix\t120\t4\t13\t1\t119\t12\t0\t0\n986\t2017\t18\tMexican Grand Prix\t2017-10-29 00:00:00\t19:00:00\thttps://en.wikipedia.org/wiki/2017_Mexican_Grand_Prix\t6.85\t5\t0\tSunny, dry\tN\trodriguez\t2017\t1\t2017 Mexican Grand Prix\t100\t0\t7\t22\t78\t15\t0\t1\n987\t2017\t19\tBrazilian Grand Prix\t2017-11-12 00:00:00\t16:00:00\thttps://en.wikipedia.org/wiki/2017_Brazilian_Grand_Prix\t6.74\t4\t3\tnot found\tN\tinterlagos\t2017\t1\t2017 Brazilian Grand Prix\t91\t3\t10\t15\t76\t15\t0\t1\n988\t2017\t20\tAbu Dhabi Grand Prix\t2017-11-26 00:00:00\t13:00:00\thttps://en.wikipedia.org/wiki/2017_Abu_Dhabi_Grand_Prix\t3.74\t2\t0\tClear\tN\tyas_marina\t2017\t1\t2017 Abu Dhabi Grand Prix\t79\t2\t5\t3\t76\t8\t0\t0\n989\t2018\t1\tAustralian Grand Prix\t2018-03-25 00:00:00\t5:10:00\thttps://en.wikipedia.org/wiki/2018_Australian_Grand_Prix\t6.1\t5\t0\tSunny\tN\talbert_park\t2018\t1\t2018 Australian Grand Prix\t49\t1\t7\t38\t11\t8\t0\t1\n990\t2018\t2\tBahrain Grand Prix\t2018-04-08 00:00:00\t15:10:00\thttps://en.wikipedia.org/wiki/2018_Bahrain_Grand_Prix\t8.32\t3\t0\tnot found\tN\tbahrain\t2018\t1\t2018 Bahrain Grand Prix\t198\t3\t14\t33\t165\t10\t0\t1\n992\t2018\t4\tAzerbaijan Grand Prix\t2018-04-29 00:00:00\t12:10:00\thttps://en.wikipedia.org/wiki/2018_Azerbaijan_Grand_Prix\t8.54\t7\t6\tCloudy\tN\tBAK\t2018\t1\t2018 Azerbaijan Grand Prix\t92\t2\t12\t18\t74\t12\t0\t1\n993\t2018\t5\tSpanish Grand Prix\t2018-05-13 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2018_Spanish_Grand_Prix\t4.81\t6\t3\tPartially cloudy and dry, 16Ѓ and cold.\tN\tcatalunya\t2018\t1\t2018 Spanish Grand Prix\t94\t2\t9\t15\t79\t9\t0\t1\n994\t2018\t6\tMonaco Grand Prix\t2018-05-27 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2018_Monaco_Grand_Prix\t5.09\t3\t2\tnot found\tN\tmonaco\t2018\t1\t2018 Monaco Grand Prix\t81\t0\t5\t74\t7\t9\t0\t1\n995\t2018\t7\tCanadian Grand Prix\t2018-06-10 00:00:00\t18:10:00\thttps://en.wikipedia.org/wiki/2018_Canadian_Grand_Prix\t4.24\t3\t2\tTemperatures reaching up to 22.70C (72.90F); with wind speeds reaching 11.1 kilometres per hour (6.9-ph)[2]\tN\tvilleneuve\t2018\t1\t2018 Canadian Grand Prix\t79\t0\t5\t59\t20\t9\t0\t1\n996\t2018\t8\tFrench Grand Prix\t2018-06-24 00:00:00\t14:10:00\thttps://en.wikipedia.org/wiki/2018_French_Grand_Prix\t6.37\t5\t2\tPartially cloudy, warm and dry\tN\tricard\t2018\t1\t2018 French Grand Prix\t110\t2\t11\t62\t48\t13\t0\t1\n997\t2018\t9\tAustrian Grand Prix\t2018-07-01 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2018_Austrian_Grand_Prix\t8.12\t6\t0\tSunny\tN\tred_bull_ring\t2018\t1\t2018 Austrian Grand Prix\t84\t1\t8\t9\t75\t11\t0\t1\n998\t2018\t10\tBritish Grand Prix\t2018-07-08 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2018_British_Grand_Prix\t8.65\t6\t3\tSunny 27.00C (80.60F)[2]\tN\tsilverstone\t2018\t1\t2018 British Grand Prix\t124\t4\t14\t0\t124\t15\t0\t1\n999\t2018\t11\tGerman Grand Prix\t2018-07-22 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2018_German_Grand_Prix\t8.14\t5\t1\tOvercast with intermittent rain\tY\thockenheimring\t2018\t1\t2018 German Grand Prix\t171\t5\t12\t26\t145\t13\t0\t1\n1000\t2018\t12\tHungarian Grand Prix\t2018-07-29 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2018_Hungarian_Grand_Prix\t6.06\t3\t0\tnot found\tN\thungaroring\t2018\t1\t2018 Hungarian Grand Prix\t67\t2\t13\t5\t62\t12\t0\t1\n1001\t2018\t13\tBelgian Grand Prix\t2018-08-26 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2018_Belgian_Grand_Prix\t5.31\t5\t3\tnot found\tN\tspa\t2018\t1\t2018 Belgian Grand Prix\t55\t0\t9\t10\t45\t12\t0\t1\n1002\t2018\t14\tItalian Grand Prix\t2018-09-02 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2018_Italian_Grand_Prix\t8.31\t4\t0\tnot found\tN\tmonza\t2018\t1\t2018 Italian Grand Prix\t100\t4\t12\t21\t79\t14\t0\t1\n1003\t2018\t15\tSingapore Grand Prix\t2018-09-16 00:00:00\t12:10:00\thttps://en.wikipedia.org/wiki/2018_Singapore_Grand_Prix\t4.98\t1\t1\tnot found\tN\tmarina_bay\t2018\t1\t2018 Singapore Grand Prix\t105\t4\t9\t39\t66\t8\t0\t1\n1004\t2018\t16\tRussian Grand Prix\t2018-09-30 00:00:00\t11:10:00\thttps://en.wikipedia.org/wiki/2018_Russian_Grand_Prix\t4.8\t2\t0\tnot found\tN\tsochi\t2018\t1\t2018 Russian Grand Prix\t98\t4\t11\t20\t78\t12\t0\t0\n1005\t2018\t17\tJapanese Grand Prix\t2018-10-07 00:00:00\t5:10:00\thttps://en.wikipedia.org/wiki/2018_Japanese_Grand_Prix\t6.77\t3\t0\tnot found\tN\tsuzuka\t2018\t1\t2018 Japanese Grand Prix\t158\t0\t6\t20\t138\t13\t0\t1\n1006\t2018\t18\tUnited States Grand Prix\t2018-10-21 00:00:00\t18:10:00\thttps://en.wikipedia.org/wiki/2018_United_States_Grand_Prix\t8.76\t6\t1\tnot found\tN\tamericas\t2018\t1\t2018 United States Grand Prix\t91\t4\t14\t3\t88\t13\t0\t1\n1007\t2018\t19\tMexican Grand Prix\t2018-10-28 00:00:00\t19:10:00\thttps://en.wikipedia.org/wiki/2018_Mexican_Grand_Prix\t6.72\t4\t0\tnot found\tN\trodriguez\t2018\t1\t2018 Mexican Grand Prix\t136\t2\t13\t22\t114\t11\t0\t1\n1009\t2018\t21\tAbu Dhabi Grand Prix\t2018-11-25 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2018_Abu_Dhabi_Grand_Prix\t6.58\t5\t1\tnot found\tN\tyas_marina\t2018\t1\t2018 Abu Dhabi Grand Prix\t107\t3\t10\t7\t100\t9\t0\t1\n1010\t2019\t1\tAustralian Grand Prix\t2019-03-17 00:00:00\t5:10:00\thttps://en.wikipedia.org/wiki/2019_Australian_Grand_Prix\t6.3\t3\t1\tnot found\tN\talbert_park\t2019\t1\t2019 Australian Grand Prix\t83\t2\t7\t69\t14\t11\t0\t0\n1011\t2019\t2\tBahrain Grand Prix\t2019-03-31 00:00:00\t15:10:00\thttps://en.wikipedia.org/wiki/2019_Bahrain_Grand_Prix\t8.5\t4\t0\tClear\tN\tbahrain\t2019\t1\t2019 Bahrain Grand Prix\t190\t4\t20\t42\t148\t12\t0\t1\n1012\t2019\t3\tChinese Grand Prix\t2019-04-14 00:00:00\t6:10:00\thttps://en.wikipedia.org/wiki/2019_Chinese_Grand_Prix\t4.8\t3\t2\tnot found\tN\tshanghai\t2019\t1\t2019 Chinese Grand Prix\t114\t0\t12\t20\t94\t8\t0\t1\n1013\t2019\t4\tAzerbaijan Grand Prix\t2019-04-28 00:00:00\t12:10:00\thttps://en.wikipedia.org/wiki/2019_Azerbaijan_Grand_Prix\t5.4\t4\t2\tnot found\tN\tBAK\t2019\t1\t2019 Azerbaijan Grand Prix\t152\t3\t13\t37\t115\t14\t0\t1\n1014\t2019\t5\tSpanish Grand Prix\t2019-05-12 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2019_Spanish_Grand_Prix\t4.6\t2\t2\tnot found\tN\tcatalunya\t2019\t1\t2019 Spanish Grand Prix\t106\t0\t10\t14\t92\t10\t0\t1\n1015\t2019\t6\tMonaco Grand Prix\t2019-05-26 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2019_Monaco_Grand_Prix\t6.3\t1\t1\tOvercast\tN\tmonaco\t2019\t1\t2019 Monaco Grand Prix\t85\t0\t7\t70\t15\t8\t0\t1\n1016\t2019\t7\tCanadian Grand Prix\t2019-06-09 00:00:00\t18:10:00\thttps://en.wikipedia.org/wiki/2019_Canadian_Grand_Prix\t4.4\t2\t0\tTemperatures reaching up to 29.60C (85.30F); wind speeds negligible[2]\tN\tvilleneuve\t2019\t1\t2019 Canadian Grand Prix\t95\t3\t13\t65\t30\t10\t0\t0\n1020\t2019\t11\tGerman Grand Prix\t2019-07-28 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2019_German_Grand_Prix\t9.4\t7\t5\tEarly rain, Late clouds\tY\thockenheimring\t2019\t1\t2019 German Grand Prix\t260\t3\t23\t47\t213\t17\t0\t1\n1022\t2019\t13\tBelgian Grand Prix\t2019-09-01 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2019_Belgian_Grand_Prix\t7.4\t4\t2\tPartly cloudy\tN\tspa\t2019\t1\t2019 Belgian Grand Prix\t130\t3\t12\t18\t112\t10\t0\t1\n1023\t2019\t14\tItalian Grand Prix\t2019-09-08 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2019_Italian_Grand_Prix\t8.2\t3\t0\tPartly cloudy\tN\tmonza\t2019\t1\t2019 Italian Grand Prix\t130\t2\t12\t40\t90\t12\t0\t1\n1024\t2019\t15\tSingapore Grand Prix\t2019-09-22 00:00:00\t12:10:00\thttps://en.wikipedia.org/wiki/2019_Singapore_Grand_Prix\t6.2\t3\t2\tSlightly hazy\tN\tmarina_bay\t2019\t1\t2019 Singapore Grand Prix\t177\t3\t11\t64\t113\t12\t0\t1\n1025\t2019\t16\tRussian Grand Prix\t2019-09-29 00:00:00\t11:10:00\thttps://en.wikipedia.org/wiki/2019_Russian_Grand_Prix\t5.8\t5\t2\tPartly cloudy\tN\tsochi\t2019\t1\t2019 Russian Grand Prix\t97\t1\t10\t14\t83\t13\t0\t1\n1026\t2019\t17\tJapanese Grand Prix\t2019-10-13 00:00:00\t5:10:00\thttps://en.wikipedia.org/wiki/2019_Japanese_Grand_Prix\t6.9\t3\t0\tSunny\tN\tsuzuka\t2019\t1\t2019 Japanese Grand Prix\t158\t4\t14\t26\t132\t14\t0\t0\n1027\t2019\t18\tMexican Grand Prix\t2019-10-27 00:00:00\t19:10:00\thttps://en.wikipedia.org/wiki/2019_Mexican_Grand_Prix\t6.6\t2\t0\tPartly cloudy\tN\trodriguez\t2019\t1\t2019 Mexican Grand Prix\t155\t3\t11\t34\t121\t14\t0\t1\n1028\t2019\t19\tUnited States Grand Prix\t2019-11-03 00:00:00\t19:10:00\thttps://en.wikipedia.org/wiki/2019_United_States_Grand_Prix\t7\t4\t0\tSunny\tN\tamericas\t2019\t1\t2019 United States Grand Prix\t149\t4\t14\t12\t137\t15\t0\t0\n1029\t2019\t20\tBrazilian Grand Prix\t2019-11-17 00:00:00\t17:10:00\thttps://en.wikipedia.org/wiki/2019_Brazilian_Grand_Prix\t8.8\t4\t2\tSunny\tN\tinterlagos\t2019\t1\t2019 Brazilian Grand Prix\t205\t6\t20\t30\t175\t14\t0\t1\n1030\t2019\t21\tAbu Dhabi Grand Prix\t2019-12-01 00:00:00\t13:10:00\thttps://en.wikipedia.org/wiki/2019_Abu_Dhabi_Grand_Prix\t5.6\t1\t0\tClear\tN\tyas_marina\t2019\t1\t2019 Abu Dhabi Grand Prix\t130\t0\t9\t18\t112\t11\t0\t0\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%sql\nselect count(*) from races_train;",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:36:27+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "COUNT(*)": "number"
+                    }
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664890564547_54941212",
+      "id": "paragraph_1664890564547_54941212",
+      "dateCreated": "2022-10-04T13:36:04+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:4271",
+      "dateFinished": "2022-10-04T13:36:26+0000",
+      "dateStarted": "2022-10-04T13:36:26+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "COUNT(*)\n164\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%sql\n",
+      "user": "F1",
+      "dateUpdated": "2022-10-04T13:36:33+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/osql",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "interrupted": false,
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1664890586065_475818005",
+      "id": "paragraph_1664890586065_475818005",
+      "dateCreated": "2022-10-04T13:36:26+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:5912"
+    }
+  ],
+  "name": "Red Bull Racing: Generate New Features",
+  "id": "480",
+  "defaultInterpreterGroup": "spark",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {
+    "isRunning": false
+  }
+}
