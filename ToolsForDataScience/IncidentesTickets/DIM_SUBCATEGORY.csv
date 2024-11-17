@@ -1,0 +1,17 @@
+﻿SUBCATEGORY_SK,SUBCATEGORY_NAME
+16,administrative-request
+49,generalTraining-request
+"371,220",problem-request
+121,software-incident
+"-99,999",[NULL]
+63,informational-informational
+28,communications-request
+27,communications-incident
+51,hardware-incident
+"826,604",SIEM-incident
+122,software-request
+103,reporting-incident
+104,reporting-request
+52,hardware-request
+105,rimEvent-incident
+79,move-request

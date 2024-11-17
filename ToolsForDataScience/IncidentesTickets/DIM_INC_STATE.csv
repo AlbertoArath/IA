@@ -1,0 +1,11 @@
+﻿INC_STATE_SK,INC_STATE_CODE,INC_STATE
+1,1,New
+2,2,Active
+3,8,Work Started
+4,4,Awaiting User Info
+5,5,Awaiting Evidence
+6,7,Closed
+7,3,Awaiting Problem
+8,6,Resolved
+9,9,Awaiting Change
+548,10,Awaiting Vendor

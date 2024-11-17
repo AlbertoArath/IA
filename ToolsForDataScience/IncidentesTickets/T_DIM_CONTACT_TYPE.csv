@@ -1,0 +1,26 @@
+﻿CONTACT_TYPE_SK,CONTACT_TYPE
+"18,688",auto-resolution
+"18,692",self-resolution
+15,Contract
+16,Cust Web Create
+17,ESR
+20,Fax
+21,In Person
+22,Int Web Create
+23,Interface
+24,Please Specify
+25,Tech Web Create
+27,Web
+28,eLink
+"108,947",Email
+2,Chat
+3,Event
+4,self-service
+5,Testing
+6,phone
+7,walk-in
+8,Client System
+"108,952",Phone
+10,email
+12,External
+"-99,999",[NULL]
