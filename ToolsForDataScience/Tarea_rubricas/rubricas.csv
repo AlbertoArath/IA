@@ -1,5 +1,5 @@
-Ejercicio 1;Mal;Bien
-Ejercicio 2;Mal;Bien
+Ejercicio 1;Bien;Mal;
+Ejercicio 2;Bien;Mal;
 Ejercicio 3a;Nada;Ubicar que se conoce el valor de x+y;Sustitución del valor conocido;Desarrollo aritmético
 Ejercicio 3b;Nada;Ubicar que se conoce el valor de x+y;Sustitución del valor conocido;Identificar que z es desconocida y tratarla como variable
 Ejercicio 4a;Nada;Identificar que hay que sumar las cantidades;Ubicar que x es una variable;Manipulación algebraica
