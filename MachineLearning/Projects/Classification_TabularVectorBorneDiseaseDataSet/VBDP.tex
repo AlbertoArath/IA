@@ -56,9 +56,7 @@ Not Present          & Not Present      & Present           & Present           
 \end{table}
 \subsection{Predictor Set}
 Is composed of binary variables specifying if given symptom is present 
-in this prognosis instance
-
-A binary variable is defined, it represents the presence or absence of a specific condition, The variable \( X \) takes values from the set:
+in this prognosis instance it represents the presence or absence of a specific condition, The variable \( X \) takes values from the set:
 \[
 X \in \{0, 1\},
 \]
@@ -66,8 +64,8 @@ where:
 \[
 X =
 \begin{cases}
-1 & \text{if the condition (or event) is \textbf{present}}, \\
-0 & \text{if the condition (or event) is \textbf{not present}}.
+1 & \text{if the condition is \textbf{present}}, \\
+0 & \text{if the condition is \textbf{not present}}.
 \end{cases}
 \]
 
@@ -78,7 +76,7 @@ The target variable, denoted as \( Y \), is a categorical variable representing 
 
 \[
 Y \in \{ C_1, C_2, \dots, C_k \},
-\]
+\] 
 where \( C_i \) represents the \( i^{\text{th}} \) class label, for \( i = 1, 2, \dots, k \).
 
 In this study, \( k = 11 \), and the classes are defined as follows:
@@ -99,12 +97,28 @@ Y =
 This encoding To allows the application of machine learning algorithms such as softmax regression, decision trees, or neural networks to predict the likelihood of each class based on the input features.
 
 \section{Exploratory Data Analysis (EDA)}
+
+\subsection{Class distribution}
+
+Class distribution shows there is no significan class imbalance,
+Figure 1 show West Nile Fever with 80 instances and Malaria falls short with 50
+as part of study, class imbalance could have and impact but we expect not be 
+signicant. Just for the sake of the study we will apply oversampling techniques
+to improve model.
+
 \onecolumn
 \begin{figure}[h!]
 \centering
 \includegraphics[width=.8\linewidth]{Disease Distribution.png}
 \caption{\label{fig:frog}Distribution of Prognosis in Training Data.}
 \end{figure}
+
+\twocolumn
+\subsection{Features correaltion matrix}
+Features 
+
+\onecolumn
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=.8\linewidth]{CorrelationMatrix.png}
@@ -131,7 +145,7 @@ You can make lists with automatic numbering \dots
 \item and like this.
 \end{itemize}
 
-\subsection{Grid search to best find best cross validation precision results}
+\section{Grid search to best find best cross validation precision results}
 
 \LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
 \[S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
@@ -141,7 +155,6 @@ denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{
 
 To change the spell check language, simply open the Overleaf menu at the top left of the editor window, scroll down to the spell check setting, and adjust accordingly.
 
-\subsection{Good luck!}
 
 \section{Conclusions}
 
