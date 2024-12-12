@@ -1,1 +1,7 @@
 __pycache__/
+*.aux
+*bbl
+*.fls
+*synctex.gz
+*.blg
+*.fdb_latexmk
