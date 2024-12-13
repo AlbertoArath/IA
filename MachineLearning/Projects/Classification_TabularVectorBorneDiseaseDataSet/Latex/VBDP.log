@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  13 DEC 2024 01:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  13 DEC 2024 16:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -462,12 +462,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has 
                                                   \__shipout_drop_firstpage_...
 l.89     \item \(
                   C_1 \): Dengue,]
-<DiseaseDistribution.png, id=104, 714.7503pt x 426.393pt>
+<DiseaseDistribution.png, id=108, 714.7503pt x 426.393pt>
 File: DiseaseDistribution.png Graphic file (type png)
 <use DiseaseDistribution.png>
 Package pdftex.def Info: DiseaseDistribution.png  used on input line 116.
 (pdftex.def)             Requested size: 354.86412pt x 211.70604pt.
-<CorrelationMatrix.png, id=106, 580.41844pt x 563.10374pt>
+<CorrelationMatrix.png, id=110, 580.41844pt x 563.10374pt>
 File: CorrelationMatrix.png Graphic file (type png)
 <use CorrelationMatrix.png>
 Package pdftex.def Info: CorrelationMatrix.png  used on input line 129.
@@ -633,12 +633,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has 
                                                   \__shipout_drop_firstpage_...
 l.342 \subsection
                  {Confusion Matrix}]
-<Confusion_Matrix_Test_Set.png, id=139, 578.16pt x 433.62pt>
+<Confusion_Matrix_Test_Set.png, id=143, 578.16pt x 433.62pt>
 File: Confusion_Matrix_Test_Set.png Graphic file (type png)
 <use Confusion_Matrix_Test_Set.png>
 Package pdftex.def Info: Confusion_Matrix_Test_Set.png  used on input line 350.
 (pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
-<TestSet.png, id=142, 722.7pt x 578.16pt>
+<TestSet.png, id=146, 722.7pt x 578.16pt>
 File: TestSet.png Graphic file (type png)
 <use TestSet.png>
 Package pdftex.def Info: TestSet.png  used on input line 365.
@@ -656,24 +656,26 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has
                                                   \__shipout_drop_firstpage_...
 l.370 
        <./Confusion_Matrix_Test_Set.png>]
-<TrainingSet.png, id=152, 722.7pt x 578.16pt>
+<TrainingSet.png, id=157, 722.7pt x 578.16pt>
 File: TrainingSet.png Graphic file (type png)
 <use TrainingSet.png>
 Package pdftex.def Info: TrainingSet.png  used on input line 374.
 (pdftex.def)             Requested size: 310.50357pt x 248.40105pt.
- (./VBDP.bbl)
+ (./VBDP.bbl
 
 [8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.384 \end{document}
-                    
+l.8 
+    
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.384 \end{document}
-                     <./TestSet.png> <./TrainingSet.png>] (./VBDP.aux)
+l.8 
+     <./TestSet.png> <./TrainingSet.png>])
+
+[9] (./VBDP.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-11-02>
@@ -683,21 +685,21 @@ L3 programming layer <2024-11-02>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `VBDP.out' has not changed.
-(rerunfilecheck)             Checksum: 908740917C683FA71422FF9B1705C0DE;3399.
+(rerunfilecheck)             Checksum: 266360218750BD5E8932EE24EB46163A;3527.
  ) 
 Here is how much of TeX's memory you used:
- 12215 strings out of 473330
- 193878 string characters out of 5723877
- 620897 words of memory out of 5000000
- 35137 multiletter control sequences out of 15000+600000
- 564752 words of font info for 59 fonts, out of 8000000 for 9000
+ 12223 strings out of 473330
+ 193981 string characters out of 5723877
+ 620944 words of memory out of 5000000
+ 35141 multiletter control sequences out of 15000+600000
+ 564920 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,424b,513s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on VBDP.pdf (8 pages, 1101892 bytes).
+ 75i,12n,79p,424b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on VBDP.pdf (9 pages, 1116435 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 182 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
- 194 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 245 PDF objects out of 1000 (max. 8388607)
+ 196 compressed objects within 2 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 202 words of extra memory for PDF output out of 10000 (max. 10000000)
 
