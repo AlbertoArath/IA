@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  12 DEC 2024 21:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  12 DEC 2024 21:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -392,12 +392,12 @@ Package hyperref Info: Link coloring ON on input line 22.
 
 
 {d:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<DiseaseDistribution.png, id=112, 714.7503pt x 426.393pt>
+<DiseaseDistribution.png, id=116, 714.7503pt x 426.393pt>
 File: DiseaseDistribution.png Graphic file (type png)
 <use DiseaseDistribution.png>
 Package pdftex.def Info: DiseaseDistribution.png  used on input line 111.
 (pdftex.def)             Requested size: 354.86412pt x 211.70604pt.
-<CorrelationMatrix.png, id=114, 580.41844pt x 563.10374pt>
+<CorrelationMatrix.png, id=118, 580.41844pt x 563.10374pt>
 File: CorrelationMatrix.png Graphic file (type png)
 <use CorrelationMatrix.png>
 Package pdftex.def Info: CorrelationMatrix.png  used on input line 124.
@@ -407,7 +407,7 @@ Package pdftex.def Info: CorrelationMatrix.png  used on input line 124.
 [2{d:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./DiseaseDistribution.png>]
 
 [3 <./CorrelationMatrix.PNG>]
-<BenchMark.png, id=128, 1683.28876pt x 553.06625pt>
+<BenchMark.png, id=132, 1683.28876pt x 553.06625pt>
 File: BenchMark.png Graphic file (type png)
 <use BenchMark.png>
 Package pdftex.def Info: BenchMark.png  used on input line 186.
@@ -437,21 +437,21 @@ L3 programming layer <2024-11-02>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `VBDP.out' has not changed.
-(rerunfilecheck)             Checksum: 5F3B865DF8D4AE3088F49ED69119C243;3738.
+(rerunfilecheck)             Checksum: F2656AAC000A420B4A105D45EAA4B2C2;3802.
  ) 
 Here is how much of TeX's memory you used:
- 11044 strings out of 473330
- 173421 string characters out of 5723877
+ 11046 strings out of 473330
+ 173441 string characters out of 5723877
  596721 words of memory out of 5000000
- 34006 multiletter control sequences out of 15000+600000
+ 34007 multiletter control sequences out of 15000+600000
  564752 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,484b,505s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on VBDP.pdf (5 pages, 580825 bytes).
+Output written on VBDP.pdf (5 pages, 580875 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 164 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 200 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 PDF objects out of 1000 (max. 8388607)
+ 168 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 208 words of extra memory for PDF output out of 10000 (max. 10000000)
 
