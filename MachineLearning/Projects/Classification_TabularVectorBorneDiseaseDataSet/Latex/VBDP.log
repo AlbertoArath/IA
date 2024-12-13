@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  13 DEC 2024 16:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  13 DEC 2024 17:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -462,12 +462,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has 
                                                   \__shipout_drop_firstpage_...
 l.89     \item \(
                   C_1 \): Dengue,]
-<DiseaseDistribution.png, id=108, 714.7503pt x 426.393pt>
+<DiseaseDistribution.png, id=124, 714.7503pt x 426.393pt>
 File: DiseaseDistribution.png Graphic file (type png)
 <use DiseaseDistribution.png>
 Package pdftex.def Info: DiseaseDistribution.png  used on input line 116.
 (pdftex.def)             Requested size: 354.86412pt x 211.70604pt.
-<CorrelationMatrix.png, id=110, 580.41844pt x 563.10374pt>
+<CorrelationMatrix.png, id=126, 580.41844pt x 563.10374pt>
 File: CorrelationMatrix.png Graphic file (type png)
 <use CorrelationMatrix.png>
 Package pdftex.def Info: CorrelationMatrix.png  used on input line 129.
@@ -633,49 +633,62 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has 
                                                   \__shipout_drop_firstpage_...
 l.342 \subsection
                  {Confusion Matrix}]
-<Confusion_Matrix_Test_Set.png, id=143, 578.16pt x 433.62pt>
+<Confusion_Matrix_Test_Set.png, id=159, 578.16pt x 433.62pt>
 File: Confusion_Matrix_Test_Set.png Graphic file (type png)
 <use Confusion_Matrix_Test_Set.png>
 Package pdftex.def Info: Confusion_Matrix_Test_Set.png  used on input line 350.
 (pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
-<TestSet.png, id=146, 722.7pt x 578.16pt>
-File: TestSet.png Graphic file (type png)
-<use TestSet.png>
-Package pdftex.def Info: TestSet.png  used on input line 365.
-(pdftex.def)             Requested size: 310.50357pt x 248.40105pt.
+<Kmeanselbow.png, id=160, 578.16pt x 433.62pt>
+File: Kmeanselbow.png Graphic file (type png)
+<use Kmeanselbow.png>
+Package pdftex.def Info: Kmeanselbow.png  used on input line 366.
+(pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
 
 
 [7
 pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.370 
-      
+l.369     \end{figure}
+                      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.370 
-       <./Confusion_Matrix_Test_Set.png>]
-<TrainingSet.png, id=157, 722.7pt x 578.16pt>
-File: TrainingSet.png Graphic file (type png)
-<use TrainingSet.png>
-Package pdftex.def Info: TrainingSet.png  used on input line 374.
+l.369     \end{figure}
+                       <./Confusion_Matrix_Test_Set.png>]
+<TestSet.png, id=170, 722.7pt x 578.16pt>
+File: TestSet.png Graphic file (type png)
+<use TestSet.png>
+Package pdftex.def Info: TestSet.png  used on input line 389.
 (pdftex.def)             Requested size: 310.50357pt x 248.40105pt.
- (./VBDP.bbl
+
 
 [8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
+l.394 
+       <./Kmeanselbow.png>]
+<TrainingSet.png, id=177, 722.7pt x 578.16pt>
+File: TrainingSet.png Graphic file (type png)
+<use TrainingSet.png>
+Package pdftex.def Info: TrainingSet.png  used on input line 398.
+(pdftex.def)             Requested size: 310.50357pt x 248.40105pt.
+ (./VBDP.bbl
+
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
 l.8 
     
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.8 
      <./TestSet.png> <./TrainingSet.png>])
 
-[9] (./VBDP.aux)
+[10] (./VBDP.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-11-02>
@@ -685,21 +698,21 @@ L3 programming layer <2024-11-02>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `VBDP.out' has not changed.
-(rerunfilecheck)             Checksum: 266360218750BD5E8932EE24EB46163A;3527.
+(rerunfilecheck)             Checksum: 995C78A6A2ADD1B85B0558304C378E66;4388.
  ) 
 Here is how much of TeX's memory you used:
- 12223 strings out of 473330
- 193981 string characters out of 5723877
- 620944 words of memory out of 5000000
- 35141 multiletter control sequences out of 15000+600000
+ 12238 strings out of 473330
+ 194214 string characters out of 5723877
+ 620907 words of memory out of 5000000
+ 35151 multiletter control sequences out of 15000+600000
  564920 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,424b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on VBDP.pdf (9 pages, 1116435 bytes).
+Output written on VBDP.pdf (10 pages, 1181017 bytes).
 PDF statistics:
- 245 PDF objects out of 1000 (max. 8388607)
- 196 compressed objects within 2 object streams
- 48 named destinations out of 1000 (max. 500000)
- 202 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 267 PDF objects out of 1000 (max. 8388607)
+ 214 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 239 words of extra memory for PDF output out of 10000 (max. 10000000)
 

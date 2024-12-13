@@ -1,7 +1,7 @@
 params,mean_test_score,rank_test_score,classifier,hyperparam_combination
-"{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 7, 'classifier__weights': 'uniform'}",0.23093506493506494,11,KNeighborsClassifier,"'' KNeighborsClassifier, 'nneighbors' 7, 'weights' 'uniform'"
-"{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 5, 'classifier__weights': 'uniform'}",0.21930211202938477,16,KNeighborsClassifier,"'' KNeighborsClassifier, 'nneighbors' 5, 'weights' 'uniform'"
-"{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 7, 'classifier__weights': 'distance'}",0.21496969696969695,20,KNeighborsClassifier,"'' KNeighborsClassifier, 'nneighbors' 7, 'weights' 'distance'"
-"{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 5, 'classifier__weights': 'distance'}",0.20021408894136167,23,KNeighborsClassifier,"'' KNeighborsClassifier, 'nneighbors' 5, 'weights' 'distance'"
+"{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 7, 'classifier__weights': 'uniform'}",0.23093506493506494,9,KNeighborsClassifier,"'' KNeighborsClassifier, 'nneighbors' 7, 'weights' 'uniform'"
+"{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 5, 'classifier__weights': 'uniform'}",0.21930211202938477,15,KNeighborsClassifier,"'' KNeighborsClassifier, 'nneighbors' 5, 'weights' 'uniform'"
+"{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 7, 'classifier__weights': 'distance'}",0.21496969696969695,22,KNeighborsClassifier,"'' KNeighborsClassifier, 'nneighbors' 7, 'weights' 'distance'"
+"{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 5, 'classifier__weights': 'distance'}",0.20021408894136167,24,KNeighborsClassifier,"'' KNeighborsClassifier, 'nneighbors' 5, 'weights' 'distance'"
 "{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 3, 'classifier__weights': 'distance'}",0.1217987012987013,27,KNeighborsClassifier,"'' KNeighborsClassifier, 'nneighbors' 3, 'weights' 'distance'"
 "{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 3, 'classifier__weights': 'uniform'}",0.12109504132231405,28,KNeighborsClassifier,"'' KNeighborsClassifier, 'nneighbors' 3, 'weights' 'uniform'"

@@ -5,18 +5,18 @@
 \toprule
 mean_test_score & rank_test_score & hyperparam_combination \\
 \midrule
-0.251400 & 2 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 2, 'nestimators' 100 \\
-0.246152 & 3 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 5, 'nestimators' 100 \\
-0.241846 & 6 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 5, 'nestimators' 50 \\
-0.241255 & 7 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 5, 'nestimators' 50 \\
-0.230885 & 12 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 5, 'nestimators' 50 \\
-0.226199 & 14 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 2, 'nestimators' 100 \\
-0.220065 & 15 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 2, 'nestimators' 50 \\
-0.214554 & 21 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 2, 'nestimators' 100 \\
-0.213163 & 22 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 2, 'nestimators' 50 \\
-0.197531 & 24 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 5, 'nestimators' 100 \\
-0.193225 & 25 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 2, 'nestimators' 50 \\
-0.186229 & 26 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 5, 'nestimators' 100 \\
+0.253238 & 2 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 2, 'nestimators' 50 \\
+0.236365 & 6 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 2, 'nestimators' 100 \\
+0.235311 & 8 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 5, 'nestimators' 50 \\
+0.224807 & 11 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 5, 'nestimators' 100 \\
+0.223835 & 13 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 2, 'nestimators' 100 \\
+0.220970 & 14 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 5, 'nestimators' 100 \\
+0.218616 & 16 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 5, 'nestimators' 50 \\
+0.217978 & 17 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 2, 'nestimators' 100 \\
+0.215436 & 19 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 5, 'nestimators' 50 \\
+0.208801 & 23 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 5, 'nestimators' 100 \\
+0.197119 & 25 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 2, 'nestimators' 50 \\
+0.165436 & 26 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 2, 'nestimators' 50 \\
 \bottomrule
 \end{tabular}
 \end{table}

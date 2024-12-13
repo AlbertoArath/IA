@@ -6,10 +6,10 @@
 mean_test_score & rank_test_score & hyperparam_combination \\
 \midrule
 0.276434 & 1 & '' SVC, 'C' 0.1, 'kernel' 'linear' \\
-0.251400 & 2 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 2, 'nestimators' 100 \\
-0.246152 & 3 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 5, 'nestimators' 100 \\
-0.243171 & 4 & '' SVC, 'C' 1, 'kernel' 'rbf' \\
-0.242251 & 5 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 10, 'penalty' 'l1' \\
+0.253238 & 2 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 2, 'nestimators' 50 \\
+0.243171 & 3 & '' SVC, 'C' 1, 'kernel' 'rbf' \\
+0.240382 & 4 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 1, 'penalty' 'l1' \\
+0.238665 & 5 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 0.1, 'penalty' 'l2' \\
 \bottomrule
 \end{tabular}
 \end{table}

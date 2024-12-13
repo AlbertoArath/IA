@@ -352,10 +352,34 @@ The matrix shows significant confusions among classes that have similar symptom 
     \vspace{-1em} % Reduce vertical spacing
     \end{figure}
 
-\section{Conclusions}
+\section{Discusion and further analysis}
+We will apply a clustering algorithm to determine the optimal number of clusters within the dataset. 
+If the clusters are not evenly distributed, or if certain features exhibit high compactness within a cluster,
+it may suggest that the dataset lacks sufficient discriminative features to effectively differentiate between distinct patterns."
 
-Scikit-learn has been widely used for machine learning tasks \cite{disease_dataset2023}. Vector-borne diseases are a significant challenge\cite{disease_dataset2023}.
+\subsection{Clustering sympoms pattern}
+We will employ the k-means clustering algorithm and expect the k-means plateau to be as high as possible, 
+or at least close to the expected value based on the characteristics of our datasete this hypothesis the 
+following subsequent analysis is performed:
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=1\linewidth]{Kmeanselbow.png}
+    \caption{Features Correlation Heat Map. Blue areas indicate low correlation.}
+    \vspace{-1em} % Reduce vertical spacing
+    \end{figure}
 
+\subsection{Clustering Results}
+The elbow inflection point is found between 4 and 6 clusters. This suggests that most of the points can be effectively grouped within this range. Beyond 6 clusters, diminishing returns occur, 
+indicating that the model stared to clump with too few  cluster centers.
+
+
+\section{Conclusions and Further analysis}
+\subsection{Further feature engineering}
+Clustering optimal suggests data is hard to separate 
+We could start to create features with a cross interaction
+machanis between sympoms for example if sympom A and B happen then make another switch
+This Aproach could in principle improve our classification, and we could repeat our clustering
+analysis to see if the features are enough 
 \appendix
 \section{Additional tables}
 

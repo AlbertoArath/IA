@@ -5,10 +5,10 @@
 \toprule
 mean_test_score & rank_test_score & hyperparam_combination \\
 \midrule
-0.230935 & 11 & '' KNeighborsClassifier, 'nneighbors' 7, 'weights' 'uniform' \\
-0.219302 & 16 & '' KNeighborsClassifier, 'nneighbors' 5, 'weights' 'uniform' \\
-0.214970 & 20 & '' KNeighborsClassifier, 'nneighbors' 7, 'weights' 'distance' \\
-0.200214 & 23 & '' KNeighborsClassifier, 'nneighbors' 5, 'weights' 'distance' \\
+0.230935 & 9 & '' KNeighborsClassifier, 'nneighbors' 7, 'weights' 'uniform' \\
+0.219302 & 15 & '' KNeighborsClassifier, 'nneighbors' 5, 'weights' 'uniform' \\
+0.214970 & 22 & '' KNeighborsClassifier, 'nneighbors' 7, 'weights' 'distance' \\
+0.200214 & 24 & '' KNeighborsClassifier, 'nneighbors' 5, 'weights' 'distance' \\
 0.121799 & 27 & '' KNeighborsClassifier, 'nneighbors' 3, 'weights' 'distance' \\
 0.121095 & 28 & '' KNeighborsClassifier, 'nneighbors' 3, 'weights' 'uniform' \\
 \bottomrule

@@ -5,11 +5,11 @@
 \toprule
 mean_test_score & rank_test_score & hyperparam_combination \\
 \midrule
-0.242251 & 5 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 10, 'penalty' 'l1' \\
-0.240382 & 8 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 1, 'penalty' 'l1' \\
-0.238665 & 9 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 0.1, 'penalty' 'l2' \\
-0.226524 & 13 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 1, 'penalty' 'l2' \\
-0.216889 & 17 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 10, 'penalty' 'l2' \\
+0.240382 & 4 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 1, 'penalty' 'l1' \\
+0.238665 & 5 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 0.1, 'penalty' 'l2' \\
+0.226524 & 10 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 1, 'penalty' 'l2' \\
+0.224069 & 12 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 10, 'penalty' 'l1' \\
+0.216889 & 18 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 10, 'penalty' 'l2' \\
 0.007571 & 29 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 0.1, 'penalty' 'l1' \\
 \bottomrule
 \end{tabular}
