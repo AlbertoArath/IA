@@ -1,0 +1,4 @@
+mean_test_score,rank_test_score,hyperparam_combination
+0.8861830426706793,1,'preprocessingnumpipelinepcancomponents' 5
+0.7864294398060179,2,'preprocessingnumpipelinepcancomponents' 3
+0.5610732558224036,3,'preprocessingnumpipelinepcancomponents' 1
