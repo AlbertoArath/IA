@@ -1,4 +1,6 @@
 \documentclass{article}
+\usepackage{apacite} % APA bibliography style
+\usepackage{hyperref} % For clickable links
 
 \usepackage{ragged2e} % For justified text alignment
 \usepackage{longtable}
@@ -18,7 +20,8 @@
 \usepackage{graphicx}
 
 \usepackage{adjustbox} % To handle long rows
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+% \usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
 \onecolumn
 \title{A Case of Study for Classifications Algorithm to a Tabular Vector Borne Disease Dataset}
 \author{Alberto Arath Figueroa Salomon}
@@ -281,7 +284,7 @@ The \textbf{Logistic Regression} model is a linear classifier used for binary an
     \vspace{-1em} % Reduce vertical spacing after the figure
 \end{figure}
 \subsection {Best cross validation score training set}
-Test set best cross validation Score
+Test set best cross validation Score 
 
 \begin{table}[h!]
     \centering
@@ -309,11 +312,9 @@ Test set best cross validation Score
 \subsection{Confusion Matrix}
 
 \section{Conclusions}
-
+Heyy ~\cite{disease_dataset2023}
 
 \section{Anex}
-
-\bibliographystyle{alpha}
-\bibliography{sample}
-
+\bibliographystyle{plain}
+\bibliography{bibliography}
 \end{document}
