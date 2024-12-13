@@ -19,7 +19,6 @@
 \onecolumn
 \title{A Case of Study for Classifications Algorithm to a Tabular Vector Borne Disease Dataset}
 \author{Alberto Arath Figueroa Salomon}
-\twocolumn
 \begin{document}
 \maketitle
 
@@ -149,7 +148,8 @@ The \textbf{Random Forest Classifier} is an ensemble learning method that constr
 The \textbf{Support Vector Classifier (SVC)} is a kernel-based method that finds an optimal hyperplane to separate classes in a high-dimensional space. Hyperparameters tuned include:
 \begin{itemize}
     \item \textbf{C}: Regularization parameter.
-    \item \textbf{kernel}: Kernel function (\textit{linear}, \textit{rbf}, or \textit{poly}).
+    \item \textbf{kernel}: Kernel function (\textit{linear}, \textit{rbf}, or \textit{poly})  \textit{rbf} was just included 
+    just for benchmark as it is widely used kernel
 \end{itemize}
 
 \subsection{Logistic Regression}
@@ -163,8 +163,16 @@ The \textbf{Logistic Regression} model is a linear classifier used for binary an
 \subsection{Hyperparameter Tuning}
 The hyperparameter tuning process involved evaluating combinations of the above hyperparameters using cross-validation. The model performance was assessed using the \textit{mean test score}, which is the average score across all cross-validation folds. Models were ranked based on their performance, with the best model achieving the highest mean score.
 
-
-\subsection Test set best cross validation Score
+\begin{figure*}[t] % Fix the figure at its exact position
+    \centering
+    \includegraphics[width=1
+    \linewidth]{BenchMark.png}
+    \caption{Distribution of Prognosis in Training Data.}
+    \label{fig:disease_distribution}
+    \vspace{-1em} % Reduce vertical spacing after the figure
+\end{figure*}
+\subsection {Best cross validation score training set}
+Test set best cross validation Score
 
 \begin{table}[h!]
     \centering
@@ -182,7 +190,9 @@ The hyperparameter tuning process involved evaluating combinations of the above 
     \bottomrule
     \end{tabular}
     \end{table}
-    
+
+\subsection {Best cross validation score test set}
+
 \subsection{Oversampling}
 
 \subsection{Dimenstionality Reduction}
