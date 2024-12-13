@@ -119,7 +119,7 @@ Correlation matrix shows there is little information between features.
 So dimensionality reduction techniques are not likely to be effective,
 in Model section we will place this hypothesis to test.
 
-\begin{figure}[h!]  
+\begin{figure}[H]  
 \centering
 \includegraphics[width=1\linewidth]{CorrelationMatrix.png}
 \caption{Features Correlation Heat Map. Blue areas indicate low correlation.}
@@ -128,6 +128,23 @@ in Model section we will place this hypothesis to test.
 
 \section{Methodology}
 In this study, we performed hyperparameter tuning using Grid Search, testing multiple machine learning algorithms to identify the best-performing model. The following algorithms were evaluated:
+
+\subsection{Cross Algorithms Grid Search Aproach}
+
+Criteria for model selection and study is: collect results for a set of 4 algorithms, benchmark score will be collected based
+on different scores apply techniques to improve model performance
+
+A nested grid search will be appplied, outer loop being the algorithm under test and the inner loops will 
+be definen by the hyperparameter of the given algo.
+
+In this study we won't explain the inner workings of machine learning model
+as is it of scope and a waste of time we will instead try to explain:
+
+\begin{itemize}
+    \item Parameters used for each algorithm
+    \item Explain performance results of each algorithm 
+    \item An Engineer decision for which model will be best for this data set 
+\end{itemize}
 
 \subsection{K-Nearest Neighbors (KNN)}
 The \textbf{K-Nearest Neighbors (KNN)} algorithm is a non-parametric, instance-based learning method. It classifies a data point based on the majority class of its $k$ nearest neighbors in the feature space. Hyperparameters tuned include:
@@ -163,14 +180,14 @@ The \textbf{Logistic Regression} model is a linear classifier used for binary an
 \subsection{Hyperparameter Tuning}
 The hyperparameter tuning process involved evaluating combinations of the above hyperparameters using cross-validation. The model performance was assessed using the \textit{mean test score}, which is the average score across all cross-validation folds. Models were ranked based on their performance, with the best model achieving the highest mean score.
 
-\begin{figure*}[t] % Fix the figure at its exact position
+\begin{figure}[h] % Fix the figure at its exact position
     \centering
     \includegraphics[width=1
     \linewidth]{BenchMark.png}
     \caption{Distribution of Prognosis in Training Data.}
     \label{fig:disease_distribution}
     \vspace{-1em} % Reduce vertical spacing after the figure
-\end{figure*}
+\end{figure}
 \subsection {Best cross validation score training set}
 Test set best cross validation Score
 
