@@ -22,26 +22,26 @@
 % \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \onecolumn
-\title{A Case of Study for Classifications Algorithm to a Tabular Vector Borne Disease Dataset}
+\title{A Case of Study for Classification Algorithms Applied to a Tabular Vector-Borne Disease Dataset}
 \author{Alberto Arath Figueroa Salomon}
 \begin{document}
 \maketitle
 
 \section{Introduction}
 
-Vector-borne diseases have become relevant because human activity
-creates imbalance in ecosystems, and this family of diseases has become a recurring problem in warm climates. These diseases have a common set features, in addition to the fact that they are transmitted bites of a blood-sucking arthropod.
+Vector-borne diseases have become a major concern due to human activity that creates imbalances
+in ecosystems. These diseases, transmitted through the bites of blood-sucking arthropods, have
+become a recurring issue in warm climates. They share common features, including similar symptoms,
+which can be nearly indistinguishable from one another.
 
-Such common features are the prognosis, where the symptoms between each other could be almost indistinguishable 
-
-The purpose of the study is to build a machine learning model that can discern classification patterns for each set of shared symptoms.
+The purpose of this study is to build a machine learning model capable of discerning classification
+patterns based on these shared symptoms.
 
 \section{Data}
 
-\subsection{Instance composition}
-Data set is composed by labeled data, 707 rows and 64 features.
-Training data has a synthetic origin so there is really no need for data preparation
-which is good as we can focus solely in the application of Machine Learning techniques
+\subsection{Instance Composition}
+
+The dataset consists of labeled data with 707 rows and 64 features. The training data has a synthetic origin, so no additional data preparation is required. This allows us to focus solely on applying machine learning techniques.
 
 % Table environment
 
@@ -59,9 +59,12 @@ Not Present          & Not Present      & Present           & Present           
 \caption{Sample training set with a subset of features.}
 \label{tab:sample_training}
 \end{table}
+
 \subsection{Predictor Set}
-Is composed of binary variables specifying if given symptom is present 
-in this prognosis instance it represents the presence or absence of a specific condition, The variable \( X \) takes values from the set:
+
+The predictor set consists of binary variables indicating whether a given symptom is present
+in the prognosis instance. These binary variables represent the presence or absence of a specific
+condition. The variable \( X \) takes values from the set:
 \[
 X \in \{0, 1\},
 \]
@@ -75,10 +78,9 @@ X =
 \]
 
 \subsection{Target Variable}
-The target variable is called Prognosis containing the Vector-borne dissease classfier
 
-The target variable, denoted as \( Y \), is a categorical variable representing the prognosis outcome it can take values from the following finite set of classes:
-
+The target variable, called Prognosis, represents the vector-borne disease classifier. The target
+variable, denoted as \( Y \), is categorical and takes values from the following set of classes:
 \[
 Y \in \{ C_1, C_2, \dots, C_k \},
 \] 
@@ -90,7 +92,7 @@ In this study, \( k = 11 \), and the classes are defined as follows:
     \item \( C_2 \): Zika,
     \item \( C_3 \): Malaria.
 \end{itemize}
-To allow the application of machine learning algorithms label encoder variables as in following example
+To apply machine learning algorithms, we use label encoding as follows:
 \[
 Y = 
 \begin{cases} 
@@ -99,17 +101,15 @@ Y =
 2 & \text{if the class is \( C_3 \) (Zika)}.
 \end{cases}
 \]
-This encoding To allows the application of machine learning algorithms such as softmax regression, decision trees, or neural networks to predict the likelihood of each class based on the input features.
+This encoding allows for the application of machine learning algorithms such as softmax regression, decision trees, or neural networks to predict the likelihood of each class based on the input features.
 
 \section{Exploratory Data Analysis (EDA)}
 
-\subsection{Class distribution}
+\subsection{Class Distribution}
 
-Class distribution shows there is no significan class imbalance,
-Figure 1 show West Nile Fever with 80 instances and Malaria falls short with 50
-as part of study, class imbalance could have and impact but we expect not be 
-signicant. Just for the sake of the study we will apply oversampling techniques
-to improve model.
+The class distribution shows no significant imbalance, as shown in Figure 1. West Nile Fever has 80
+instances, while Malaria has 50. Although class imbalance could have an impact, we expect it to be
+non-significant. For the sake of this study, we will apply oversampling techniques to improve the model.
 
 \begin{figure*}[t] % Fix the figure at its exact position
     \centering
@@ -119,10 +119,10 @@ to improve model.
     \vspace{-1em} % Reduce vertical spacing after the figure
 \end{figure*}
 
-\subsection{Features correaltion matrix}
-Correlation matrix shows there is little information between features.
-So dimensionality reduction techniques are not likely to be effective,
-in Model section we will place this hypothesis to test.
+\subsection{Feature Correlation Matrix}
+
+The correlation matrix shows little correlation between features, suggesting that dimensionality
+reduction techniques may not be effective. We will test this hypothesis in the modeling section.
 
 \begin{figure}[H]  
 \centering
@@ -132,37 +132,41 @@ in Model section we will place this hypothesis to test.
 \end{figure}
 
 \section{Methodology}
-In this study, we performed hyperparameter tuning using Grid Search, testing multiple machine learning algorithms to identify the best-performing model. The following algorithms were evaluated:
 
-\subsection{Cross Algorithms Grid Search Aproach}
-The metric used to evaluate the models is the normal precision metric.
-There are other metrics to check also fase negatives, those are out of the scope of the study.
+In this study, we performed hyperparameter tuning using Grid Search and evaluated several machine
+learning algorithms to identify the best-performing model. The following algorithms were evaluated:
+
+\subsection{Cross-Algorithms Grid Search Approach}
+
+The metric used to evaluate the models is the precision metric. Other metrics, such as false negatives,
+are outside the scope of this study.
 \[
 \text{Precision} = \frac{\text{True Positives (TP)}}{\text{True Positives (TP)} + \text{False Positives (FP)}}
 \]
-\subsection{Cross Algorithms Grid Search Aproach}
 
-Criteria for model selection and study is: collect results for a set of 4 algorithms, benchmark score will be collected based
-on different scores apply techniques to improve model performance
+\subsection{Model Selection and Study}
 
-A nested grid search will be appplied, outer loop being the algorithm under test and the inner loops will 
-be definen by the hyperparameter of the given algo.
+The study will collect results for four algorithms and benchmark the scores based on different techniques
+to improve model performance. A nested grid search will be applied, with the outer loop being the algorithm
+under test and the inner loop defined by the hyperparameters of the given algorithm.
 
-In this study we won't explain the inner workings of machine learning model
-as is it of scope and a waste of time we will instead try to explain:
+We will not explain the inner workings of the models, as this is outside the scope of the study.
 
 \subsection{Hyperparameter Tuning}
-Grid search was expanded based on fixing all hyperparameters 
-while increasing the promised onecolumn
+
+Grid search was expanded by fixing all hyperparameters and gradually increasing the chosen hyperparameter.
 
 \begin{itemize}
-    \item Parameters used for each algorithm
-    \item Explain performance results of each algorithm 
-    \item An Engineer decision for which model will be best for this data set 
+    \item Parameters used for each algorithm.
+    \item Explanation of the performance results for each algorithm.
+    \item Engineer's decision for selecting the best model for this dataset.
 \end{itemize}
 
 \subsection{K-Nearest Neighbors (KNN)}
-The \textbf{K-Nearest Neighbors (KNN)} algorithm is a non-parametric, instance-based learning method. It classifies a data point based on the majority class of its $k$ nearest neighbors in the feature space. Hyperparameters tuned include:
+
+The \textbf{K-Nearest Neighbors (KNN)} algorithm is a non-parametric, instance-based learning method.
+It classifies a data point based on the majority class of its \(k\) nearest neighbors in the feature space.
+Hyperparameters tuned include:
 \begin{itemize}
     \item \textbf{n\_neighbors}: Number of neighbors considered.
     \item \textbf{weights}: Weighting function for neighbors (\textit{uniform} or \textit{distance}).
@@ -185,10 +189,12 @@ The \textbf{K-Nearest Neighbors (KNN)} algorithm is a non-parametric, instance-b
     \bottomrule
     \end{tabular}
 \end{table}
-
     
 \subsection{Random Forest Classifier}
-The \textbf{Random Forest Classifier} is an ensemble learning method that constructs a collection of decision trees and combines their predictions. It reduces overfitting compared to individual trees. Hyperparameters tuned include:
+
+The \textbf{Random Forest Classifier} is an ensemble learning method that constructs a collection of
+decision trees and combines their predictions. It reduces overfitting compared to individual trees.
+Hyperparameters tuned include:
 \begin{itemize}
     \item \textbf{n\_estimators}: Number of trees in the forest.
     \item \textbf{max\_depth}: Maximum depth of each tree.
