@@ -1,0 +1,319 @@
+\documentclass{article}
+
+\usepackage{ragged2e} % For justified text alignment
+\usepackage{longtable}
+\usepackage{booktabs} % For better table lines
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\usepackage{booktabs}
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{float} % To use [H] placement
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{adjustbox} % To handle long rows
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\onecolumn
+\title{A Case of Study for Classifications Algorithm to a Tabular Vector Borne Disease Dataset}
+\author{Alberto Arath Figueroa Salomon}
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Vector-borne diseases have become relevant because human activity
+creates imbalance in ecosystems, and this family of diseases has become a recurring problem in warm climates. These diseases have a common set features, in addition to the fact that they are transmitted bites of a blood-sucking arthropod.
+
+Such common features are the prognosis, where the symptoms between each other could be almost indistinguishable 
+
+The purpose of the study is to build a machine learning model that can discern classification patterns for each set of shared symptoms.
+
+\section{Data}
+
+\subsection{Instance composition}
+Data set is composed by labeled data, 707 rows and 64 features.
+Training data has a synthetic origin so there is really no need for data preparation
+which is good as we can focus solely in the application of Machine Learning techniques
+
+% Table environment
+
+\begin{table}[h!] % Single-column table
+\centering
+\renewcommand{\arraystretch}{1.2} % Adjust row spacing slightly
+\scalebox{0.8}{ % Scale to 80% including caption
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Muscle Pain} & \textbf{Fatigue} & \textbf{Weakness} & \textbf{Prognosis} \\ \hline
+Present              & Not Present      & Present           & Present            \\ \hline
+Not Present          & Not Present      & Present           & Present            \\ \hline
+\end{tabular}
+} % End of scaling
+\caption{Sample training set with a subset of features.}
+\label{tab:sample_training}
+\end{table}
+\subsection{Predictor Set}
+Is composed of binary variables specifying if given symptom is present 
+in this prognosis instance it represents the presence or absence of a specific condition, The variable \( X \) takes values from the set:
+\[
+X \in \{0, 1\},
+\]
+where:
+\[
+X =
+\begin{cases}
+1 & \text{if the condition is \textbf{present}}, \\
+0 & \text{if the condition is \textbf{not present}}.
+\end{cases}
+\]
+
+\subsection{Target Variable}
+The target variable is called Prognosis containing the Vector-borne dissease classfier
+
+The target variable, denoted as \( Y \), is a categorical variable representing the prognosis outcome it can take values from the following finite set of classes:
+
+\[
+Y \in \{ C_1, C_2, \dots, C_k \},
+\] 
+where \( C_i \) represents the \( i^{\text{th}} \) class label, for \( i = 1, 2, \dots, k \).
+
+In this study, \( k = 11 \), and the classes are defined as follows:
+\begin{itemize}
+    \item \( C_1 \): Dengue,
+    \item \( C_2 \): Zika,
+    \item \( C_3 \): Malaria.
+\end{itemize}
+To allow the application of machine learning algorithms label encoder variables as in following example
+\[
+Y = 
+\begin{cases} 
+0 & \text{if the class is \( C_1 \) (Malaria)}, \\
+1 & \text{if the class is \( C_2 \) (Dengue)}, \\
+2 & \text{if the class is \( C_3 \) (Zika)}.
+\end{cases}
+\]
+This encoding To allows the application of machine learning algorithms such as softmax regression, decision trees, or neural networks to predict the likelihood of each class based on the input features.
+
+\section{Exploratory Data Analysis (EDA)}
+
+\subsection{Class distribution}
+
+Class distribution shows there is no significan class imbalance,
+Figure 1 show West Nile Fever with 80 instances and Malaria falls short with 50
+as part of study, class imbalance could have and impact but we expect not be 
+signicant. Just for the sake of the study we will apply oversampling techniques
+to improve model.
+
+\begin{figure*}[t] % Fix the figure at its exact position
+    \centering
+    \includegraphics[width=.8\linewidth]{DiseaseDistribution.png}
+    \caption{Distribution of Prognosis in Training Data.}
+    \label{fig:disease_distribution}
+    \vspace{-1em} % Reduce vertical spacing after the figure
+\end{figure*}
+
+\subsection{Features correaltion matrix}
+Correlation matrix shows there is little information between features.
+So dimensionality reduction techniques are not likely to be effective,
+in Model section we will place this hypothesis to test.
+
+\begin{figure}[H]  
+\centering
+\includegraphics[width=1\linewidth]{CorrelationMatrix.png}
+\caption{Features Correlation Heat Map. Blue areas indicate low correlation.}
+\vspace{-1em} % Reduce vertical spacing
+\end{figure}
+
+\section{Methodology}
+In this study, we performed hyperparameter tuning using Grid Search, testing multiple machine learning algorithms to identify the best-performing model. The following algorithms were evaluated:
+
+\subsection{Cross Algorithms Grid Search Aproach}
+
+Criteria for model selection and study is: collect results for a set of 4 algorithms, benchmark score will be collected based
+on different scores apply techniques to improve model performance
+
+A nested grid search will be appplied, outer loop being the algorithm under test and the inner loops will 
+be definen by the hyperparameter of the given algo.
+
+In this study we won't explain the inner workings of machine learning model
+as is it of scope and a waste of time we will instead try to explain:
+
+\subsection{Hyperparameter Tuning}
+Grid search was expanded based on fixing all hyperparameters 
+while increasing the promised onecolumn
+
+\begin{itemize}
+    \item Parameters used for each algorithm
+    \item Explain performance results of each algorithm 
+    \item An Engineer decision for which model will be best for this data set 
+\end{itemize}
+
+\subsection{K-Nearest Neighbors (KNN)}
+The \textbf{K-Nearest Neighbors (KNN)} algorithm is a non-parametric, instance-based learning method. It classifies a data point based on the majority class of its $k$ nearest neighbors in the feature space. Hyperparameters tuned include:
+\begin{itemize}
+    \item \textbf{n\_neighbors}: Number of neighbors considered.
+    \item \textbf{weights}: Weighting function for neighbors (\textit{uniform} or \textit{distance}).
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{KNeighborsClassifier Grid Search Results}
+    \label{tab:table}
+    \begin{tabular}{ccc}
+    \toprule
+    \textbf{mean\_test\_score} & \textbf{rank\_global\_score} & \textbf{classifier and hyperparameters} \\
+    \midrule
+    0.230935 & 11 & KNeighborsClassifier, n\_neighbors=7, weights='uniform' \\
+    0.219302 & 14 & KNeighborsClassifier, n\_neighbors=5, weights='uniform' \\
+    0.214970 & 18 & KNeighborsClassifier, n\_neighbors=7, weights='distance' \\
+    0.200214 & 22 & KNeighborsClassifier, n\_neighbors=5, weights='distance' \\
+    0.121799 & 27 & KNeighborsClassifier, n\_neighbors=3, weights='distance' \\
+    0.121095 & 28 & KNeighborsClassifier, n\_neighbors=3, weights='uniform' \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+    
+\subsection{Random Forest Classifier}
+The \textbf{Random Forest Classifier} is an ensemble learning method that constructs a collection of decision trees and combines their predictions. It reduces overfitting compared to individual trees. Hyperparameters tuned include:
+\begin{itemize}
+    \item \textbf{n\_estimators}: Number of trees in the forest.
+    \item \textbf{max\_depth}: Maximum depth of each tree.
+    \item \textbf{min\_samples\_split}: Minimum number of samples required to split an internal node.
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{Random Forest Grid Search Results}
+    \label{tab:table}
+    \adjustbox{max width=\textwidth}{%
+    \begin{tabular}{cccp{8cm}}
+    \toprule
+    \textbf{mean\_test\_score} & \textbf{rank\_test\_score} & \textbf{classifier} & \textbf{hyperparam\_combination} \\
+    \midrule
+    0.277801 & 1  & RandomForestClassifier & RandomForestClassifier, max\_depth=5, min\_samples\_split=2, n\_estimators=50 \\
+    0.256374 & 3  & RandomForestClassifier & RandomForestClassifier, max\_depth=5, min\_samples\_split=2, n\_estimators=100 \\
+    0.251517 & 4  & RandomForestClassifier & RandomForestClassifier, max\_depth=None, min\_samples\_split=2, n\_estimators=100 \\
+    0.244632 & 5  & RandomForestClassifier & RandomForestClassifier, max\_depth=None, min\_samples\_split=5, n\_estimators=100 \\
+    0.239188 & 8  & RandomForestClassifier & RandomForestClassifier, max\_depth=5, min\_samples\_split=5, n\_estimators=100 \\
+    0.213390 & 19 & RandomForestClassifier & RandomForestClassifier, max\_depth=10, min\_samples\_split=5, n\_estimators=50 \\
+    0.210364 & 20 & RandomForestClassifier & RandomForestClassifier, max\_depth=None, min\_samples\_split=5, n\_estimators=50 \\
+    0.207067 & 21 & RandomForestClassifier & RandomForestClassifier, max\_depth=10, min\_samples\_split=2, n\_estimators=50 \\
+    0.193830 & 23 & RandomForestClassifier & RandomForestClassifier, max\_depth=5, min\_samples\_split=5, n\_estimators=50 \\
+    0.192695 & 24 & RandomForestClassifier & RandomForestClassifier, max\_depth=10, min\_samples\_split=2, n\_estimators=100 \\
+    0.190548 & 25 & RandomForestClassifier & RandomForestClassifier, max\_depth=None, min\_samples\_split=2, n\_estimators=50 \\
+    0.166299 & 26 & RandomForestClassifier & RandomForestClassifier, max\_depth=10, min\_samples\_split=5, n\_estimators=100 \\
+    \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+
+\subsection{Support Vector Classifier (SVC)}
+The \textbf{Support Vector Classifier (SVC)} is a kernel-based method that finds an optimal hyperplane to separate classes in a high-dimensional space. Hyperparameters tuned include:
+\begin{itemize}
+    \item \textbf{C}: Regularization parameter.
+    \item \textbf{kernel}: Kernel function (\textit{linear}, \textit{rbf}, or \textit{poly})  \textit{rbf} was just included 
+    just for benchmark as it is widely used kernel
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{SVC Grid Search Results}
+    \label{tab:table}
+    \adjustbox{max width=\textwidth}{%
+    \begin{tabular}{cccp{7cm}}
+    \toprule
+    \textbf{mean\_test\_score} & \textbf{rank\_test\_score} & \textbf{classifier} & \textbf{hyperparam\_combination} \\
+    \midrule
+    0.276434 & 2  & SVC & SVC, C=0.1, kernel='linear' \\
+    0.243171 & 6  & SVC & SVC, C=1, kernel='rbf' \\
+    0.235429 & 10 & SVC & SVC, C=10, kernel='rbf' \\
+    0.215171 & 16 & SVC & SVC, C=10, kernel='linear' \\
+    0.215171 & 16 & SVC & SVC, C=1, kernel='linear' \\
+    0.007571 & 29 & SVC & SVC, C=0.1, kernel='rbf' \\
+    \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+    
+
+\subsection{Logistic Regression}
+The \textbf{Logistic Regression} model is a linear classifier used for binary and multi-class classification problems. It models the probability of a class using the logistic function. Hyperparameters tuned include:
+\begin{itemize}
+    \item \textbf{penalty}: Type of regularization (\textit{l1}, \textit{l2}, or \textit{elasticnet}).
+    \item \textbf{C}: Inverse of regularization strength.
+    \item \textbf{solver}: Optimization algorithm for model fitting.
+\end{itemize}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Logistic Regression Grid Search Results}
+    \label{tab:table}
+    \adjustbox{max width=\textwidth}{%
+    \begin{tabular}{ccp{8cm}} % Centered columns, with wrapped text for hyperparameters
+    \toprule
+    \textbf{mean\_test\_score} & \textbf{rank\_test\_score} & \textbf{hyperparam\_combination} \\
+    \midrule
+    0.242251 & 4  & maxiter=500, multiclass='ovr', solver='saga', C=10, penalty='l1' \\
+    0.240382 & 5  & maxiter=500, multiclass='ovr', solver='saga', C=1, penalty='l1' \\
+    0.238665 & 7  & maxiter=500, multiclass='ovr', solver='saga', C=0.1, penalty='l2' \\
+    0.226524 & 13 & maxiter=500, multiclass='ovr', solver='saga', C=1, penalty='l2' \\
+    0.216889 & 17 & maxiter=500, multiclass='ovr', solver='saga', C=10, penalty='l2' \\
+    0.006944 & 30 & maxiter=500, multiclass='ovr', solver='saga', C=0.1, penalty='l1' \\
+    \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+
+
+\begin{figure}[h] % Fix the figure at its exact position
+    \centering
+    \includegraphics[width=1
+    \linewidth]{BenchMark.png}
+    \caption{Distribution of Prognosis in Training Data.}
+    \label{fig:disease_distribution}
+    \vspace{-1em} % Reduce vertical spacing after the figure
+\end{figure}
+\subsection {Best cross validation score training set}
+Test set best cross validation Score
+
+\begin{table}[h!]
+    \centering
+    \caption{Classifier Results with Rank and Scores}
+    \label{tab:classifier_ranks}
+    \begin{tabular}{lcc}
+    \toprule
+    \textbf{Classifier}       & \textbf{Mean Test Score} & \textbf{Rank} \\
+    \midrule
+    KNeighborsClassifier      & 0.295575                & 1 \\
+    RandomForestClassifier    & 0.293805                & 2 \\
+    RandomForestClassifier    & 0.290265                & 3 \\
+    KNeighborsClassifier      & 0.290265                & 4 \\
+    RandomForestClassifier    & 0.288496                & 5 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+\subsection{Oversampling and Dimenstionality Reduction}
+
+\section{Results}
+
+\subsection{Score and prediction}
+
+\subsection{Confusion Matrix}
+
+\section{Conclusions}
+
+
+\section{Anex}
+
+\bibliographystyle{alpha}
+\bibliography{sample}
+
+\end{document}

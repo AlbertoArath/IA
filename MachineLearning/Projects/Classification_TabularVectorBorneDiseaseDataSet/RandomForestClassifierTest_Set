@@ -1,0 +1,22 @@
+\begin{table}
+\caption{Table}
+\label{tab:table}
+\begin{tabular}{rrl}
+\toprule
+mean_test_score & rank_test_score & hyperparam_combination \\
+\midrule
+0.246139 & 2 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 2, 'nestimators' 100 \\
+0.237472 & 7 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 2, 'nestimators' 50 \\
+0.227513 & 10 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 5, 'nestimators' 100 \\
+0.225043 & 12 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 5, 'nestimators' 50 \\
+0.218593 & 14 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 2, 'nestimators' 100 \\
+0.211186 & 19 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 2, 'nestimators' 50 \\
+0.211162 & 20 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 2, 'nestimators' 50 \\
+0.210771 & 21 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 5, 'nestimators' 100 \\
+0.206331 & 22 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 5, 'nestimators' 50 \\
+0.184253 & 24 & '' RandomForestClassifier, 'maxdepth' 5, 'minsamplessplit' 5, 'nestimators' 50 \\
+0.181030 & 25 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 5, 'nestimators' 100 \\
+0.159652 & 26 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 2, 'nestimators' 100 \\
+\bottomrule
+\end{tabular}
+\end{table}

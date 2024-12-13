@@ -1,0 +1,16 @@
+\begin{table}
+\caption{Table}
+\label{tab:table}
+\begin{tabular}{rrl}
+\toprule
+mean_test_score & rank_test_score & hyperparam_combination \\
+\midrule
+0.288419 & 7 & '' SVC, 'C' 10, 'kernel' 'rbf' \\
+0.283026 & 8 & '' SVC, 'C' 1, 'kernel' 'rbf' \\
+0.259653 & 12 & '' SVC, 'C' 0.1, 'kernel' 'linear' \\
+0.234646 & 17 & '' SVC, 'C' 10, 'kernel' 'linear' \\
+0.232089 & 18 & '' SVC, 'C' 1, 'kernel' 'linear' \\
+0.089644 & 30 & '' SVC, 'C' 0.1, 'kernel' 'rbf' \\
+\bottomrule
+\end{tabular}
+\end{table}

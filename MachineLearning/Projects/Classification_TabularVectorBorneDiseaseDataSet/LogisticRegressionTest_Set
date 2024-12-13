@@ -1,0 +1,16 @@
+\begin{table}
+\caption{Table}
+\label{tab:table}
+\begin{tabular}{rrl}
+\toprule
+mean_test_score & rank_test_score & hyperparam_combination \\
+\midrule
+0.242251 & 4 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 10, 'penalty' 'l1' \\
+0.240382 & 5 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 1, 'penalty' 'l1' \\
+0.238665 & 6 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 0.1, 'penalty' 'l2' \\
+0.226524 & 11 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 1, 'penalty' 'l2' \\
+0.216889 & 15 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 10, 'penalty' 'l2' \\
+0.007571 & 29 & '' LogisticRegressionmaxiter=500, multiclass='ovr', solver='saga', 'C' 0.1, 'penalty' 'l1' \\
+\bottomrule
+\end{tabular}
+\end{table}

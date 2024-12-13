@@ -1,20 +1,20 @@
 params,mean_test_score,std_test_score,rank_test_score
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 5, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 50}",0.304424778761062,0.014378829034753914,1
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 10, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}",0.2973451327433628,0.03522079423386265,2
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': None, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}",0.2973451327433628,0.027759977241341795,2
-"{'classifier': SVC(), 'classifier__C': 1, 'classifier__kernel': 'rbf'}",0.2938053097345133,0.02266592650418709,4
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 10, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 50}",0.29203539823008845,0.035837976515604573,5
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': None, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 100}",0.29026548672566366,0.02820774770001632,6
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': None, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 50}",0.2867256637168142,0.025403009016650126,7
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 10, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 50}",0.2867256637168141,0.04898531859503733,8
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 5, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 100}",0.2849557522123894,0.03234631306636647,9
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': None, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 50}",0.2831858407079646,0.026842036970093977,10
-"{'classifier': SVC(), 'classifier__C': 0.1, 'classifier__kernel': 'linear'}",0.2814159292035398,0.018049626596788628,11
-"{'classifier': SVC(), 'classifier__C': 10, 'classifier__kernel': 'rbf'}",0.2814159292035398,0.014159292035398226,11
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 10, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 100}",0.279646017699115,0.025403009016650126,13
-"{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 7, 'classifier__weights': 'distance'}",0.279646017699115,0.03292225705794385,13
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 5, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}",0.2778761061946903,0.02660760420950956,15
-"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 5, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 50}",0.2743362831858407,0.03263555560103677,16
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 10, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 50}",0.30796460176991153,0.024652014649883393,1
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 10, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 100}",0.3079646017699115,0.033300686234029694,2
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': None, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 50}",0.30088495575221236,0.032152039158557424,3
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': None, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}",0.2991150442477876,0.02465201464988341,4
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 5, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 50}",0.2973451327433628,0.033394623476306555,5
+"{'classifier': SVC(), 'classifier__C': 1, 'classifier__kernel': 'rbf'}",0.2938053097345133,0.02266592650418709,6
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': None, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 100}",0.2884955752212389,0.018222354231835394,7
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 10, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 50}",0.2849557522123894,0.0328269681256485,8
+"{'classifier': SVC(), 'classifier__C': 0.1, 'classifier__kernel': 'linear'}",0.2814159292035398,0.018049626596788628,9
+"{'classifier': SVC(), 'classifier__C': 10, 'classifier__kernel': 'rbf'}",0.2814159292035398,0.014159292035398226,9
+"{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 7, 'classifier__weights': 'distance'}",0.279646017699115,0.03292225705794385,11
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 5, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}",0.2778761061946903,0.03431985739763774,12
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': None, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 50}",0.2778761061946903,0.026012280454334628,12
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 10, 'classifier__min_samples_split': 5, 'classifier__n_estimators': 100}",0.27610619469026554,0.053215208419019146,14
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 5, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 50}",0.2761061946902655,0.05580135493959096,15
+"{'classifier': RandomForestClassifier(), 'classifier__max_depth': 5, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 100}",0.2761061946902655,0.02820774770001633,15
 "{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 5, 'classifier__weights': 'distance'}",0.263716814159292,0.028207747700016324,17
 "{'classifier': SVC(), 'classifier__C': 1, 'classifier__kernel': 'linear'}",0.26194690265486725,0.02831858407079645,18
 "{'classifier': KNeighborsClassifier(), 'classifier__n_neighbors': 7, 'classifier__weights': 'uniform'}",0.2584070796460177,0.0351317402500517,19
