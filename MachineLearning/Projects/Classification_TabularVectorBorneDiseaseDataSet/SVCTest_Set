@@ -6,10 +6,10 @@
 mean_test_score & rank_test_score & hyperparam_combination \\
 \midrule
 0.276434 & 1 & '' SVC, 'C' 0.1, 'kernel' 'linear' \\
-0.243171 & 3 & '' SVC, 'C' 1, 'kernel' 'rbf' \\
-0.235429 & 8 & '' SVC, 'C' 10, 'kernel' 'rbf' \\
-0.215171 & 16 & '' SVC, 'C' 10, 'kernel' 'linear' \\
-0.215171 & 16 & '' SVC, 'C' 1, 'kernel' 'linear' \\
+0.243171 & 4 & '' SVC, 'C' 1, 'kernel' 'rbf' \\
+0.235429 & 10 & '' SVC, 'C' 10, 'kernel' 'rbf' \\
+0.215171 & 18 & '' SVC, 'C' 10, 'kernel' 'linear' \\
+0.215171 & 18 & '' SVC, 'C' 1, 'kernel' 'linear' \\
 0.007571 & 29 & '' SVC, 'C' 0.1, 'kernel' 'rbf' \\
 \bottomrule
 \end{tabular}

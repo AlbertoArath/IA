@@ -1,0 +1,15 @@
+\begin{table}
+\caption{Table}
+\label{tab:table}
+\begin{tabular}{rrl}
+\toprule
+mean_test_score & rank_test_score & hyperparam_combination \\
+\midrule
+0.304661 & 1 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 5, 'nestimators' 100 \\
+0.295298 & 2 & '' RandomForestClassifier, 'maxdepth' 10, 'minsamplessplit' 2, 'nestimators' 50 \\
+0.292155 & 3 & '' RandomForestClassifier, 'maxdepth' None, 'minsamplessplit' 5, 'nestimators' 100 \\
+0.288419 & 4 & '' SVC, 'C' 10, 'kernel' 'rbf' \\
+0.283026 & 5 & '' SVC, 'C' 1, 'kernel' 'rbf' \\
+\bottomrule
+\end{tabular}
+\end{table}

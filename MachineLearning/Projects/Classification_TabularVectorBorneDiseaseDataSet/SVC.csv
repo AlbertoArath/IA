@@ -1,7 +1,7 @@
 params,mean_test_score,rank_test_score,classifier,hyperparam_combination
 "{'classifier': SVC(), 'classifier__C': 0.1, 'classifier__kernel': 'linear'}",0.2764343434343434,1,SVC,"'' SVC, 'C' 0.1, 'kernel' 'linear'"
-"{'classifier': SVC(), 'classifier__C': 1, 'classifier__kernel': 'rbf'}",0.24317099567099568,3,SVC,"'' SVC, 'C' 1, 'kernel' 'rbf'"
-"{'classifier': SVC(), 'classifier__C': 10, 'classifier__kernel': 'rbf'}",0.2354285714285714,8,SVC,"'' SVC, 'C' 10, 'kernel' 'rbf'"
-"{'classifier': SVC(), 'classifier__C': 10, 'classifier__kernel': 'linear'}",0.21517099567099568,16,SVC,"'' SVC, 'C' 10, 'kernel' 'linear'"
-"{'classifier': SVC(), 'classifier__C': 1, 'classifier__kernel': 'linear'}",0.21517099567099568,16,SVC,"'' SVC, 'C' 1, 'kernel' 'linear'"
+"{'classifier': SVC(), 'classifier__C': 1, 'classifier__kernel': 'rbf'}",0.24317099567099568,4,SVC,"'' SVC, 'C' 1, 'kernel' 'rbf'"
+"{'classifier': SVC(), 'classifier__C': 10, 'classifier__kernel': 'rbf'}",0.2354285714285714,10,SVC,"'' SVC, 'C' 10, 'kernel' 'rbf'"
+"{'classifier': SVC(), 'classifier__C': 10, 'classifier__kernel': 'linear'}",0.21517099567099568,18,SVC,"'' SVC, 'C' 10, 'kernel' 'linear'"
+"{'classifier': SVC(), 'classifier__C': 1, 'classifier__kernel': 'linear'}",0.21517099567099568,18,SVC,"'' SVC, 'C' 1, 'kernel' 'linear'"
 "{'classifier': SVC(), 'classifier__C': 0.1, 'classifier__kernel': 'rbf'}",0.007571279295417227,29,SVC,"'' SVC, 'C' 0.1, 'kernel' 'rbf'"

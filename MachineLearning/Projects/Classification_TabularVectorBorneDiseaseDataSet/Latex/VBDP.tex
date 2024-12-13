@@ -135,6 +135,12 @@ in Model section we will place this hypothesis to test.
 In this study, we performed hyperparameter tuning using Grid Search, testing multiple machine learning algorithms to identify the best-performing model. The following algorithms were evaluated:
 
 \subsection{Cross Algorithms Grid Search Aproach}
+The metric used to evaluate the models is the normal precision metric.
+There are other metrics to check also fase negatives, those are out of the scope of the study.
+\[
+\text{Precision} = \frac{\text{True Positives (TP)}}{\text{True Positives (TP)} + \text{False Positives (FP)}}
+\]
+\subsection{Cross Algorithms Grid Search Aproach}
 
 Criteria for model selection and study is: collect results for a set of 4 algorithms, benchmark score will be collected based
 on different scores apply techniques to improve model performance
@@ -162,7 +168,7 @@ The \textbf{K-Nearest Neighbors (KNN)} algorithm is a non-parametric, instance-b
     \item \textbf{weights}: Weighting function for neighbors (\textit{uniform} or \textit{distance}).
 \end{itemize}
 
-\begin{table}[H]
+\begin{table}[bhtp]
     \centering
     \caption{KNeighborsClassifier Grid Search Results}
     \label{tab:table}
@@ -189,7 +195,7 @@ The \textbf{Random Forest Classifier} is an ensemble learning method that constr
     \item \textbf{min\_samples\_split}: Minimum number of samples required to split an internal node.
 \end{itemize}
 
-\begin{table}[H]
+\begin{table}[!htbp]
     \centering
     \caption{Random Forest Grid Search Results}
     \label{tab:table}
@@ -224,7 +230,7 @@ The \textbf{Support Vector Classifier (SVC)} is a kernel-based method that finds
     just for benchmark as it is widely used kernel
 \end{itemize}
 
-\begin{table}[H]
+\begin{table}[!htbp]
     \centering
     \caption{SVC Grid Search Results}
     \label{tab:table}
@@ -253,7 +259,7 @@ The \textbf{Logistic Regression} model is a linear classifier used for binary an
     \item \textbf{solver}: Optimization algorithm for model fitting.
 \end{itemize}
 
-\begin{table}[htbp]
+\begin{table}[!htbp]
     \centering
     \caption{Logistic Regression Grid Search Results}
     \label{tab:table}
@@ -273,15 +279,6 @@ The \textbf{Logistic Regression} model is a linear classifier used for binary an
     }
 \end{table}
 
-
-\begin{figure}[h] % Fix the figure at its exact position
-    \centering
-    \includegraphics[width=1
-    \linewidth]{BenchMark.png}
-    \caption{Distribution of Prognosis in Training Data.}
-    \label{fig:disease_distribution}
-    \vspace{-1em} % Reduce vertical spacing after the figure
-\end{figure}
 \subsection {Best cross validation score training set}
 Test set best cross validation Score 
 
@@ -302,18 +299,86 @@ Test set best cross validation Score
     \end{tabular}
     \end{table}
 
-\subsection{Oversampling and Dimenstionality Reduction}
 
 \section{Results}
 
-\subsection{Score and prediction}
-
+\begin{table}[H]
+    \centering
+    \caption{Training Set best results}
+    \label{tab:hyperparam_table2}
+    \adjustbox{max width=\textwidth}{%
+    \begin{tabular}{ccp{8cm}}
+    \toprule
+    \textbf{mean\_test\_score} & \textbf{rank\_test\_score} & \textbf{hyperparam\_combination} \\
+    \midrule
+    0.304661 & 1 & RandomForestClassifier, max\_depth=10, min\_samples\_split=5, n\_estimators=100 \\
+    0.295298 & 2 & RandomForestClassifier, max\_depth=10, min\_samples\_split=2, n\_estimators=50 \\
+    0.292155 & 3 & RandomForestClassifier, max\_depth=None, min\_samples\_split=5, n\_estimators=100 \\
+    0.288419 & 4 & SVC, C=10, kernel='rbf' \\
+    0.283026 & 5 & SVC, C=1, kernel='rbf' \\
+    \bottomrule
+    \end{tabular}%
+    }
+\end{table}
+    
+\begin{table}[H]
+    \centering
+    \caption{Test Set best results}
+    \label{tab:hyperparam_table1}
+    \adjustbox{max width=\textwidth}{%
+    \begin{tabular}{ccp{8cm}}
+    \toprule
+    \textbf{mean\_test\_score} & \textbf{rank\_test\_score} & \textbf{hyperparam\_combination} \\
+    \midrule
+    0.276434 & 1 & SVC, C=0.1, kernel='linear' \\
+    0.251400 & 2 & RandomForestClassifier, max\_depth=10, min\_samples\_split=2, n\_estimators=100 \\
+    0.246152 & 3 & RandomForestClassifier, max\_depth=10, min\_samples\_split=5, n\_estimators=100 \\
+    0.243171 & 4 & SVC, C=1, kernel='rbf' \\
+    0.242251 & 5 & LogisticRegression, maxiter=500, multiclass='ovr', solver='saga', C=10, penalty='l1' \\
+    \bottomrule
+    \end{tabular}%
+    }
+\end{table}
 \subsection{Confusion Matrix}
 
+The matrix shows significant confusions among classes that have similar symptom sets. For example:
+"Japanese Encephalitis" and "Lyme Disease" have off-diagonal misclassifications.
+"Tungiasis" has the strongest performance with 12 correct predictions.
+
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=1\linewidth]{Confusion_Matrix_Test_Set.png}
+    \caption{Features Correlation Heat Map. Blue areas indicate low correlation.}
+    \vspace{-1em} % Reduce vertical spacing
+    \end{figure}
+
 \section{Conclusions}
+
 Scikit-learn has been widely used for machine learning tasks \cite{disease_dataset2023}. Vector-borne diseases are a significant challenge\cite{disease_dataset2023}.
 
-\section{Anex}
+\appendix
+\section{Additional tables}
+
+\begin{figure}[H] % Fix the figure at its exact position
+    \centering
+    \includegraphics[width=.7
+    \linewidth]{TestSet.png}
+    \caption{Performace Test Set}
+    \label{fig:disease_distribution}
+    \vspace{-1em} % Reduce vertical spacing after the figure
+\end{figure}
+
+\begin{figure}[H] % Fix the figure at its exact position
+    \centering
+    \includegraphics[width=.7
+    \linewidth]{TrainingSet.png}
+    \caption{Performace Training Set}
+    \label{fig:disease_distribution}
+    \vspace{-1em} % Reduce vertical spacing after the figure
+\end{figure}
+
+
+\label{sec:appendix}
 \bibliographystyle{alpha}
 \bibliography{references}
 \end{document}
