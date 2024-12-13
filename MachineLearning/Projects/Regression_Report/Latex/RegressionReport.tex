@@ -228,6 +228,7 @@ in PCA, this is more for the sake of study as no much improvement is expected
 Results are not that exciting model performs reasonable well for a 95 percent variance
 acceptance
 
+\subsection{Model Benchmark}
 \begin{table}[h!]
     \centering
     \caption{Training and Test Set Performance Metrics}
@@ -243,10 +244,30 @@ acceptance
     \end{tabular}
 \end{table}
 
-Scikit-learn has been widely used for machine learning tasks \cite{disease_dataset2023}. Vector-borne diseases are a significant challenge\cite{disease_dataset2023}.
+\subsection{Feature relevance to determine Head efficency}
+The most important PCA component is: PC2
+The most important feature is: Wall Area
+The worst feature is: Relative Compactness
 
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=1\linewidth]{PCAComponents.png}
+    \caption{Features Correlation Heat marginparwidth}
+    \vspace{-1em} % Reduce vertical spacing
+    \end{figure}
+
+The wall area is the feature most strongly correlated with the principal components.
+However, the principal components themselves don’t provide a clear interpretation of the properties along each axis. 
+If additional features were included in the analysis, I would expect the new axes to become more closely correlated 
+with the wall area feature
+
+\section{Conclusion and further analysis}
+
+The regression model effectively explains both cooling and heating efficiency, demonstrating a strong correlation with the non-synthetic dataset. Although the model is relatively simple, it shows promising results. However, several improvements can be made:
+
+We analyzed an averaged result between cooling load and heating load; however, it might be valuable to perform separate analyses for each individually.
+There is a wealth of data available on building construction parameters. By scaling the model, we could incorporate additional features such as geographic location, building materials, and city-specific heat signatures.
 \appendix
-\section{Additional tables}
 
 
 \label{sec:appendix}

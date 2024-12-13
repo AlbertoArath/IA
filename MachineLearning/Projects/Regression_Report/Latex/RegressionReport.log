@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  13 DEC 2024 12:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  13 DEC 2024 16:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -441,7 +441,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 
 {d:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<Feature_Correlation_Heatmap.png, id=82, 722.7pt x 578.16pt>
+<Feature_Correlation_Heatmap.png, id=90, 722.7pt x 578.16pt>
 File: Feature_Correlation_Heatmap.png Graphic file (type png)
 <use Feature_Correlation_Heatmap.png>
 Package pdftex.def Info: Feature_Correlation_Heatmap.png  used on input line 124.
@@ -456,50 +456,53 @@ l.135 \subsection
                  {Metric used} <./Feature_Correlation_Heatmap.png>]
 
 [3]
-
-LaTeX Warning: Citation `disease_dataset2023' on page 4 undefined on input line 246.
-
-
-LaTeX Warning: Citation `disease_dataset2023' on page 4 undefined on input line 246.
-
-No file RegressionReport.bbl.
+<PCAComponents.png, id=107, 722.7pt x 433.62pt>
+File: PCAComponents.png Graphic file (type png)
+<use PCAComponents.png>
+Package pdftex.def Info: PCAComponents.png  used on input line 254.
+(pdftex.def)             Requested size: 443.57848pt x 266.1487pt.
 
 
 [4
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.255 \end{document}
-                    
+l.258 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.255 \end{document}
-                    ] (./RegressionReport.aux)
+l.258 
+      ]
+No file RegressionReport.bbl.
+
+
+[5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.276 \end{document}
+                     <./PCAComponents.png>] (./RegressionReport.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-11-02>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `RegressionReport.out' has not changed.
-(rerunfilecheck)             Checksum: C6F9293F8A21A83DA349D2783BCBEA9F;2399.
+(rerunfilecheck)             Checksum: F3B151A5EB23E6FA9964C70F783CA80B;2908.
  ) 
 Here is how much of TeX's memory you used:
- 12139 strings out of 473330
- 192702 string characters out of 5723877
- 612685 words of memory out of 5000000
- 35085 multiletter control sequences out of 15000+600000
+ 12152 strings out of 473330
+ 192941 string characters out of 5723877
+ 612701 words of memory out of 5000000
+ 35094 multiletter control sequences out of 15000+600000
  564128 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,341b,588s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,431b,588s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on RegressionReport.pdf (4 pages, 372818 bytes).
+Output written on RegressionReport.pdf (5 pages, 484417 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 134 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 180 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 155 words of extra memory for PDF output out of 10000 (max. 10000000)
 
