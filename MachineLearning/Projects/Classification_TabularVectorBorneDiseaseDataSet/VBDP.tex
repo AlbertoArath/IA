@@ -2,7 +2,7 @@
 
 \usepackage{ragged2e} % For justified text alignment
 \setlength{\parindent}{0pt} % Remove paragraph indentation
-
+\usepackage{booktabs}
 % Language setting
 % Replace `english' with e.g. `spanish' to change the document language
 \usepackage[english]{babel}
@@ -128,9 +128,61 @@ in Model section we will place this hypothesis to test.
 \end{figure}
 
 \section{Methodology}
-\subsection {Grid Search approach to find best cross validation results}
+In this study, we performed hyperparameter tuning using Grid Search, testing multiple machine learning algorithms to identify the best-performing model. The following algorithms were evaluated:
+
+\subsection{K-Nearest Neighbors (KNN)}
+The \textbf{K-Nearest Neighbors (KNN)} algorithm is a non-parametric, instance-based learning method. It classifies a data point based on the majority class of its $k$ nearest neighbors in the feature space. Hyperparameters tuned include:
+\begin{itemize}
+    \item \textbf{n\_neighbors}: Number of neighbors considered.
+    \item \textbf{weights}: Weighting function for neighbors (\textit{uniform} or \textit{distance}).
+\end{itemize}
+
+\subsection{Random Forest Classifier}
+The \textbf{Random Forest Classifier} is an ensemble learning method that constructs a collection of decision trees and combines their predictions. It reduces overfitting compared to individual trees. Hyperparameters tuned include:
+\begin{itemize}
+    \item \textbf{n\_estimators}: Number of trees in the forest.
+    \item \textbf{max\_depth}: Maximum depth of each tree.
+    \item \textbf{min\_samples\_split}: Minimum number of samples required to split an internal node.
+\end{itemize}
+
+\subsection{Support Vector Classifier (SVC)}
+The \textbf{Support Vector Classifier (SVC)} is a kernel-based method that finds an optimal hyperplane to separate classes in a high-dimensional space. Hyperparameters tuned include:
+\begin{itemize}
+    \item \textbf{C}: Regularization parameter.
+    \item \textbf{kernel}: Kernel function (\textit{linear}, \textit{rbf}, or \textit{poly}).
+\end{itemize}
+
+\subsection{Logistic Regression}
+The \textbf{Logistic Regression} model is a linear classifier used for binary and multi-class classification problems. It models the probability of a class using the logistic function. Hyperparameters tuned include:
+\begin{itemize}
+    \item \textbf{penalty}: Type of regularization (\textit{l1}, \textit{l2}, or \textit{elasticnet}).
+    \item \textbf{C}: Inverse of regularization strength.
+    \item \textbf{solver}: Optimization algorithm for model fitting.
+\end{itemize}
+
+\subsection{Hyperparameter Tuning}
+The hyperparameter tuning process involved evaluating combinations of the above hyperparameters using cross-validation. The model performance was assessed using the \textit{mean test score}, which is the average score across all cross-validation folds. Models were ranked based on their performance, with the best model achieving the highest mean score.
 
 
+\subsection Test set best cross validation Score
+
+\begin{table}[h!]
+    \centering
+    \caption{Classifier Results with Rank and Scores}
+    \label{tab:classifier_ranks}
+    \begin{tabular}{lcc}
+    \toprule
+    \textbf{Classifier}       & \textbf{Mean Test Score} & \textbf{Rank} \\
+    \midrule
+    KNeighborsClassifier      & 0.295575                & 1 \\
+    RandomForestClassifier    & 0.293805                & 2 \\
+    RandomForestClassifier    & 0.290265                & 3 \\
+    KNeighborsClassifier      & 0.290265                & 4 \\
+    RandomForestClassifier    & 0.288496                & 5 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+    
 \subsection{Oversampling}
 
 \subsection{Dimenstionality Reduction}
