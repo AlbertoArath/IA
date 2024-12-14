@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  13 DEC 2024 17:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  13 DEC 2024 17:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -460,17 +460,17 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.93     \item \(
+l.95     \item \(
                   C_3 \): Malaria.]
-<DiseaseDistribution.png, id=124, 714.7503pt x 426.393pt>
+<DiseaseDistribution.png, id=126, 714.7503pt x 426.393pt>
 File: DiseaseDistribution.png Graphic file (type png)
 <use DiseaseDistribution.png>
-Package pdftex.def Info: DiseaseDistribution.png  used on input line 116.
+Package pdftex.def Info: DiseaseDistribution.png  used on input line 118.
 (pdftex.def)             Requested size: 354.86412pt x 211.70604pt.
-<CorrelationMatrix.png, id=126, 580.41844pt x 563.10374pt>
+<CorrelationMatrix.png, id=128, 580.41844pt x 563.10374pt>
 File: CorrelationMatrix.png Graphic file (type png)
 <use CorrelationMatrix.png>
-Package pdftex.def Info: CorrelationMatrix.png  used on input line 129.
+Package pdftex.def Info: CorrelationMatrix.png  used on input line 131.
 (pdftex.def)             Requested size: 443.57848pt x 430.35194pt.
 
 
@@ -478,52 +478,42 @@ Package pdftex.def Info: CorrelationMatrix.png  used on input line 129.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.133 
+l.135 
       {d:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./DiseaseDistribution.png>]
 
 [3
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.155 \subsection
+l.157 \subsection
                  {Hyperparameter Tuning} <./CorrelationMatrix.PNG>]
-Overfull \hbox (6.21025pt too wide) in paragraph at lines 179--191
+Overfull \hbox (6.21025pt too wide) in paragraph at lines 181--193
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--214
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=5,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=5,
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 215--216
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=None,
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=5,
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 216--217
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=None,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
 []\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=5,
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=None,
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 218--219
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=10,
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=None,
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 219--220
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=None,
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=5,
  []
 
 
@@ -533,7 +523,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 221--222
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=5,
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=None,
  []
 
 
@@ -543,11 +533,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 223--224
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=None,
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=5,
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 224--225
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=10,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=None,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
 []\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=10,
  []
 
@@ -557,25 +557,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 224--225
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.264     \item \textbf
+l.266     \item \textbf
                        {C}: Inverse of regularization strength.]
 
 [5
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.264     \item \textbf
+l.266     \item \textbf
                        {C}: Inverse of regularization strength.
 pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.264     \item \textbf
+l.266     \item \textbf
                        {C}: Inverse of regularization strength.]
-Underfull \hbox (badness 10000) in paragraph at lines 277--278
-[]\OT1/cmr/m/n/10 maxiter=500, mul-ti-class='ovr', solver='saga',
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 279--280
 []\OT1/cmr/m/n/10 maxiter=500, mul-ti-class='ovr', solver='saga',
  []
@@ -586,32 +581,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 281--282
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 []\OT1/cmr/m/n/10 maxiter=500, mul-ti-class='ovr', solver='saga',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--321
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=10,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--322
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=10,
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
+[]\OT1/cmr/m/n/10 maxiter=500, mul-ti-class='ovr', solver='saga',
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 322--323
-[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=None,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
 []\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=10,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 323--324
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=10,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=None,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
+[]\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=10,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
 []\OT1/cmr/m/n/10 RandomForestClassifier, max[]depth=10,
  []
 
@@ -621,27 +621,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 341--342
 pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.348 \subsection
+l.350 \subsection
                  {Confusion Matrix}
 pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.348 \subsection
+l.350 \subsection
                  {Confusion Matrix}
 pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.348 \subsection
+l.350 \subsection
                  {Confusion Matrix}]
-<Confusion_Matrix_Test_Set.png, id=159, 578.16pt x 433.62pt>
+<Confusion_Matrix_Test_Set.png, id=162, 578.16pt x 433.62pt>
 File: Confusion_Matrix_Test_Set.png Graphic file (type png)
 <use Confusion_Matrix_Test_Set.png>
-Package pdftex.def Info: Confusion_Matrix_Test_Set.png  used on input line 356.
+Package pdftex.def Info: Confusion_Matrix_Test_Set.png  used on input line 358.
 (pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
-<Kmeanselbow.png, id=160, 578.16pt x 433.62pt>
+<Kmeanselbow.png, id=163, 578.16pt x 433.62pt>
 File: Kmeanselbow.png Graphic file (type png)
 <use Kmeanselbow.png>
-Package pdftex.def Info: Kmeanselbow.png  used on input line 372.
+Package pdftex.def Info: Kmeanselbow.png  used on input line 374.
 (pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
 
 
@@ -649,17 +649,17 @@ Package pdftex.def Info: Kmeanselbow.png  used on input line 372.
 pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.375     \end{figure}
+l.377     \end{figure}
                       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.375     \end{figure}
+l.377     \end{figure}
                        <./Confusion_Matrix_Test_Set.png>]
-<TestSet.png, id=170, 722.7pt x 578.16pt>
+<TestSet.png, id=172, 722.7pt x 578.16pt>
 File: TestSet.png Graphic file (type png)
 <use TestSet.png>
-Package pdftex.def Info: TestSet.png  used on input line 395.
+Package pdftex.def Info: TestSet.png  used on input line 397.
 (pdftex.def)             Requested size: 310.50357pt x 248.40105pt.
 
 
@@ -667,12 +667,12 @@ Package pdftex.def Info: TestSet.png  used on input line 395.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.400 
+l.402 
        <./Kmeanselbow.png>]
-<TrainingSet.png, id=177, 722.7pt x 578.16pt>
+<TrainingSet.png, id=179, 722.7pt x 578.16pt>
 File: TrainingSet.png Graphic file (type png)
 <use TrainingSet.png>
-Package pdftex.def Info: TrainingSet.png  used on input line 404.
+Package pdftex.def Info: TrainingSet.png  used on input line 406.
 (pdftex.def)             Requested size: 310.50357pt x 248.40105pt.
  (./VBDP.bbl
 
@@ -701,18 +701,18 @@ Package rerunfilecheck Info: File `VBDP.out' has not changed.
 (rerunfilecheck)             Checksum: AC1415C51F7314028C61BEB29630FCB1;4327.
  ) 
 Here is how much of TeX's memory you used:
- 12238 strings out of 473330
- 194214 string characters out of 5723877
- 620915 words of memory out of 5000000
- 35151 multiletter control sequences out of 15000+600000
+ 12240 strings out of 473330
+ 194259 string characters out of 5723877
+ 620960 words of memory out of 5000000
+ 35152 multiletter control sequences out of 15000+600000
  564920 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,424b,565s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on VBDP.pdf (10 pages, 1181143 bytes).
+Output written on VBDP.pdf (10 pages, 1182762 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
+ 269 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
+ 54 named destinations out of 1000 (max. 500000)
  239 words of extra memory for PDF output out of 10000 (max. 10000000)
 
