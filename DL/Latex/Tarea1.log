@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  28 FEB 2025 11:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  28 FEB 2025 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -112,27 +112,36 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box54
 \@float@everytoks=\toks24
 \@floatcapt=\box55
-) (d:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (d:/texlive/2024/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (d:/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (d:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count283
 \l__pdf_internal_box=\box56
 ) (./Tarea1.aux)
 \openout1 = `Tarea1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
  (d:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count284
@@ -152,95 +161,107 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (d:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
+LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
+ (d:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
+ (d:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 <Imagen1.png, id=1, 792.71156pt x 724.20563pt>
 File: Imagen1.png Graphic file (type png)
 <use Imagen1.png>
-Package pdftex.def Info: Imagen1.png  used on input line 18.
+Package pdftex.def Info: Imagen1.png  used on input line 41.
 (pdftex.def)             Requested size: 172.5pt x 157.5908pt.
-<Imagen2.png, id=3, 667.74469pt x 575.90157pt>
-File: Imagen2.png Graphic file (type png)
-<use Imagen2.png>
-Package pdftex.def Info: Imagen2.png  used on input line 32.
-(pdftex.def)             Requested size: 172.5pt x 148.77303pt.
 
 
 [1
 
 {d:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./Imagen1.png>]
-<Imagen3.png, id=17, 611.28375pt x 517.18219pt>
+<Imagen2.png, id=17, 667.74469pt x 575.90157pt>
+File: Imagen2.png Graphic file (type png)
+<use Imagen2.png>
+Package pdftex.def Info: Imagen2.png  used on input line 55.
+(pdftex.def)             Requested size: 172.5pt x 148.77303pt.
+<Imagen3.png, id=18, 611.28375pt x 517.18219pt>
 File: Imagen3.png Graphic file (type png)
 <use Imagen3.png>
-Package pdftex.def Info: Imagen3.png  used on input line 45.
+Package pdftex.def Info: Imagen3.png  used on input line 68.
 (pdftex.def)             Requested size: 172.5pt x 145.9385pt.
 
 
-[2 <./Imagen2.png> <./Imagen3.png>]
+[2 <./Imagen2.png>]
 <Imagen4.png, id=23, 877.77937pt x 608.2725pt>
 File: Imagen4.png Graphic file (type png)
 <use Imagen4.png>
-Package pdftex.def Info: Imagen4.png  used on input line 58.
+Package pdftex.def Info: Imagen4.png  used on input line 81.
 (pdftex.def)             Requested size: 172.5pt x 119.53616pt.
-<Imagen5.png, id=24, 767.11594pt x 669.2503pt>
+
+
+[3 <./Imagen3.png> <./Imagen4.png>]
+<Imagen5.png, id=29, 767.11594pt x 669.2503pt>
 File: Imagen5.png Graphic file (type png)
 <use Imagen5.png>
-Package pdftex.def Info: Imagen5.png  used on input line 71.
+Package pdftex.def Info: Imagen5.png  used on input line 94.
 (pdftex.def)             Requested size: 172.5pt x 150.49312pt.
-
-
-[3 <./Imagen4.png>]
-<Imagen6.png, id=29, 950.04938pt x 776.9025pt>
+<Imagen6.png, id=30, 950.04938pt x 776.9025pt>
 File: Imagen6.png Graphic file (type png)
 <use Imagen6.png>
-Package pdftex.def Info: Imagen6.png  used on input line 84.
+Package pdftex.def Info: Imagen6.png  used on input line 107.
 (pdftex.def)             Requested size: 172.5pt x 141.05743pt.
 
 
-[4 <./Imagen5.png> <./Imagen6.png>]
+[4 <./Imagen5.png>]
 <Imagen7.png, id=35, 1406.25375pt x 536.0025pt>
 File: Imagen7.png Graphic file (type png)
 <use Imagen7.png>
-Package pdftex.def Info: Imagen7.png  used on input line 97.
+Package pdftex.def Info: Imagen7.png  used on input line 120.
 (pdftex.def)             Requested size: 172.5pt x 65.7488pt.
-<Imagen8.png, id=36, 899.61093pt x 585.68813pt>
+
+
+[5 <./Imagen6.png> <./Imagen7.png>]
+<Imagen8.png, id=41, 899.61093pt x 585.68813pt>
 File: Imagen8.png Graphic file (type png)
 <use Imagen8.png>
-Package pdftex.def Info: Imagen8.png  used on input line 110.
+Package pdftex.def Info: Imagen8.png  used on input line 133.
 (pdftex.def)             Requested size: 172.5pt x 112.30069pt.
-
-
-[5 <./Imagen7.png> <./Imagen8.png>]
 <Imagen9.png, id=42, 987.69pt x 686.565pt>
 File: Imagen9.png Graphic file (type png)
 <use Imagen9.png>
-Package pdftex.def Info: Imagen9.png  used on input line 123.
+Package pdftex.def Info: Imagen9.png  used on input line 146.
 (pdftex.def)             Requested size: 172.5pt x 119.89925pt.
 
 
-[6 <./Imagen9.png>]
+[6 <./Imagen8.png> <./Imagen9.png>]
 
 [7]
 
 [8]
 
-[9] (./Tarea1.aux)
+[9]
+
+[10]
+
+[11] (./Tarea1.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-11-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2164 strings out of 473330
- 32661 string characters out of 5723877
- 439669 words of memory out of 5000000
- 25305 multiletter control sequences out of 15000+600000
- 564728 words of font info for 59 fonts, out of 8000000 for 9000
+ 2695 strings out of 473330
+ 38700 string characters out of 5723877
+ 433269 words of memory out of 5000000
+ 25817 multiletter control sequences out of 15000+600000
+ 567208 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,13n,65p,298b,236s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Tarea1.pdf (9 pages, 1026341 bytes).
+Output written on Tarea1.pdf (11 pages, 1032757 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
