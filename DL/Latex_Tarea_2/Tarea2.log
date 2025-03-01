@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  28 FEB 2025 23:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  28 FEB 2025 23:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -245,27 +245,47 @@ File: 1d.png Graphic file (type png)
 <use 1d.png>
 Package pdftex.def Info: 1d.png  used on input line 34.
 (pdftex.def)             Requested size: 236.01561pt x 368.62827pt.
+File: Imagen0.png Graphic file (type png)
+<use Imagen0.png>
+Package pdftex.def Info: Imagen0.png  used on input line 46.
+(pdftex.def)             Requested size: 236.01561pt x 190.54094pt.
 
 
-[3 <./1d.png>] (./Tarea2.aux)
+[3 <./1d.png>]
+<2_Decision_boundry.PNG, id=24, 456.20438pt x 322.20375pt>
+File: 2_Decision_boundry.PNG Graphic file (type png)
+<use 2_Decision_boundry.PNG>
+Package pdftex.def Info: 2_Decision_boundry.PNG  used on input line 52.
+(pdftex.def)             Requested size: 236.01561pt x 166.68654pt.
+
+
+[4 <./2_Decision_boundry.PNG>]
+<2_output_neuron.PNG, id=29, 499.8675pt x 735.49782pt>
+File: 2_output_neuron.PNG Graphic file (type png)
+<use 2_output_neuron.PNG>
+Package pdftex.def Info: 2_output_neuron.PNG  used on input line 58.
+(pdftex.def)             Requested size: 236.01561pt x 347.26643pt.
+
+
+[5 <./2_output_neuron.PNG>] (./Tarea2.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-11-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3157 strings out of 473330
- 45684 string characters out of 5723877
+ 3172 strings out of 473330
+ 46076 string characters out of 5723877
  438251 words of memory out of 5000000
- 26286 multiletter control sequences out of 15000+600000
+ 26301 multiletter control sequences out of 15000+600000
  559768 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,65p,306b,366s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,7n,65p,306b,368s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Tarea2.pdf (3 pages, 192554 bytes).
+Output written on Tarea2.pdf (5 pages, 468271 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 56 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -34,6 +34,29 @@ Hacer lo siguiente:
   \includegraphics[width=0.5\textwidth]{1d.png}  % Cambia el nombre del archivo y su ruta según sea necesario
 \end{figure}
 \end{enumerate}
-a
+Diseñar una neurona que divida el espacio de entrada $(x_1, x_2)$ con una línea recta con pendiente
+$m=3$, $b=-2$ (b es el valor que toma el eje $x_2$ cuando $x_1=0$, es decir, donde la recta cruza con el eje
+$x_2$) y función de activación $f(wtx)=\text{Sigmoide}$. Una vez diseñada la neurona haga lo siguiente:
+\begin{enumerate}
+  \item Dibuje la neurona con sus pesos y sus entradas y salida mostrando la entrada que está fija a 1.
+  \item Calcular el producto $W^T X$ y graficarlo en GeoGebra 3D.
+  \[ wtx(x_1, x_2) = -3 x_1 + x_2 + 2 \]
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Imagen0.png}  % Cambia el nombre del archivo y su ruta según sea necesario
+  \end{figure}
+  \item Encontrar la ecuación de la recta que divide al espacio de entrada en 2 partes y graficarla usando GeoGebra 2D.
+  \[ 0 = -3 x_1 + x_2 + 2 \]
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{2_Decision_boundry.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+  \end{figure}
+  \newpage
+  \item Graficar en GeoGebra 3D la salida de la neurona $y$.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{2_output_neuron.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+  \end{figure}
+  \end{enumerate}
 \end{flushleft}
 \end{document}
