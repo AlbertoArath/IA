@@ -87,23 +87,72 @@ $x_2$) y función de activación $f(wtx)=\text{Sigmoide}$. Una vez diseñada la 
 \begin{enumerate}
   \item
    Encontrar la ecuación de la recta cuando Wtx = 0 para cada neurona
-  \item Calcular el producto $W^T X$ y graficarlo en GeoGebra 3D.
-  \[ wtx(x_1, x_2) = - x_1 - x_2 + 2 \]
+   \[ 0 =   2x_1   - 2x_2  + 1 \]
+   \[ 0 =   2x_1 - 2x_2 - 1 \]
+   \[ 0 =   2x_1 - 2x_2 - 1 \]
+  \item Graficar la ecuación de la recta para cada una de las neuronas en el ejercicio 1 
+
   \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{Imagen0.png}  % Cambia el nombre del archivo y su ruta según sea necesario
+    \includegraphics[width=0.5\textwidth]{4_a_1.PNG}  
   \end{figure}
-  \item Encontrar la ecuación de la recta que divide al espacio de entrada en 2 partes y graficarla usando GeoGebra 2D.
-  \[ 0 = - x_1 - x_2 + 2 \]
   \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{2_Decision_boundry.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+    \includegraphics[width=0.5\textwidth]{4.a.2.PNG}
   \end{figure}
-  \item Graficar en GeoGebra 3D la salida de la neurona $y$.
   \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{3_d.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+    \includegraphics[width=0.5\textwidth]{4_a_3.PNG} 
   \end{figure}
+
+  \item Encontrar la función de salida para cada neurona
+  \begin{enumerate}
+    \item \(\frac{1}{e^{-2x_1 + 2x_2 - 1} + 1}\)
+  
+
+    \item \(\frac{1}{e^{-2x_1 + 2x_2 + 1} + 1}\)
+    
+
+    \item \(\frac{1}{e^{-2x_1 + 2x_2 + 1} + 1}\)
+
+  \end{enumerate}
+
+  \item Obtener la funcion de salida y(x1, x2) con respecto a alas demas entradas x1, x2 de la red neuronal completa$y$.
+  \[
+  -\frac{2}{e^{-2x_1+2x_2-1}+1} + \frac{2}{e^{-2x_1+2x_2+1}+1} - 1
+  \]
+ 
+  \item Graficar las funciones obtenidas en 3 y 4
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{4_e.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+  \end{figure}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{4_e_2.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+  \end{figure}
+
+  \item Obtener valores de salida
+  
+  y1 = 0.731059, 0.952574, 0.731059, 0.268941
+  y2 = 0.268941, 0.731059, 0.268941, 0.0474259
+
+  \item Graficar los puntos del ejercicio 6
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{4_g.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+  \end{figure}
+
+  \item Graficar los puntos y1h y2h
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{4_h.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+  \end{figure}
+
+  \item Verificar que efectivamente (0,0) y (1,1) pertenecen al mismo grupo
+  
+  0.481068, 0.364249, 0.481068, 0.364249
+  
   \end{enumerate}
 \end{flushleft}
 \end{document}
