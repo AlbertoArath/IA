@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  1 MAR 2025 02:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  1 MAR 2025 03:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -250,129 +250,144 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 [1
 
 {d:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
  (d:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
  (d:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Imagen0.png, id=7, 410.2828pt x 331.2375pt>
+<relu.jpg, id=7, 968.1771pt x 392.667pt>
+File: relu.jpg Graphic file (type jpg)
+<use relu.jpg>
+Package pdftex.def Info: relu.jpg  used on input line 23.
+(pdftex.def)             Requested size: 236.01561pt x 95.72192pt.
+<Imagen0.png, id=8, 410.2828pt x 331.2375pt>
 File: Imagen0.png Graphic file (type png)
 <use Imagen0.png>
-Package pdftex.def Info: Imagen0.png  used on input line 23.
+Package pdftex.def Info: Imagen0.png  used on input line 29.
 (pdftex.def)             Requested size: 236.01561pt x 190.54094pt.
-<Imagen1.png, id=9, 291.33844pt x 219.82124pt>
+<Imagen1.png, id=10, 291.33844pt x 219.82124pt>
 File: Imagen1.png Graphic file (type png)
 <use Imagen1.png>
-Package pdftex.def Info: Imagen1.png  used on input line 29.
+Package pdftex.def Info: Imagen1.png  used on input line 35.
 (pdftex.def)             Requested size: 236.01561pt x 178.08441pt.
 
 
-[2 <./Imagen0.png> <./Imagen1.png>]
-<1d.png, id=19, 426.09187pt x 665.48625pt>
+[2 <./relu.jpg> <./Imagen0.png> <./Imagen1.png>]
+<1d.png, id=20, 426.09187pt x 665.48625pt>
 File: 1d.png Graphic file (type png)
 <use 1d.png>
-Package pdftex.def Info: 1d.png  used on input line 35.
+Package pdftex.def Info: 1d.png  used on input line 41.
 (pdftex.def)             Requested size: 236.01561pt x 368.62827pt.
+<sigmoide.jpg, id=21, 971.0679pt x 362.5545pt>
+File: sigmoide.jpg Graphic file (type jpg)
+<use sigmoide.jpg>
+Package pdftex.def Info: sigmoide.jpg  used on input line 51.
+(pdftex.def)             Requested size: 236.01561pt x 88.11575pt.
 File: Imagen0.png Graphic file (type png)
 <use Imagen0.png>
-Package pdftex.def Info: Imagen0.png  used on input line 47.
+Package pdftex.def Info: Imagen0.png  used on input line 57.
 (pdftex.def)             Requested size: 236.01561pt x 190.54094pt.
 
 
-[3 <./1d.png>]
-<2_Decision_boundry.PNG, id=24, 456.20438pt x 322.20375pt>
+[3 <./1d.png> <./sigmoide.jpg>]
+<2_Decision_boundry.PNG, id=26, 456.20438pt x 322.20375pt>
 File: 2_Decision_boundry.PNG Graphic file (type png)
 <use 2_Decision_boundry.PNG>
-Package pdftex.def Info: 2_Decision_boundry.PNG  used on input line 53.
+Package pdftex.def Info: 2_Decision_boundry.PNG  used on input line 63.
 (pdftex.def)             Requested size: 236.01561pt x 166.68654pt.
 
 
 [4 <./2_Decision_boundry.PNG>]
-<2_output_neuron.PNG, id=29, 499.8675pt x 735.49782pt>
+<2_output_neuron.PNG, id=31, 499.8675pt x 735.49782pt>
 File: 2_output_neuron.PNG Graphic file (type png)
 <use 2_output_neuron.PNG>
-Package pdftex.def Info: 2_output_neuron.PNG  used on input line 59.
+Package pdftex.def Info: 2_output_neuron.PNG  used on input line 69.
 (pdftex.def)             Requested size: 236.01561pt x 347.26643pt.
+<linear.jpg, id=32, 971.3088pt x 728.4816pt>
+File: linear.jpg Graphic file (type jpg)
+<use linear.jpg>
+Package pdftex.def Info: linear.jpg  used on input line 79.
+(pdftex.def)             Requested size: 236.01561pt x 177.00671pt.
 File: Imagen0.png Graphic file (type png)
 <use Imagen0.png>
-Package pdftex.def Info: Imagen0.png  used on input line 71.
+Package pdftex.def Info: Imagen0.png  used on input line 85.
 (pdftex.def)             Requested size: 236.01561pt x 190.54094pt.
 
 
-[5 <./2_output_neuron.PNG>]
+[5 <./2_output_neuron.PNG> <./linear.jpg>]
 File: 2_Decision_boundry.PNG Graphic file (type png)
 <use 2_Decision_boundry.PNG>
-Package pdftex.def Info: 2_Decision_boundry.PNG  used on input line 77.
+Package pdftex.def Info: 2_Decision_boundry.PNG  used on input line 91.
 (pdftex.def)             Requested size: 236.01561pt x 166.68654pt.
-<3_d.PNG, id=34, 436.63126pt x 662.475pt>
-File: 3_d.PNG Graphic file (type png)
-<use 3_d.PNG>
-Package pdftex.def Info: 3_d.PNG  used on input line 82.
-(pdftex.def)             Requested size: 236.01561pt x 358.09508pt.
+<Imagen0.PNG, id=37, 410.2828pt x 331.2375pt>
+File: Imagen0.PNG Graphic file (type png)
+<use Imagen0.PNG>
+Package pdftex.def Info: Imagen0.PNG  used on input line 96.
+(pdftex.def)             Requested size: 236.01561pt x 190.54094pt.
 
 
-[6 <./3_d.PNG>]
-<4_a_1.PNG, id=39, 367.3725pt x 393.72093pt>
+[6 <./Imagen0.png>]
+<4_a_1.PNG, id=42, 367.3725pt x 393.72093pt>
 File: 4_a_1.PNG Graphic file (type png)
 <use 4_a_1.PNG>
-Package pdftex.def Info: 4_a_1.PNG  used on input line 98.
+Package pdftex.def Info: 4_a_1.PNG  used on input line 112.
 (pdftex.def)             Requested size: 236.01561pt x 252.94777pt.
-<4.a.2.PNG, id=40, 408.77719pt x 365.86688pt>
+<4.a.2.PNG, id=43, 408.77719pt x 365.86688pt>
 File: 4.a.2.PNG Graphic file (type png)
 <use 4.a.2.PNG>
-Package pdftex.def Info: 4.a.2.PNG  used on input line 102.
+Package pdftex.def Info: 4.a.2.PNG  used on input line 116.
 (pdftex.def)             Requested size: 236.01561pt x 211.2427pt.
-<4_a_3.PNG, id=41, 366.61969pt x 373.395pt>
+<4_a_3.PNG, id=44, 366.61969pt x 373.395pt>
 File: 4_a_3.PNG Graphic file (type png)
 <use 4_a_3.PNG>
-Package pdftex.def Info: 4_a_3.PNG  used on input line 106.
+Package pdftex.def Info: 4_a_3.PNG  used on input line 120.
 (pdftex.def)             Requested size: 236.01561pt x 240.37927pt.
 
 
 [7 <./4_a_1.PNG> <./4.a.2.PNG>]
-<4_e.PNG, id=48, 1005.00468pt x 298.86656pt>
+<4_e.PNG, id=51, 1005.00468pt x 298.86656pt>
 File: 4_e.PNG Graphic file (type png)
 <use 4_e.PNG>
-Package pdftex.def Info: 4_e.PNG  used on input line 129.
+Package pdftex.def Info: 4_e.PNG  used on input line 143.
 (pdftex.def)             Requested size: 377.62642pt x 112.29813pt.
-<4_e_2.PNG, id=49, 333.49594pt x 254.45062pt>
+<4_e_2.PNG, id=52, 333.49594pt x 254.45062pt>
 File: 4_e_2.PNG Graphic file (type png)
 <use 4_e_2.PNG>
-Package pdftex.def Info: 4_e_2.PNG  used on input line 133.
+Package pdftex.def Info: 4_e_2.PNG  used on input line 147.
 (pdftex.def)             Requested size: 236.01561pt x 180.07881pt.
 
 
 [8 <./4_a_3.PNG> <./4_e.PNG>]
-<4_g.PNG, id=59, 447.17062pt x 259.7203pt>
+<4_g.PNG, id=62, 447.17062pt x 259.7203pt>
 File: 4_g.PNG Graphic file (type png)
 <use 4_g.PNG>
-Package pdftex.def Info: 4_g.PNG  used on input line 144.
+Package pdftex.def Info: 4_g.PNG  used on input line 158.
 (pdftex.def)             Requested size: 236.01561pt x 137.08043pt.
-<4_h.PNG, id=60, 556.32843pt x 301.8778pt>
+<4_h.PNG, id=63, 556.32843pt x 301.8778pt>
 File: 4_h.PNG Graphic file (type png)
 <use 4_h.PNG>
-Package pdftex.def Info: 4_h.PNG  used on input line 150.
+Package pdftex.def Info: 4_h.PNG  used on input line 164.
 (pdftex.def)             Requested size: 236.01561pt x 128.06834pt.
 
 
 [9 <./4_e_2.PNG> <./4_g.PNG> <./4_h.PNG>]
-<4_e_tan.PNG, id=68, 867.24pt x 256.70906pt>
+<4_e_tan.PNG, id=71, 867.24pt x 256.70906pt>
 File: 4_e_tan.PNG Graphic file (type png)
 <use 4_e_tan.PNG>
-Package pdftex.def Info: 4_e_tan.PNG  used on input line 175.
+Package pdftex.def Info: 4_e_tan.PNG  used on input line 189.
 (pdftex.def)             Requested size: 377.62642pt x 111.78113pt.
-<4_e_tan_final.PNG, id=69, 374.90062pt x 304.13625pt>
+<4_e_tan_final.PNG, id=72, 374.90062pt x 304.13625pt>
 File: 4_e_tan_final.PNG Graphic file (type png)
 <use 4_e_tan_final.PNG>
-Package pdftex.def Info: 4_e_tan_final.PNG  used on input line 179.
+Package pdftex.def Info: 4_e_tan_final.PNG  used on input line 193.
 (pdftex.def)             Requested size: 377.62642pt x 306.36769pt.
-<4_h_tan.PNG, id=70, 387.69844pt x 377.91188pt>
+<4_h_tan.PNG, id=73, 387.69844pt x 377.91188pt>
 File: 4_h_tan.PNG Graphic file (type png)
 <use 4_h_tan.PNG>
-Package pdftex.def Info: 4_h_tan.PNG  used on input line 196.
+Package pdftex.def Info: 4_h_tan.PNG  used on input line 210.
 (pdftex.def)             Requested size: 377.62642pt x 368.10219pt.
 
 
@@ -385,18 +400,18 @@ L3 programming layer <2024-11-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3926 strings out of 473330
- 57006 string characters out of 5723877
- 458072 words of memory out of 5000000
- 27035 multiletter control sequences out of 15000+600000
+ 3947 strings out of 473330
+ 57388 string characters out of 5723877
+ 458098 words of memory out of 5000000
+ 27056 multiletter control sequences out of 15000+600000
  560103 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,79p,306b,371s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Tarea2.pdf (11 pages, 1275459 bytes).
+Output written on Tarea2.pdf (11 pages, 6354626 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
+ 132 PDF objects out of 1000 (max. 8388607)
  61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
