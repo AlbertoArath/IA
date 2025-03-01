@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  28 FEB 2025 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.11)  28 FEB 2025 22:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/Arath/src/Especialidad/DL/Latex/Tarea1.tex
-(c:/Users/Arath/src/Especialidad/DL/Latex/Tarea1.tex
+**c:/Users/Arath/src/Especialidad/DL/Latex_Tarea_1/Tarea1.tex
+(c:/Users/Arath/src/Especialidad/DL/Latex_Tarea_1/Tarea1.tex
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-11-02>
 (d:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -251,12 +251,12 @@ L3 programming layer <2024-11-02>
  ) 
 Here is how much of TeX's memory you used:
  2695 strings out of 473330
- 38700 string characters out of 5723877
+ 38724 string characters out of 5723877
  433269 words of memory out of 5000000
  25817 multiletter control sequences out of 15000+600000
  567208 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,13n,65p,298b,236s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,13n,65p,306b,236s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
 Output written on Tarea1.pdf (11 pages, 1032757 bytes).
 PDF statistics:
