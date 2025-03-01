@@ -4,6 +4,7 @@
 \usepackage{float}
 \usepackage{amsmath,amssymb,  graphicx, float}
 \usepackage{geometry}
+\usepackage[table]{xcolor}
 \geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
 
 \begin{document}
@@ -152,7 +153,62 @@ $x_2$) y función de activación $f(wtx)=\text{Sigmoide}$. Una vez diseñada la 
   \item Verificar que efectivamente (0,0) y (1,1) pertenecen al mismo grupo
   
   0.481068, 0.364249, 0.481068, 0.364249
-  
+
+  \item Encontrar la función de salida para cada neurona (tanh)
+\[
+\begin{aligned}
+  y_1 &= 2\,\tanh\Bigl(2x_1 - 2x_2 + 1\Bigr), \\
+  y_2 &= 2\,\tanh\Bigl(-2x_1 + 2x_2 + 1\Bigr), \\
+  y_3 &= 2\,\tanh\Bigl(-2x_1 + 2x_2 + 1\Bigr).
+\end{aligned}
+\]
+
+  \item Obtener la funcion de salida y(x1, x2) con respecto a alas demas entradas x1, x2 de la red neuronal completa$y$.(tanh)
+\[
+2\,\tanh\Bigl(2x_1 - 2x_2 + 1\Bigr)
++ 2\,\tanh\Bigl(-2x_1 + 2x_2 + 1\Bigr)
+- 1
+\]
+\item Graficar en Geogebra cada una de las funciones obtenidas en los ejercicios 3 y 4 (tanh)
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{4_e_tan.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{4_e_tan_final.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+\end{figure}
+
+\item Obtenga los valores para y1h y y2h (tanh)
+
+\[
+y = \begin{pmatrix}
+0.761594 & -0.761594 \\
+0.995055 & 0.761594 \\
+0.761594 & -0.761594 \\
+-0.761594 & -0.995055
+\end{pmatrix}
+\]
+
+\item Graficar y 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{4_h_tan.PNG}  % Cambia el nombre del archivo y su ruta según sea necesario
+\end{figure}
+
+\begin{itemize}
+  \item Verifique que efectivamente la red neuronal puede determinar que:
+  \begin{enumerate}
+    \item $(0,0)$ y $(1,1)$ pertenecen al mismo grupo donde la red neuronal dispara.
+    \item $(0,1)$ y $(0,1)$ pertenecen al mismo grupo donde la red neuronal NO dispara.
+  \end{enumerate}
+\end{itemize}
+
+\[
+\begin{array}{cccc}
+\colorbox{blue!20}{0.481068} & \colorbox{red!20}{0.364249} & \colorbox{blue!20}{0.481068} & \colorbox{red!20}{0.364249}
+\end{array}
+\]
   \end{enumerate}
 \end{flushleft}
 \end{document}
