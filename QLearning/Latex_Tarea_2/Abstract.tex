@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+
+\title{Q-Learning with Neural Networks for Robotic Arm Control}
+\author{Pablo Sánchez Orozco & Alberto Arath Figueroa Salomon}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This report explores the use of Q-learning with neural networks (NN) for training a robotic arm model in a physics-accurate simulation. The objective is to demonstrate the advantages of using NN-based Q-learning over traditional Q-tables, particularly in high-dimensional robotic control problems. The Mujoco-based model and the Menagie physics engine were employed for accurate physics simulation.
+\end{abstract}
+
+\section{Introduction}
+The intention of this project was to train a robotic arm using Q-learning with neural networks (NN) instead of a conventional Q-table. The complexity of the robot's state-action space necessitates a function approximator, which NN provides efficiently. 
+
+\section{Methodology}
+The robotic arm was simulated using Mujoco, with Menagie serving as the physics engine. The model consists of multiple articulated joints, each actuated by motors. The XML model features:
+\begin{itemize}
+    \item Six degrees of freedom: Base rotation, shoulder pitch, elbow movement, wrist pitch and roll, and jaw control.
+    \item Defined friction loss and armature parameters for realistic motion.
+    \item Motor constraints with position-based control.
+    \item Contact modeling to simulate object interactions.
+\end{itemize}
+
+The Q-learning algorithm with NN was used to approximate the Q-value function, enabling generalization over large state-action spaces.
+
+\section{Mathematical Formulation}
+The Q-learning update rule is given by:
+\begin{equation}
+    Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]
+\end{equation}
+where:
+\begin{itemize}
+    \item $Q(s, a)$ is the Q-value for state $s$ and action $a$.
+    \item $\alpha$ is the learning rate.
+    \item $\gamma$ is the discount factor.
+    \item $r$ is the received reward.
+    \item $s'$ is the next state.
+\end{itemize}
+Instead of storing $Q(s,a)$ in a table, we approximate it using a neural network:
+\begin{equation}
+    Q(s, a; \theta) \approx f(s, a; \theta)
+\end{equation}
+where $\theta$ represents the NN parameters trained via backpropagation.
+
+\section{Why Use NN Instead of Q-table?}
+A traditional Q-table is infeasible for a high-dimensional state space as it requires an entry for each state-action pair. Given the continuous action space of the robotic arm, NN provides a better alternative by enabling function approximation and generalization, reducing memory requirements and training time.
+
+\section{Results and Discussion}
+Our Mujoco-based robotic arm demonstrated improved convergence rates when using Q-learning with NN compared to discrete Q-tables. The model successfully executed complex motion sequences by leveraging neural network-based value estimation.
+
+\section{Conclusion}
+This report presented an implementation of Q-learning with neural networks for robotic arm control. The Mujoco and Menagie-based setup allowed for realistic physics modeling, and NN-based Q-learning proved effective in handling high-dimensional control tasks. Future work can explore reinforcement learning variants such as DDPG or PPO for further improvements.
+
+\section{References}
+Include references to reinforcement learning and Mujoco documentation.
+
+\end{document}
