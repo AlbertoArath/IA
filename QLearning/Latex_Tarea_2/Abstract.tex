@@ -4,7 +4,7 @@
 \usepackage{hyperref}
 
 \title{Q-Learning with Neural Networks for Robotic Arm Control}
-\author{Pablo Sánchez Orozco & Alberto Arath Figueroa Salomon}
+\author{Pablo Sánchez Orozco, Alberto Arath Figueroa Salomon & Nicolás Every Alvarez }
 \date{\today}
 
 \begin{document}
@@ -48,16 +48,30 @@ Instead of storing $Q(s,a)$ in a table, we approximate it using a neural network
 \end{equation}
 where $\theta$ represents the NN parameters trained via backpropagation.
 
+\section{Neural Network Design}
+The neural network used for Q-learning is designed as follows:
+\begin{itemize}
+    \item \textbf{Input}: The state vector containing the current angles of all joints.
+    \item \textbf{Output}: Q-values corresponding to the two possible actions (increase or decrease angle) for each joint.
+    \item \textbf{Size}: If the robotic arm has $n$ joints, the output layer consists of $2n$ neurons.
+\end{itemize}
+The reward mechanism is defined based on the Euclidean distance between the tip of the claw and a target point in space. The objective is to minimize this distance, guiding the robotic arm towards the target.
+
 \section{Why Use NN Instead of Q-table?}
 A traditional Q-table is infeasible for a high-dimensional state space as it requires an entry for each state-action pair. Given the continuous action space of the robotic arm, NN provides a better alternative by enabling function approximation and generalization, reducing memory requirements and training time.
 
 \section{Results and Discussion}
-Our Mujoco-based robotic arm demonstrated improved convergence rates when using Q-learning with NN compared to discrete Q-tables. The model successfully executed complex motion sequences by leveraging neural network-based value estimation.
-
-\section{Conclusion}
-This report presented an implementation of Q-learning with neural networks for robotic arm control. The Mujoco and Menagie-based setup allowed for realistic physics modeling, and NN-based Q-learning proved effective in handling high-dimensional control tasks. Future work can explore reinforcement learning variants such as DDPG or PPO for further improvements.
+While the implementation of Q-learning with neural networks showed potential, the model requires further refinement. One of the primary issues was the selection mechanism using the $\arg\max$ function. Instead of selecting the best Q-value for each joint separately, it was only choosing a single action across the entire output vector. Since each joint has two possible actions, the correct approach should involve selecting the best index within each joint's respective Q-value pair. This misalignment caused suboptimal policy execution, leading to ineffective control of the robotic arm. Future improvements should focus on correctly implementing $\arg\max$ across joint-specific action pairs to ensure proper action selection per joint.
+Additionally, hyperparameter tuning using a grid search approach should be explored to optimize learning efficiency and convergence.
 
 \section{References}
-Include references to reinforcement learning and Mujoco documentation.
+Watkins, C. J., \& Dayan, P. (1992). Q-learning. \textit{Machine Learning}, \textbf{8}(3-4), 279-292. 
+
+Mnih, V., Kavukcuoglu, K., Silver, D., Rusu, A. A., Veness, J., Bellemare, M. G., ... \& Hassabis, D. (2015). Human-level control through deep reinforcement learning. \textit{Nature}, \textbf{518}(7540), 529-533.
+
+Mujoco Physics Engine: \url{https://mujoco.org/}
+
+Mendeliere Repository: \url{https://github.com/mendeliere}
+
 
 \end{document}
