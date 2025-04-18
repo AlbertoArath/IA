@@ -1,0 +1,3 @@
+[submodule "Algos/Algos/googletest"]
+	path = Algos/Algos/googletest
+	url = https://github.com/google/googletest.git
