@@ -1,0 +1,41 @@
+# 
+# guide to use gcc in windows
+#
+https://code.visualstudio.com/docs/cpp/config-mingw
+#
+#
+# MSYS2 Compiler 
+#
+https://github.com/msys2/msys2-installer/releases/download/2024-12-08/msys2-x86_64-20241208.exe
+#
+# Run the installer and follow the steps of the installation wizard. Note that MSYS2 requires 64 bit Windows 8.1 or newer.
+#
+pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
+#
+Enter Y when prompted whether to proceed with the installation.
+#
+Add the path of your MinGW-w64 bin folder to the Windows PATH environment variable by using the following steps:
+#
+In the Windows search bar, type Settings to open your Windows Settings.
+Search for Edit environment variables for your account.
+In your User variables, select the Path variable and then select Edit.
+Select New and add the MinGW-w64 destination folder you recorded during the installation process to the list. If you used the default settings above, then this will be the path: C:\msys64\ucrt64\bin.
+Select OK, and then select OK again in the Environment Variables window to update the PATH environment variable. You have to reopen any console windows for the updated PATH environment variable to be available.
+#
+#
+# Command to use make in windows
+#
+mingw32-make clean
+#
+Check your MinGW installation
+To check that your MinGW-w64 tools are correctly installed and available, open a new Command Prompt and type:
+#
+gcc --version
+g++ --version
+gdb --version
+#
+You should see output that states which versions of GCC, g++ and GDB you have installed. If this is not the case:
+#
+Make sure your PATH variable entry matches the MinGW-w64 binary location where the toolchain was installed. If the compilers do not exist at that PATH entry, make sure you followed the previous instructions.
+If gcc has the correct output but not gdb, then you need to install the packages you are missing from the MinGW-w64 toolset.
+If on compilation you are getting the "The value of miDebuggerPath is invalid." message, one cause can be you are missing the mingw-w64-gdb package.
