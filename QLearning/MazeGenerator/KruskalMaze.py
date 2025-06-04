@@ -220,7 +220,7 @@ class RectangularKruskalMaze:
         if file_name is not None:
             maze_image.save(file_name)
         else:
-            # if path not provided, return edges and imaeg
+            # if path not provided, return edges and image
 
             # sort the edges so they could be saved as graph representation and compared to avoid duplicate trees
             # each edge has a smaller indexed node at index 0. we will sort by using that vertex, all the edge tuples
